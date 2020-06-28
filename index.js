@@ -6,5 +6,5 @@ const app = express();
 
 //Inicializar el servidor en un puerto en especifico
 app.listen(3000, () =>{
-    console.log("Servidor ejecutandose correctamente en el puerto 3000");
+    console.log("Servidor ejecutandose el el puerto 3000");
 });
