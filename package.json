@@ -1,0 +1,29 @@
+{
+  "name": "tienda_virtual",
+  "version": "1.0.0",
+  "description": "venta de comida en linea",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual.git"
+  },
+  "keywords": [
+    "ventas"
+  ],
+  "author": "Angel Sorto, Douglas Zavala, Martin Leiva, Will Lara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual/issues"
+  },
+  "homepage": "https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
