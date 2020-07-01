@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.2.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
