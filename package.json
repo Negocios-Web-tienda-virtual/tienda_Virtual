@@ -21,7 +21,12 @@
   },
   "homepage": "https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "promise": "^8.1.0",
     "sequelize": "^6.2.3"
   },
   "devDependencies": {
