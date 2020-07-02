@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 
 const dataBase = require("../config/db");
 
-const AdminVS = require("./administradorVS");
+const Pedido = require("./Pedido")
 
 const bcrypt = require("bcrypt-nodejs");
 
@@ -65,9 +65,9 @@ const AdministradorVS = dataBase.define(
     },
 );
 
-administradorVS.hasMany(Pedido);
+AdministradorVS.hasMany(Pedido);
 
-administradorVS.prototype.comparePassword = function(password){
+AdministradorVS.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);
 }
 
