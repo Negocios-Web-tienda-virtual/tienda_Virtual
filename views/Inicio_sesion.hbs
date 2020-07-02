@@ -1,0 +1,24 @@
+<form class="form-signin" action="" method="POST"></form>
+
+{{>messages}}
+    <div class="mb-4 text-center">
+        <h1>Iniciar sesión en Tienda Virtual</h1>
+        <p>Bienvenido a la mejor tienda virtual</p>
+    </div>
+    
+    {{--Agregando el email--}}
+    <div class="form-label-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" id="email" placeholder="jconor@sky.net" required>
+    </div>
+
+    <div class="form-label-group">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password" placeholder="contraseña" required>
+    </div>
+    
+    <div class="mb3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+        <p class="text-center text-muted mt-5">©2020 Negocios Web - UNICAH</p>
+    </div>
+</form>
