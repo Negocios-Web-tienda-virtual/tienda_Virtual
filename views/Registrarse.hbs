@@ -1,2 +1,8 @@
-<h1>Registrase</h1>
-<p>Bienvenido a la tiendas el chuco</p>
+{{#if error}}
+    <p>{{error}}</p>
+{{/if}}
+<form class="form-signin" action="/registrate" method="POST">
+    <div class="mb-4 text-center">
+        <h1>Regístrate en Taskily</h1>
+        <p>Y comienza a utilizar nuestro aclamado gestor de proyectos</p>
+    </div>
