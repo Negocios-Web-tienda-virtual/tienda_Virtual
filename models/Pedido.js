@@ -2,6 +2,7 @@ const Sequelize = require("sequelize");
 
 const dataBase = require("../config/db");
 
+
 const slug = require("slug");
 
 const shortid = require("shortid");
