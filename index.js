@@ -13,6 +13,8 @@ const dataBaseVS = require("./config/db");
 // Importar Modelos 
 require("./models/administradorVS");
 
+
+
 // Realizando la conexión a la base de datos virtualStore
 dataBaseVS.sync()
     .then(() => console.log("Conectado con el servidor de DataBase: virtualStore"))
@@ -20,6 +22,10 @@ dataBaseVS.sync()
 
 //Crear un servidor de express
 const app = express();
+
+
+// Indicarle al servidor la carpeta de archivos estáticos
+app.use(express.static("public"));
 
 // Indicar el template engine a utilizar o en su defecto Handlebars
 app.engine(
