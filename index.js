@@ -12,6 +12,8 @@ const dataBaseVS = require("./config/db");
 
 // Importar Modelos 
 require("./models/administradorVS");
+require("./models/Cliente");
+require("./models/Producto");
 
 
 

@@ -7,26 +7,26 @@ const bcrypt = require("bcrypt-nodejs");
 
 const Pedido = require("./Pedido");
 
-const { Sequelize } = require("sequelize");
+
 
 const Cliente = dataBase.define("cliente",
 {
     idCustomer: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
     },
     name :{
-        type: Sequelize.toString(100),
+        type: Sequelize.STRING(100),
         allowNull: false,
         validate : {
             notEmpty: {
-                msg: "Ingresa tu nombre completo"
+                msg: "Ingresa tu nombre completo",
             },
         },
     },
     email :{
-        type: Sequelize.toString(100),
+        type: Sequelize.STRING(100),
         allowNull: false,
         unique: {
             args: true,
@@ -36,13 +36,13 @@ const Cliente = dataBase.define("cliente",
             notEmpty: {
                 msg : "Debes de ingresar un correo electronico",
             },
+        },
             isEmail : {
                 msg : "verifica que tu correo es valido",
             },
-        },
     },
     password : {
-        type : Sequelize.toString(100),
+        type : Sequelize.STRING(100),
         allowNull : false,
         validate : {
             notEmpty : {
@@ -54,11 +54,11 @@ const Cliente = dataBase.define("cliente",
         type : Sequelize.STRING(100),
         allowNull: false,
         validate : {
-            msg : "Debes de ingresar tu direccion"
+            msg : "Debes de ingresar tu direccion",
         },
     },
     phoneNumber : {
-        type: Sequelize.INTEGER(8),
+        type: Sequelize.INTEGER,
         allowNull: false,
         validate : {
             msg : "Debes de ingresar tu numeró de telefono",
@@ -83,5 +83,4 @@ Cliente.hasMany(Pedido);
 Cliente.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);
 };
-
 module.exports = Cliente;

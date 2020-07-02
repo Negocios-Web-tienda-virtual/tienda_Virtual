@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const dataBase = requiere("../config/db");
+const dataBase = require("../config/db");
 
 const shortid = require("shortid");
 
@@ -71,4 +71,4 @@ const Producto = dataBase.define(
     }
 );
 
-
+module.exports = Producto;
