@@ -1,0 +1,24 @@
+:root{
+    --black-color:#434B4D;
+    --orange-color:#FF6600;
+
+}
+.navbarcolor {
+    background-color: var(--black-color);
+}
+
+.navbarcolor a {
+    color: var(--orange-color);
+}
+.navbarformcolor button{
+    color: var(--orange-color);
+
+}
+.navbarformcolor button{
+    border-color: var(--orange-color);
+    
+}.navbarformcolor button:hover{
+    background-color: var(--orange-color);
+    border-color: var(--orange-color);
+    color: var(--black-color);
+}
