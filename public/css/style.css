@@ -1,0 +1,54 @@
+:root{
+    --black-color:#434B4D;
+    --orange-color:#FF6600;
+    --orange-secundary : #ffa726;
+    --orange-third :#e65100;
+    --orange-fourth: #ffccbc;
+    --color:#455a64;
+    --color1:#37474f;
+    --color2:#bf360c;
+    
+    
+
+}
+body{
+    background-color: var(--black-color);
+}
+.singin{
+    color: white;
+}
+
+.navbarcolor {
+    background-color: var(--black-color);
+}
+
+.navbarcolor a {
+    color: var(--orange-color);
+}
+.navbarformcolor button{
+    color: var(--orange-color);
+
+}
+.navbarformcolor button{
+    border-color: var(--orange-color);
+    
+}.navbarformcolor button:hover{
+    background-color: var(--orange-color);
+    border-color: var(--orange-color);
+    color: var(--black-color);
+}
+.btn_singin{
+    background-color: var(--orange-third);
+    color: white;
+}
+.btn_singin:hover{
+    color: white;
+    background-color: var(--color2);
+}
+.singin-group{
+    width: 250px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 1em;
+   
+}
