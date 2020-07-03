@@ -16,7 +16,7 @@ const Cliente = dataBase.define("cliente",
         primaryKey: true,
         autoIncrement: true,
     },
-    name :{
+    fullname :{
         type: Sequelize.STRING(100),
         allowNull: false,
         validate : {
@@ -36,10 +36,10 @@ const Cliente = dataBase.define("cliente",
             notEmpty: {
                 msg : "Debes de ingresar un correo electronico",
             },
-        },
             isEmail : {
                 msg : "verifica que tu correo es valido",
             },
+        },
     },
     password : {
         type : Sequelize.STRING(100),
@@ -54,15 +54,20 @@ const Cliente = dataBase.define("cliente",
         type : Sequelize.STRING(100),
         allowNull: false,
         validate : {
+            notEmpty :{
             msg : "Debes de ingresar tu direccion",
         },
+    },
     },
     phoneNumber : {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate : {
-            msg : "Debes de ingresar tu numeró de telefono",
+            notEmpty :{
+            msg : "Debes de ingresar tu direccion",
         },
+    },
+        
     },
     token: Sequelize.STRING,
     expiration : Sequelize.DATE,
@@ -71,7 +76,7 @@ const Cliente = dataBase.define("cliente",
     hooks : {
         beforeCreate(cliente){
             cliente.password = bcrypt.hashSync(
-                client.password,
+                cliente.password,
                 bcrypt.genSaltSync(13)
             );
         },
