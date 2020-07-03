@@ -5,9 +5,9 @@ exports.homeVirtualStore = (req, res, next) => {
 };
 
 
-exports.crearCuentaAdmin = async (req, res, next)=>{
+exports.crearCuentaAdmin = async(req, res, next) => {
 
-    const { fullname, email, password} = req.body;
+    const { fullname, email, password } = req.body;
 
     try {
         await AdministradorVS.create({
@@ -19,11 +19,11 @@ exports.crearCuentaAdmin = async (req, res, next)=>{
         res.redirect("inicio_sesion_admin");
     } catch (error) {
         res.render("registrarse_admin")
-        
+
     };
 
 };
 
-exports.formularioIniciarSesionAdmin = (req, res, next)=>{
-    res.render("iniciar_sesion_admin");
+exports.formularioIniciarSesionAdmin = (req, res, next) => {
+    res.render("iniciar_sesion_admin", { layout: "auth" });
 }
