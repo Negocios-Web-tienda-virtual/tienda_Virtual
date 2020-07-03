@@ -50,12 +50,27 @@ const AdministradorVS = dataBase.define(
                 },
             },
         },
+        codeAccess :{
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate :{
+                notEmpty: "Debes de ingresar el codigo de acceso",
+            },
+        },
+    
+        fecha : {
+            type: Sequelize.DATE,
+        },
         token : Sequelize.STRING,
         expiration: Sequelize.DATE,
     },
     {
         hooks: {
             beforeCreate(administradorVS){
+                const date = new Date();
+
+                administradorVS.fecha = date.toISOString();
+
                 administradorVS.password = bcrypt.hashSync(
                     administradorVS.password,
                     bcrypt.genSalt(13)
