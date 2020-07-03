@@ -20,6 +20,8 @@ const flash = require("connect-flash");
 //importar express-session para manejar las sesiones de cliente
 const session = require("express-session");
 
+const cookieParser = require("cookie-parser");
+
 // Importar Modelos 
 require("./models/administradorVS");
 require("./models/Cliente");
