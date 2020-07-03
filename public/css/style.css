@@ -13,10 +13,6 @@ body {
     background-color: var(--black-color);
 }
 
-.singin {
-    color: white;
-}
-
 .navbarcolor {
     background-color: var(--black-color);
 }
@@ -37,23 +33,6 @@ body {
     background-color: var(--orange-color);
     border-color: var(--orange-color);
     color: var(--black-color);
-}
-
-.btn_singin {
-    background-color: var(--orange-third);
-    color: white;
-}
-
-.btn_singin:hover {
-    color: white;
-    background-color: var(--color2);
-}
-
-.singin-group {
-    width: 250px;
-    text-align: center;
-    margin: auto;
-    padding-bottom: 1em;
 }
 
 .mb-4 h1,
