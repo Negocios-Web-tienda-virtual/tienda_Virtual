@@ -5,11 +5,13 @@ const routes = express.Router();
 // importar controlador del sitio web
 const virtualStoreController = require("../controllers/virtualStoreController");
 const usuarioController = require("../controllers/usuarioController");
-
+const autenticar = require("../controllers/authClienteController");
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
     /*    routes.get("/", virtualStoreController.homeVirtualStore);*/
+
+    routes.get("/",autenticar.clienteAutenticado,virtualStoreController.home);
 
     routes.get("/registrarse", usuarioController.formularioCrearCuenta);
 
@@ -17,6 +19,8 @@ module.exports = function() {
 
     // Formulario para inicio de sesion del cliente
     routes.get("/inicio_sesion", usuarioController.formularioIniciarSesion);
+
+    routes.post("/inicio_sesion",autenticar.autenticarCliente);
 
     //Formulario registrarse admin
     routes.get("/registrarse_administrador", virtualStoreController.formularioCrearCuenta);
