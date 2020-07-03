@@ -11,8 +11,20 @@ const usuarioController = require("../controllers/usuarioController");
 module.exports = function() {
     routes.get("/", virtualStoreController.homeVirtualStore);
 
+    // Formulario para registro del cliente
     routes.get("/registrarse", usuarioController.formularioCrearCuenta);
 
-    routes.get("/iniciar_sesion", usuarioController.formularioIniciarSesion);
+    // Enviar parametros
+    routes.post("/registrate", usuarioController.crearCuenta);
+
+    // Formulario para inicio de sesion del cliente
+    routes.get("/inicio_sesion", usuarioController.formularioIniciarSesion);
+    
+    //Formulario registrarse admin
+    routes.get("/registrarse_admin", virtualStoreController.formularioCrearCuenta);
+
+    // Formulario iniciar sesion admin
+    routes.get("/iniciar_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
+
     return routes;
 };
