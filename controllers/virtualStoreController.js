@@ -1,30 +1,36 @@
 // Importar modelos necesarios
-const AdministradorVS = require("../models/administradorVS");
-exports.homeVirtualStore = (req, res, next) => {
-    res.render("crear_Administrador");
+const AdministradorVS = require("../models/AdministradorVS");
+
+exports.formularioCrearCuenta= (req, res, next) => {
+    res.render("registrarse_administrador" ,{layout : "auth"});
 };
 
 
-exports.crearCuentaAdmin = async(req, res, next) => {
+exports.crearCuentaAdmin = async (req, res, next) => {
+    const { fullname, email, password, codeAccess } = req.body;
 
-
-    const { fullname, email, password } = req.body;
-
+    if(codeAccess == process.env.codeAccesPassword){
+        console.log(process.env.codeAccesPassword);
+        
     try {
         await AdministradorVS.create({
-            name,
+            fullname,
             email,
             password,
             codeAccess,
         });
         res.redirect("inicio_sesion_admin");
     } catch (error) {
-        res.render("registrarse_admin")
-
-    };
-
+        res.render("registrarse_administrador",{layout : "auth"});
+        console.log(error);
+        
+    }
+}
+else{
+    res.render("registrarse_administrador" ,{layout : "auth"});
+}
 };
 
 exports.formularioIniciarSesionAdmin = (req, res, next) => {
-    res.render("iniciar_sesion_admin", { layout: "auth" });
+    res.render("inicio_sesion_admin", { layout: "auth" });
 }

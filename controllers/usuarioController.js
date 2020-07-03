@@ -15,6 +15,7 @@ exports.crearCuenta = async (req, res, next) => {
             address,
             phoneNumber,
         });
+    
 
         res.redirect("inicio_sesion");
     } catch (error) {
