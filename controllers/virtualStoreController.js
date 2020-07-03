@@ -7,6 +7,7 @@ exports.homeVirtualStore = (req, res, next) => {
 
 exports.crearCuentaAdmin = async(req, res, next) => {
 
+
     const { fullname, email, password } = req.body;
 
     try {
