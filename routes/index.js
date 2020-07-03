@@ -6,12 +6,13 @@ const routes = express.Router();
 const virtualStoreController = require("../controllers/virtualStoreController");
 const usuarioController = require("../controllers/usuarioController");
 const autenticar = require("../controllers/authClienteController");
+const autenticarAdmin = require("../controllers/authAdminController");
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
     /*    routes.get("/", virtualStoreController.homeVirtualStore);*/
 
-    routes.get("/",autenticar.clienteAutenticado,virtualStoreController.home);
+    routes.get("/",autenticarAdmin.adminAutenticado,virtualStoreController.home);
 
     routes.get("/registrarse", usuarioController.formularioCrearCuenta);
 
@@ -29,6 +30,8 @@ module.exports = function() {
 
     // Formulario iniciar sesion admin
     routes.get("/inicio_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
+
+    routes.post("/inicio_sesion_admin", autenticarAdmin.autenticarAdmin);
 
     return routes;
 };
