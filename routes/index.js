@@ -24,7 +24,7 @@ module.exports = function() {
    routes.post("/registrate_administrador",virtualStoreController.crearCuentaAdmin);
 
    // Formulario iniciar sesion admin
-   routes.get("/iniciar_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
+   routes.get("/inicio_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
 
     return routes;
 };
