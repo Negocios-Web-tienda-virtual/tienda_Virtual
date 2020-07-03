@@ -10,6 +10,8 @@ const routes = require("./routes");
 // Crear la conexión a la base de datos
 const dataBaseVS = require("./config/db");
 
+const bodyParer = require("body-parser");
+
 // Importar Modelos 
 require("./models/administradorVS");
 require("./models/Cliente");
@@ -39,6 +41,8 @@ app.engine(
 );
 
 app.set("view engine", "hbs");
+
+app.use(bodyParer.urlencoded({ extended: true }));
 
 // rutas del servidor 
 app.use("/", routes());
