@@ -77,7 +77,7 @@ app.use(passportAdmin.session());
 
 // Pasar algunos valores mediante middleware
 app.use((req, res, next) => {
-    res.locals.usuario = {...req.user } || null;
+    res.locals.Administrador = {...req.user } || null;
     res.locals.messages = req.flash();
     next();
 });

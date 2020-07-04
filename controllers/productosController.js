@@ -7,7 +7,8 @@ exports.formularioIngresarProducto = (req, res, next) => {
 };
 
 exports.crearProducto = async (req, res, next) => {
-    const administrador = 1;
+    const administrador = res.locals.Administrador;
+
     console.log(administrador,"1");
     
     const { name, price, quantity, description, image ,} = req.body;
@@ -19,7 +20,7 @@ exports.crearProducto = async (req, res, next) => {
             quantity,
             description,
             image,
-            administrador,
+            administradorId: administrador.id,
         });
         res.redirect("ver_producto");
     } catch (error) {
@@ -69,9 +70,10 @@ exports.obtenerProductoPorUrl = async (req, res, next) => {
 };
 
 exports.actualizarProducto = async(req, res, next) =>{
+    
     const { name, price, quantity, description, image } = req.body;
 
-    const administrador = res.locals.administradorVS;
+    const administrador = res.locals.Administrador;
     const mensaje = [];
     if(!name){
         mensaje.push({
@@ -97,7 +99,8 @@ exports.actualizarProducto = async(req, res, next) =>{
                 type: "alert-danger",
             });
         }
-
+        console.log("proceso");
+        
         if(mensaje.length){
 
             const producto = await Productos.findByPk(req.params.id);
@@ -123,7 +126,7 @@ exports.actualizarProducto = async(req, res, next) =>{
                     },
                 }
                     );
-                res.redirect("/modificar_producto");
+                res.redirect("/ver_producto");
         }
 
     

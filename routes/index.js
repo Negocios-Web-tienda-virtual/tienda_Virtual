@@ -35,14 +35,15 @@ module.exports = function() {
     routes.post("/inicio_sesion_admin", autenticarAdmin.autenticarAdmin);
 
     routes.get("/agregar_producto", producto.formularioIngresarProducto);
+    routes.get("/",autenticarAdmin.autenticarAdmin)
 
-    routes.get("/ver_producto",autenticarAdmin.autenticarAdmin, producto.mostrarProductos);
+    routes.get("/ver_producto",autenticarAdmin.adminAutenticado, producto.mostrarProductos);
 
     routes.post("/agregar_producto",autenticarAdmin.adminAutenticado,producto.crearProducto);
 
     routes.get("/modificar_producto/:url",autenticarAdmin.adminAutenticado,producto.obtenerProductoPorUrl);
 
-    routes.post("/modificar_producto",autenticarAdmin.adminAutenticado,producto.actualizarProducto);
+    routes.post("/modificar_producto/:id",autenticarAdmin.adminAutenticado,producto.actualizarProducto);
 
 
     return routes;
