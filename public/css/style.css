@@ -108,6 +108,18 @@ body {
     border-top: 4px solid var(--orange-secundary);
     color: white;
 }
+.form-add-products {
+    width: 400px;
+    height: 400px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 18px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid var(--orange-secundary);
+    color: white;
+}
+
 
 .form-login-customer h5 {
     margin: 0;

@@ -7,6 +7,7 @@ const virtualStoreController = require("../controllers/virtualStoreController");
 const usuarioController = require("../controllers/usuarioController");
 const autenticar = require("../controllers/authClienteController");
 const autenticarAdmin = require("../controllers/authAdminController");
+const producto = require("../controllers/productosController");
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -32,6 +33,12 @@ module.exports = function() {
     routes.get("/inicio_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
 
     routes.post("/inicio_sesion_admin", autenticarAdmin.autenticarAdmin);
+
+    routes.get("/agregar_producto",autenticarAdmin.autenticarAdmin, producto.formularioIngresarProducto);
+
+    routes.get("/agregar_producto",autenticarAdmin.autenticarAdmin, producto.mostrarProductos)
+
+    routes.post("/agregar_producto",autenticarAdmin.autenticarAdmin, producto.crearProducto);
 
     return routes;
 };
