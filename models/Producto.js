@@ -49,6 +49,13 @@ const Producto = dataBase.define(
                 msg: "Ingresa la descripcion del producto",
             },
         },
+        image :{
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                msg: "Ingresa la descripcion del producto",
+            },
+        },
         url : {
             type: Sequelize.STRING,
         },
