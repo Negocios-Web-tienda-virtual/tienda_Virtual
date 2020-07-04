@@ -10,7 +10,7 @@ const slug = require("slug");
 const Producto = dataBase.define(
     "producto",
     {
-        idProducto: {
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,

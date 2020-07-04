@@ -1,5 +1,5 @@
 // Importar modelos necesarios
-const AdministradorVS = require("../models/AdministradorVS");
+const Administrador = require("../models/Administrador");
 
 exports.home= (req, res, next)=> {
     res.render("agregarProducto");
@@ -17,7 +17,7 @@ exports.crearCuentaAdmin = async (req, res, next) => {
         console.log(process.env.codeAccesPassword);
         
     try {
-        await AdministradorVS.create({
+        await Administrador.create({
             fullname,
             email,
             password,

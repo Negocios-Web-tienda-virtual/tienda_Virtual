@@ -2,7 +2,7 @@
 const passport = require("passport");
 
 // Importar el modelo de administrador
-const admin = require("../models/administradorVS");
+const admin = require("../models/Administrador");
 
 // verificar si el administrador se puede autenticar con sus 
 const Sequelize = require("sequelize");

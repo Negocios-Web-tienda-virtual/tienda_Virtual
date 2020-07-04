@@ -11,7 +11,7 @@ const Pedido = require("./Pedido");
 
 const Cliente = dataBase.define("cliente",
 {
-    idCustomer: {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,

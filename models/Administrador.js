@@ -3,14 +3,14 @@ const Sequelize = require("sequelize");
 
 const dataBase = require("../config/db");
 
-const Pedido = require("./Pedido")
+const Producto = require("./Producto")
 
 const bcrypt = require("bcrypt-nodejs");
 
 const AdministradorVS = dataBase.define(
-    "administradorVS",
+    "administrador",
     {
-        idAdmin:{
+        id:{
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -78,7 +78,7 @@ const AdministradorVS = dataBase.define(
 },
 );
 
-AdministradorVS.hasMany(Pedido);
+AdministradorVS.hasMany(Producto);
 
 AdministradorVS.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);

@@ -1,6 +1,6 @@
 
 </div>
-<form class="form-add-produc" action="/agregar_producto" method="POST">
+<form class="form-add-produc" action="/modificar_producto" method="POST">
     <div class="mb-4 text-center">
         <h1>Productos</h1>
     </div>
@@ -12,27 +12,7 @@
       <input class="controls" type="text" name="quantity"   id="quantity"   placeholder="Cantidad" value="{{producto.quantity}}" required>
       <input class="controls" type="text" name="description"   id="description"   placeholder="Descripción" value="{{producto.description}}" required>
       <input class="controls" type="text" name="image"   id="image"   placeholder="Imagen" value="{{producto.image}}"  required>
-      <button class="buttons" type="submit">Agregar Producto</button>
+      <button class="buttons" type="submit">Modificar Producto</button>
     </section>
        </div>
 </form>
-
-<div class="container text-center container-products">
-    
-{{#if productos}}
-<h1>Productos</h1>
-   {{#each productos}}
-
-        <div class="card card-view-products" style="width: 18rem;" >
-        <div class="card-body">
-            <p class="card-text">{{dataValues.idProducto}}</p>
-            <p class="card-text">{{dataValues.image}}</p>
-            <p class="card-text">{{dataValues.name}}</p>
-            <p class="card-text">{{dataValues.price}}</p>
-            <p class="card-text">{{dataValues.quantity}}</p>
-            <p class="card-text">{{dataValues.description}}</p>
-            <a class="buttons" href="/modificar_producto/{{dataValues.url}}" >Modificar</a>
-    </div>
-    </div>
-    {{/each}}
-{{/if}}

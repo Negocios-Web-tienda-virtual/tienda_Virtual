@@ -1,31 +1,30 @@
 // importar passport
-const passport = require("passport");
+const passportAdmin = require("passport");
 
 // utilizar la estrategia local
 const LocalStrategy = require("passport-local");
 
 //importar la referencia al modelo que contiene los datos de autenticación 
-const Cliente = require("../models/Cliente");
 const Admin = require("../models/Administrador");
 
 //definición de estrategia de autenticación
-passport.use(
+passportAdmin.use(
     new LocalStrategy({
             usernameField: "email",
             passwordField: "password",
         },
         async(email, password, done) => {
             try {
-                const cliente = await Cliente.findOne({
+                const admin = await Admin.findOne({
                     where: { email },
                 });
 
-                if (!cliente.comparePassword(password)) {
+                if (!admin.comparePassword(password)) {
                     return done(null, false, {
                         message: "Correo incorrecto",
                     });
                 }
-                return done(null, cliente);
+                return done(null, admin);
             } catch (error) {
                 return done(null, false, {
                     message: "La cuenta de correo electrónico no esta registrada."
@@ -35,14 +34,14 @@ passport.use(
     )
 );
 
-// permitir que passport lea los valores del objeto cliente
-passport.serializeUser((cliente, callback) => {
-    callback(null, cliente);
+// permitir que passport lea los valores del objeto admin
+passportAdmin.serializeUser((admin, callback) => {
+    callback(null, admin);
 });
 
-//deserealizar el cliente
-passport.deserializeUser((cliente, callback) => {
-    callback(null, cliente);
+//deserealizar el admin
+passportAdmin.deserializeUser((admin, callback) => {
+    callback(null, admin);
 });
 
-module.exports = passport;
+module.exports = passportAdmin;

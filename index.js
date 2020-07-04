@@ -13,6 +13,7 @@ const bodyParer = require("body-parser");
 
 // importar passport
 const passport = require("./config/passport");
+const passportAdmin = require("./config/passportAdmin.js");
 
 // importar connect flash para mensajes
 const flash = require("connect-flash");
@@ -23,7 +24,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
 // Importar Modelos 
-require("./models/administradorVS");
+require("./models/administrador");
 require("./models/Cliente");
 require("./models/Producto");
 
@@ -70,6 +71,9 @@ app.use(flash());
 // Crear una instancia de passport y cargar nuestra estrategia
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passportAdmin.initialize());
+app.use(passportAdmin.session());
+
 
 // Pasar algunos valores mediante middleware
 app.use((req, res, next) => {

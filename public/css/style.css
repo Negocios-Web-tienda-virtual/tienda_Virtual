@@ -178,3 +178,13 @@ body {
     border-bottom: 1px solid;
     font-size: 20px;
 }
+.card-view-products{
+    border-radius: 1em;
+    border-color: var(--orange-third);
+    background-color: var(--black-color);margin: 0 auto;
+    padding:  1em;
+}
+.container-products{
+    padding-top: 2em;
+    background-color: var(--black-color);
+}
