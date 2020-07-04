@@ -1,6 +1,10 @@
 // Importar modelos necesarios
 const AdministradorVS = require("../models/AdministradorVS");
 
+exports.home= (req, res, next)=> {
+    res.render("agregarProducto");
+};
+
 exports.formularioCrearCuenta= (req, res, next) => {
     res.render("registrarse_administrador" ,{layout : "auth"});
 };
