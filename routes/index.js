@@ -48,6 +48,8 @@ module.exports = function() {
 
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
+    //Pgina menu
+    routes.get("/menu", menu.formularioMenu)
 
 
 
