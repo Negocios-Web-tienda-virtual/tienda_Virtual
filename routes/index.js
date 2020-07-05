@@ -8,7 +8,8 @@ const usuarioController = require("../controllers/usuarioController");
 const autenticar = require("../controllers/authClienteController");
 const autenticarAdmin = require("../controllers/authAdminController");
 const producto = require("../controllers/productosController");
-const inicio = require("../controllers/inicioController"); /**/ 
+const inicio = require("../controllers/inicioController"); /*ubicacion del controlador de inicio*/
+const menu = require("../controllers/menuController"); /*ubicacion del controlador del menu*/  
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -48,8 +49,10 @@ module.exports = function() {
 
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
-    //Pgina menu
-    routes.get("/menu", menu.formularioMenu)
+
+    // Menu
+    routes.get("/menu", menu.formularioMenu);
+
 
 
 

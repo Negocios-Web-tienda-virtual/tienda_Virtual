@@ -1,3 +1,3 @@
-exports.formularioInicio = (req, res, next)=>{
+exports.formularioMenu = (req, res, next)=>{
     res.render("menu", { layout : "auth"});
 };
