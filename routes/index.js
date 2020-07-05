@@ -8,6 +8,7 @@ const usuarioController = require("../controllers/usuarioController");
 const autenticar = require("../controllers/authClienteController");
 const autenticarAdmin = require("../controllers/authAdminController");
 const producto = require("../controllers/productosController");
+const inicio = require("../controllers/inicioController"); /**/ 
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -44,6 +45,10 @@ module.exports = function() {
     routes.get("/modificar_producto/:url",autenticarAdmin.adminAutenticado,producto.obtenerProductoPorUrl);
 
     routes.post("/modificar_producto/:id",autenticarAdmin.adminAutenticado,producto.actualizarProducto);
+
+    // Pagina inicial
+    routes.get("/inicio", inicio.formularioInicio);
+
 
 
     return routes;
