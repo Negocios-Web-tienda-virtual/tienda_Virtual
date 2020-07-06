@@ -2,6 +2,16 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&display=swap");
 
 /* line 1, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_extend.scss */
+:root {
+    --black-color: #434B4D;
+    --orange-color: #FF6600;
+    --orange-secundary: #ffa726;
+    --orange-third: #e65100;
+    --orange-fourth: #ffccbc;
+    --color: #455a64;
+    --color1: #37474f;
+    --color2: #bf360c;
+}
 
 .flex-center-start {
     display: -webkit-box;
@@ -53,7 +63,28 @@ body {
     transition: 0.3s;
 }
 
+/*Boton buscar comida*/
+.navbarcolor {
+    background-color: var(--black-color);
+}
 
+.navbarcolor a {
+    color: var(--orange-color);
+}
+
+.navbarformcolor button {
+    color: var(--orange-color);
+}
+
+.navbarformcolor button {
+    border-color: var(--orange-color);
+}
+
+.navbarformcolor button:hover {
+    background-color: var(--orange-color);
+    border-color: var(--orange-color);
+    color: var(--black-color);
+}
 /* line 17, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/theme-default.scss */
 
 a,
@@ -934,6 +965,16 @@ h3 {
     top: 1.5em;
     z-index: 9;
     margin-left: 20em;
+}
+
+.header-area .navbarformcolor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 1em;
+    z-index: 9;
+    margin-left: 50em;
 }
 
 @media (max-width: 767px) {
@@ -6105,7 +6146,7 @@ h6 {
 /* line 459, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_blog.scss */
 
 .categories_post img {
-    max-width: 100%;
+    max-width: 90%;
 }
 
 
