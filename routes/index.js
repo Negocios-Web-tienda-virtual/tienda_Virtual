@@ -7,6 +7,7 @@ const virtualStoreController = require("../controllers/virtualStoreController");
 const usuarioController = require("../controllers/usuarioController");
 const autenticar = require("../controllers/authClienteController");
 const autenticarAdmin = require("../controllers/authAdminController");
+const pedido = require("../controllers/pedidosController");
 const producto = require("../controllers/productosController");
 const inicio = require("../controllers/inicioController"); /*ubicacion del controlador de inicio*/
 const menu = require("../controllers/menuController"); /*ubicacion del controlador del menu*/  
@@ -54,6 +55,10 @@ module.exports = function() {
 
     // Menu
     routes.get("/menu", menu.formularioMenu);
+
+    routes.get("/agregar_pedido/:url",autenticar.clienteAutenticado,pedido.obtenerProductoPorUrl);
+  
+    routes.post("/agregar_pedido",autenticar.clienteAutenticado,pedido.crearPedido);
 
 
 

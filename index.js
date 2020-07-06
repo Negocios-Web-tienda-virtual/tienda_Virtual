@@ -27,6 +27,7 @@ const cookieParser = require("cookie-parser");
 require("./models/administrador");
 require("./models/Cliente");
 require("./models/Producto");
+require("./models/Pedido");
 
 
 
@@ -81,6 +82,17 @@ app.use((req, res, next) => {
     res.locals.messages = req.flash();
     next();
 });
+app.use((req, res, next) => {
+    res.locals.Cliente = {...req.user } || null;
+    res.locals.messages = req.flash();
+    next();
+});
+app.use((req, res, next) => {
+    res.locals.Producto = {...req.user } || null;
+    res.locals.messages = req.flash();
+    next();
+});
+
 
 
 // rutas del servidor 
