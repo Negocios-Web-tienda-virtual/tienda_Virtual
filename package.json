@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/Negocios-Web-tienda-virtual/tienda_Virtual#readme",
   "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "bcrypt-nodejs": "0.0.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
@@ -35,7 +38,9 @@
     "promise": "^8.1.0",
     "sequelize": "^6.2.4",
     "shortid": "^2.2.15",
-    "slug": "^3.3.0"
+    "slug": "^3.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

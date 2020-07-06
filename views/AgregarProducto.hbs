@@ -32,6 +32,7 @@
             <p class="card-text">{{dataValues.quantity}}</p>
             <p class="card-text">{{dataValues.description}}</p>
             <a class="buttons" href="/modificar_producto/{{dataValues.url}}" >Modificar</a>
+                    <buttons class="buttons" name="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</buttons>
     </div>
     </div>
     {{/each}}

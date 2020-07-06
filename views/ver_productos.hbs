@@ -1,0 +1,16 @@
+<div class="container text-center container-products">  
+{{#if productos}}
+<h1>Productos</h1>
+   {{#each productos}}
+
+        <div class="card card-view-products" style="width: 18rem;" >
+        <div class="card-body">
+            <p class="card-text">{{dataValues.image}}</p>
+            <p class="card-text">{{dataValues.name}}</p>
+            <p class="card-text">{{dataValues.price}}</p>
+            <p class="card-text">{{dataValues.description}}</p>
+            <a class="buttons" href="/agregar_pedido/{{dataValues.url}}" >Agregar pedido</a>
+    </div>
+    </div>
+    {{/each}}
+{{/if}}

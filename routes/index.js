@@ -15,7 +15,9 @@ const menu = require("../controllers/menuController"); /*ubicacion del controlad
 module.exports = function() {
     /*    routes.get("/", virtualStoreController.homeVirtualStore);*/
 
-    routes.get("/",autenticarAdmin.adminAutenticado,virtualStoreController.home);
+    routes.get("/",virtualStoreController.home);
+
+    routes.get("/ver_productos",producto.mostrarProductosCliente    )
 
     routes.get("/registrarse", usuarioController.formularioCrearCuenta);
 
@@ -37,7 +39,7 @@ module.exports = function() {
     routes.post("/inicio_sesion_admin", autenticarAdmin.autenticarAdmin);
 
     routes.get("/agregar_producto", producto.formularioIngresarProducto);
-    routes.get("/",autenticarAdmin.autenticarAdmin)
+    //routes.get("/",autenticarAdmin.autenticarAdmin)
 
     routes.get("/ver_producto",autenticarAdmin.adminAutenticado, producto.mostrarProductos);
 

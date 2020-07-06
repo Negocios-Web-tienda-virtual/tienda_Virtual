@@ -30,6 +30,7 @@ exports.crearProducto = async (req, res, next) => {
     }
 };
 
+
 exports.mostrarProductos = async (req, res, next) => {
     const administrador = res.locals.Administrador;
 
@@ -38,12 +39,34 @@ exports.mostrarProductos = async (req, res, next) => {
         res.render("agregarProducto",
             { productos });
 
+
     } catch (error) {
         console.log(error);
 
 
     }
-}
+};
+exports.mostrarProductosCliente= async (req, res, next) => {
+    const administrador = res.locals.Administrador;
+
+    try {
+        const productos = await Productos.findAll();
+            res.render("ver_productos",
+            {productos} );
+
+    } catch (error) {
+        console.log(error);
+
+
+    }
+};
+
+exports.agregarPedido = async (req, res, next)=> {
+
+
+
+};
+
 
 exports.obtenerProductoPorUrl = async (req, res, next) => {
 
@@ -104,7 +127,6 @@ exports.actualizarProducto = async(req, res, next) =>{
         if(mensaje.length){
 
             const producto = await Productos.findByPk(req.params.id);
-            console.log(producto.id);
 
             res.render("modificar_producto", {
                 producto: producto.dataValues,
@@ -131,3 +153,18 @@ exports.actualizarProducto = async(req, res, next) =>{
 
     
 };
+exports.eliminar_producto = async(req, res, next)=>{
+    const {url}= req.query;
+
+    try {
+        await Producto.destroy({
+            where :{
+                url,
+            },
+        });
+
+        res.status(200).send("Producto eliminado");
+    } catch (error) {
+        return next();
+    }
+}

@@ -2,7 +2,7 @@
 const Administrador = require("../models/Administrador");
 
 exports.home= (req, res, next)=> {
-    res.render("agregarProducto");
+    res.render("inicio");
 };
 
 exports.formularioCrearCuenta= (req, res, next) => {
