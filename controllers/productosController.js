@@ -6,12 +6,12 @@ exports.formularioIngresarProducto = (req, res, next) => {
     res.render("agregarProducto", { layout: "auth" });
 };
 
-exports.crearProducto = async (req, res, next) => {
+exports.crearProducto = async(req, res, next) => {
     const administrador = res.locals.Administrador;
 
-    console.log(administrador,"1");
-    
-    const { name, price, quantity, description, image ,} = req.body;
+    console.log(administrador, "1");
+
+    const { name, price, quantity, description, image, } = req.body;
     try {
 
         await Productos.create({
@@ -22,7 +22,7 @@ exports.crearProducto = async (req, res, next) => {
             image,
             administradorId: administrador.id,
         });
-        res.redirect("ver_producto");
+        res.redirect("ver_producto", { layout: "auth" });
     } catch (error) {
         res.render("agregarProducto", { layout: "auth" });
         console.log(error);
@@ -31,13 +31,12 @@ exports.crearProducto = async (req, res, next) => {
 };
 
 
-exports.mostrarProductos = async (req, res, next) => {
+exports.mostrarProductos = async(req, res, next) => {
     const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
-        res.render("agregarProducto",
-            { productos });
+        res.render("agregarProducto", { productos, layout: "auth" });
 
 
     } catch (error) {
@@ -46,13 +45,12 @@ exports.mostrarProductos = async (req, res, next) => {
 
     }
 };
-exports.mostrarProductosCliente= async (req, res, next) => {
+exports.mostrarProductosCliente = async(req, res, next) => {
     const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
-            res.render("ver_productos",
-            {productos ,layout : "auth"} );
+        res.render("ver_productos", { productos, layout: "auth" });
 
     } catch (error) {
         console.log(error);
@@ -62,7 +60,7 @@ exports.mostrarProductosCliente= async (req, res, next) => {
 };
 
 
-exports.obtenerProductoPorUrl = async (req, res, next) => {
+exports.obtenerProductoPorUrl = async(req, res, next) => {
 
     const administrador = res.locals.Administrador;
     try {
@@ -75,9 +73,10 @@ exports.obtenerProductoPorUrl = async (req, res, next) => {
 
         res.render("modificar_producto", {
             producto: producto.dataValues,
+            layout: "auth"
         });
         console.log(producto);
-        
+
 
     } catch (error) {
         console.log(error);
@@ -86,73 +85,71 @@ exports.obtenerProductoPorUrl = async (req, res, next) => {
     }
 };
 
-exports.actualizarProducto = async(req, res, next) =>{
-    
+exports.actualizarProducto = async(req, res, next) => {
+
     const { name, price, quantity, description, image } = req.body;
 
     const administrador = res.locals.Administrador;
     const mensaje = [];
-    if(!name){
+    if (!name) {
         mensaje.push({
             error: "Debes de ingresar el nombre del producto",
             type: "alert-danger",
         });
     }
-    if(!price){
+    if (!price) {
         mensaje.push({
             error: "Debes de ingresar el precio del producto",
             type: "alert-danger",
         });
-     }
-        if(!description){
-            mensaje.push({
-                error: "Debes de ingresar la descripcion del producto",
-                type: "alert-danger",
-            });
-        }
-        if(!image){
-            mensaje.push({
-                error: "Debes de ingresar una imagen del producto",
-                type: "alert-danger",
-            });
-        }
-        console.log("proceso");
-        
-        if(mensaje.length){
+    }
+    if (!description) {
+        mensaje.push({
+            error: "Debes de ingresar la descripcion del producto",
+            type: "alert-danger",
+        });
+    }
+    if (!image) {
+        mensaje.push({
+            error: "Debes de ingresar una imagen del producto",
+            type: "alert-danger",
+        });
+    }
+    console.log("proceso");
 
-            const producto = await Productos.findByPk(req.params.id);
+    if (mensaje.length) {
 
-            res.render("modificar_producto", {
-                producto: producto.dataValues,
-                mensaje,
-                
-                
-            });
-        } else{
-            await Producto.update(
-                {
-                    name,
-                    price,
-                    quantity,
-                    description,
-                    image, 
-                } ,{
-                    where: {
-                        id: req.params.id,
-                    },
-                }
-                    );
-                res.redirect("/ver_producto");
-        }
+        const producto = await Productos.findByPk(req.params.id);
 
-    
+        res.render("modificar_producto", {
+            producto: producto.dataValues,
+            mensaje,
+
+
+        });
+    } else {
+        await Producto.update({
+            name,
+            price,
+            quantity,
+            description,
+            image,
+        }, {
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.redirect("/ver_producto");
+    }
+
+
 };
-exports.eliminar_producto = async(req, res, next)=>{
-    const {url}= req.query;
+exports.eliminar_producto = async(req, res, next) => {
+    const { url } = req.query;
 
     try {
         await Producto.destroy({
-            where :{
+            where: {
                 url,
             },
         });
