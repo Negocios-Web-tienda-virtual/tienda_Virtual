@@ -52,19 +52,13 @@ exports.mostrarProductosCliente= async (req, res, next) => {
     try {
         const productos = await Productos.findAll();
             res.render("ver_productos",
-            {productos} );
+            {productos ,layout : "auth"} );
 
     } catch (error) {
         console.log(error);
 
 
     }
-};
-
-exports.agregarPedido = async (req, res, next)=> {
-
-
-
 };
 
 

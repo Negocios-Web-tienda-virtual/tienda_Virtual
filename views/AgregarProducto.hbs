@@ -11,7 +11,8 @@
       <input class="controls" type="text" name="price"   id="price"   placeholder="Precio" value="{{producto.price}}" required>
       <input class="controls" type="text" name="quantity"   id="quantity"   placeholder="Cantidad" value="{{producto.quantity}}" required>
       <input class="controls" type="text" name="description"   id="description"   placeholder="Descripción" value="{{producto.description}}" required>
-      <input class="controls" type="text" name="image"   id="image"   placeholder="Imagen" value="{{producto.image}}"  required>
+      <input class="controls" type="file" name="image"   id="image"   placeholder="Imagen" value="{{producto.image}}"  required>
+     
       <button class="buttons" type="submit">Agregar Producto</button>
     </section>
        </div>
@@ -31,6 +32,7 @@
             <p class="card-text">{{dataValues.price}}</p>
             <p class="card-text">{{dataValues.quantity}}</p>
             <p class="card-text">{{dataValues.description}}</p>
+             <img src=" {{producto.image}} " alt="">
             <a class="buttons" href="/modificar_producto/{{dataValues.url}}" >Modificar</a>
                     <buttons class="buttons" name="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</buttons>
     </div>
