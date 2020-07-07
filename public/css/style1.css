@@ -1,7 +1,10 @@
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800|Pacifico|Paytone+One&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&display=swap");
-
 /* line 1, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_extend.scss */
+html {
+    box-sizing: border-box;
+  }
 :root {
     --black-color: #434B4D;
     --orange-color: #FF6600;
@@ -960,21 +963,20 @@ h3 {
 .header-area {
     position: absolute;
     left: 0;
-    right: 0;
-    width: 100%;
+    right: 0em;
+    width: 90%;
     top: 1.5em;
     z-index: 9;
-    margin-left: 20em;
+    margin-left: 5em;
 }
 
 .header-area .navbarformcolor {
     position: absolute;
     left: 0;
     right: 0;
-    width: 100%;
     top: 1em;
     z-index: 9;
-    margin-left: 50em;
+    margin-left: 60em;
 }
 
 @media (max-width: 767px) {
