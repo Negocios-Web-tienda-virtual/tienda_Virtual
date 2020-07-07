@@ -10,15 +10,15 @@ const autenticarAdmin = require("../controllers/authAdminController");
 const pedido = require("../controllers/pedidosController");
 const producto = require("../controllers/productosController");
 const inicio = require("../controllers/inicioController"); /*ubicacion del controlador de inicio*/
-const menu = require("../controllers/menuController"); /*ubicacion del controlador del menu*/  
+const menu = require("../controllers/menuController"); /*ubicacion del controlador del menu*/
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
     /*    routes.get("/", virtualStoreController.homeVirtualStore);*/
 
-    routes.get("/",virtualStoreController.home);
+    routes.get("/", virtualStoreController.home);
 
-    routes.get("/ver_productos",producto.mostrarProductosCliente    )
+    routes.get("/ver_productos", producto.mostrarProductosCliente)
 
     routes.get("/registrarse", usuarioController.formularioCrearCuenta);
 
@@ -27,7 +27,7 @@ module.exports = function() {
     // Formulario para inicio de sesion del cliente
     routes.get("/inicio_sesion", usuarioController.formularioIniciarSesion);
 
-    routes.post("/inicio_sesion",autenticar.autenticarCliente);
+    routes.post("/inicio_sesion", autenticar.autenticarCliente);
 
     //Formulario registrarse admin
     routes.get("/registrarse_administrador", virtualStoreController.formularioCrearCuenta);
@@ -42,13 +42,13 @@ module.exports = function() {
     routes.get("/agregar_producto", producto.formularioIngresarProducto);
     //routes.get("/",autenticarAdmin.autenticarAdmin)
 
-    routes.get("/ver_producto",autenticarAdmin.adminAutenticado, producto.mostrarProductos);
+    routes.get("/ver_producto", autenticarAdmin.adminAutenticado, producto.mostrarProductos);
 
-    routes.post("/agregar_producto",autenticarAdmin.adminAutenticado,producto.crearProducto);
+    routes.post("/agregar_producto", autenticarAdmin.adminAutenticado, producto.crearProducto);
 
-    routes.get("/modificar_producto/:url",autenticarAdmin.adminAutenticado,producto.obtenerProductoPorUrl);
+    routes.get("/modificar_producto/:url", autenticarAdmin.adminAutenticado, producto.obtenerProductoPorUrl);
 
-    routes.post("/modificar_producto/:id",autenticarAdmin.adminAutenticado,producto.actualizarProducto);
+    routes.post("/modificar_producto/:id", autenticarAdmin.adminAutenticado, producto.actualizarProducto);
 
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
@@ -56,11 +56,11 @@ module.exports = function() {
     // Menu
     routes.get("/menu", menu.formularioMenu);
 
-    routes.get("/agregar_pedido/:url",autenticar.clienteAutenticado,pedido.obtenerProductoPorUrl);
-  
-    routes.post("/agregar_pedido",autenticar.clienteAutenticado,pedido.crearPedido);
+    routes.get("/agregar_pedido/:url", autenticar.clienteAutenticado, pedido.obtenerProductoPorUrl);
 
+    routes.post("/agregar_pedido", autenticar.clienteAutenticado, pedido.crearPedido);
 
+    routes.delete("/producto/:url", producto.eliminar_producto);
 
 
     return routes;
