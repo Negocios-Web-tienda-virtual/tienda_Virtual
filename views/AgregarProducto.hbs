@@ -1,6 +1,6 @@
 
 </div>
-<form class="form-add-produc" action="/agregar_producto" method="POST">
+<form class="form-add-produc" action="/ver_producto" method="POST">
     <div class="mb-4 text-center">
         <h1>Productos</h1>
     </div>
@@ -34,7 +34,7 @@
             <p class="card-text">{{dataValues.description}}</p>
              <img src=" {{producto.image}} " alt="">
             <a class="buttons" href="/modificar_producto/{{dataValues.url}}" >Modificar</a>
-                    <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</button>
+            <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</button>
     </div>
     </div>
     {{/each}}

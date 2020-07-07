@@ -5,11 +5,11 @@ const Webpack = require("webpack");
 
 module.exports = {
     //punto de entrada de los archivos JS
-    entry: "./public/js/app.js",
+    entry: "./public/js/app",
     // Punto de salida
     output: {
         filename: "bundle.js",
-        path: path.join(__dirname, `./public/dist`),
+        path: path.join(__dirname, "./public/dist"),
     },
     module: {
         rules: [{

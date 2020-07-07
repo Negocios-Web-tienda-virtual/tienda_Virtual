@@ -3,7 +3,7 @@ const Productos = require("../models/Producto");
 const Producto = require("../models/Producto");
 
 exports.formularioIngresarProducto = (req, res, next) => {
-    res.render("agregarProducto", { layout: "auth" });
+    res.render("AgregarProducto", { layout: "auth" });
 };
 
 exports.crearProducto = async(req, res, next) => {
@@ -22,9 +22,9 @@ exports.crearProducto = async(req, res, next) => {
             image,
             administradorId: administrador.id,
         });
-        res.redirect("ver_producto", { layout: "auth" });
+        res.redirect("/ver_producto");
     } catch (error) {
-        res.render("agregarProducto", { layout: "auth" });
+        res.render("AgregarProducto", { layout: "auth" });
         console.log(error);
 
     }
@@ -36,7 +36,7 @@ exports.mostrarProductos = async(req, res, next) => {
 
     try {
         const productos = await Productos.findAll();
-        res.render("agregarProducto", { productos, layout: "auth" });
+        res.render("AgregarProducto", { productos, layout: "auth" });
 
 
     } catch (error) {
@@ -155,7 +155,10 @@ exports.eliminar_producto = async(req, res, next) => {
         });
 
         res.status(200).send("Producto eliminado");
+        res.redirect("/ver_producto",{layout: "auth"})
     } catch (error) {
+        console.log(error);
+        
         return next();
     }
-}
+};

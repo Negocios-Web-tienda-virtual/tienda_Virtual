@@ -1,1 +1,1 @@
-import products from "./modules/productos";
+import productos from "./modules/productos";

@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 const btnDelete = document.querySelector("#eliminar-producto");
 
 // Agregar un evento al click del botón
-btnDelete.addEventListener("click", e => {
-    const urlProducts = e.target.dataset.productoURL;
+btnDelete.addEventListener("click", (e) => {
+    const urlProductos = e.target.dataset.productoUrl;
 
     Swal.fire({
         title: "Estas seguro que desea eliminar?",
@@ -15,18 +15,27 @@ btnDelete.addEventListener("click", e => {
         type: "warning",
         showCancelButton: true,
         confirmButton: "Eliminar",
-        cancelButtonText: "Cancelar"
+        cancelButtonText: "Cancelar",
+        cancelButtonColor: "#d33",
+
     }).then((result) => {
-
+        
         if (result.value) {
-            const url = `${location.origin}`;
-            console.log(url);
+            console.log("1");
+            
+            const url = `${location.origin}/eliminar-producto/${urlProductos}`;
 
 
-            axios.delete(url, { params: { urlProducto } }).then(function(response) {
+
+            axios.delete(url, { params: { url: urlProductos } }).then(function(response) {
                 Swal.fire("Eliminado", response.data, "success");
-            })
+            }).catch(() =>{
+                Swal.fire("!Error", error);
+                console.log("2");
+            });
+            
         }
     });
+    
 });
 export default btnDelete;

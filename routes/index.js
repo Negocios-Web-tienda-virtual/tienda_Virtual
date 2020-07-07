@@ -42,9 +42,9 @@ module.exports = function() {
     routes.get("/agregar_producto", producto.formularioIngresarProducto);
     //routes.get("/",autenticarAdmin.autenticarAdmin)
 
-    routes.get("/ver_producto", autenticarAdmin.adminAutenticado, producto.mostrarProductos);
+    routes.get("/ver_producto", producto.mostrarProductos);
 
-    routes.post("/agregar_producto", autenticarAdmin.adminAutenticado, producto.crearProducto);
+    routes.post("/ver_producto", autenticarAdmin.adminAutenticado, producto.crearProducto);
 
     routes.get("/modificar_producto/:url", autenticarAdmin.adminAutenticado, producto.obtenerProductoPorUrl);
 
@@ -60,7 +60,7 @@ module.exports = function() {
 
     routes.post("/agregar_pedido", autenticar.clienteAutenticado, pedido.crearPedido);
 
-    routes.delete("/producto/:url", producto.eliminar_producto);
+    routes.delete("/eliminar-producto/:url", producto.eliminar_producto);
 
 
     return routes;
