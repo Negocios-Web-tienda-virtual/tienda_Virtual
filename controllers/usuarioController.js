@@ -5,16 +5,17 @@ res.render("registrarse", { layout : "auth"});
 };
 
 exports.crearCuenta = async (req, res, next) => {
-    const {name, email, password, address, phoneNumber} = req.body;
+    const {fullname, email, password, address, phoneNumber} = req.body;
 
     try {
         await Cliente.create({
-            name,
+            fullname,
             email,
             password,
             address,
             phoneNumber,
         });
+    
 
         res.redirect("inicio_sesion");
     } catch (error) {

@@ -1,5 +1,5 @@
 //Importar los modulos de express.js
-const express = require('express');
+const express = require("express");
 
 // Importación de Handlebars
 const exphbs = require("express-handlebars");
@@ -9,11 +9,25 @@ const routes = require("./routes");
 
 // Crear la conexión a la base de datos
 const dataBaseVS = require("./config/db");
+const bodyParer = require("body-parser");
+
+// importar passport
+const passport = require("./config/passport");
+const passportAdmin = require("./config/passportAdmin.js");
+
+// importar connect flash para mensajes
+const flash = require("connect-flash");
+
+//importar express-session para manejar las sesiones de cliente
+const session = require("express-session");
+
+const cookieParser = require("cookie-parser");
 
 // Importar Modelos 
-require("./models/administradorVS");
+require("./models/administrador");
 require("./models/Cliente");
 require("./models/Producto");
+require("./models/Pedido");
 
 
 
@@ -39,6 +53,47 @@ app.engine(
 );
 
 app.set("view engine", "hbs");
+
+app.use(bodyParer.urlencoded({ extended: true }));
+
+// Habilitar el uso de cookie-Parser
+app.use(cookieParser());
+
+// Habiliar las sesiones el usuario
+app.use(
+    session({
+        secret: process.env.SESSIONSECRET,
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
+app.use(flash());
+// Crear una instancia de passport y cargar nuestra estrategia
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passportAdmin.initialize());
+app.use(passportAdmin.session());
+
+
+// Pasar algunos valores mediante middleware
+app.use((req, res, next) => {
+    res.locals.Administrador = {...req.user } || null;
+    res.locals.messages = req.flash();
+    next();
+});
+app.use((req, res, next) => {
+    res.locals.Cliente = {...req.user } || null;
+    res.locals.messages = req.flash();
+    next();
+});
+app.use((req, res, next) => {
+    res.locals.Producto = {...req.user } || null;
+    res.locals.messages = req.flash();
+    next();
+});
+
+
 
 // rutas del servidor 
 app.use("/", routes());

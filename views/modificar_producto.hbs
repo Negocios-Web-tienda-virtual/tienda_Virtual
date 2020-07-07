@@ -1,0 +1,18 @@
+
+</div>
+<form class="form-add-produc" action="/modificar_producto/{{producto.id}} " method="POST">
+    <div class="mb-4 text-center">
+        <h1>Productos</h1>
+    </div>
+       <div class="container">
+           <h2 class="text-center"><label> {{producto.name}} </label></h2>
+            <section class="form-add-products">
+      <input class="controls" type="text" name="name"   id="name"   placeholder="Nombre" value="{{producto.name}} "  required>
+      <input class="controls" type="text" name="price"   id="price"   placeholder="Precio" value="{{producto.price}}" required>
+      <input class="controls" type="text" name="quantity"   id="quantity"   placeholder="Cantidad" value="{{producto.quantity}}" required>
+      <input class="controls" type="text" name="description"   id="description"   placeholder="Descripción" value="{{producto.description}}" required>
+      <input class="controls" type="file" name="image"   id="image"   placeholder="Imagen" value="{{producto.image}}"  required>
+      <button class="buttons" type="submit">Modificar Producto</button>
+    </section>
+       </div>
+</form>

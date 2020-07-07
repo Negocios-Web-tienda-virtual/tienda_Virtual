@@ -10,7 +10,7 @@ const slug = require("slug");
 const Producto = dataBase.define(
     "producto",
     {
-        idProducto: {
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -25,13 +25,9 @@ const Producto = dataBase.define(
             },
         },
         price :{
-            type: Sequelize.FLOAT,
+            type: Sequelize.DOUBLE,
             allowNull: false,
-            validate : {
-                notEmpty :{
-                    msg : "Debes de ingresar el precio del producto",
-                },
-            },
+            
         },
         quantity:{
             type : Sequelize.INTEGER,
@@ -46,8 +42,19 @@ const Producto = dataBase.define(
             type: Sequelize.STRING,
             allowNull: false,
             validate: {
+                notEmpty :{
                 msg: "Ingresa la descripcion del producto",
             },
+        },
+        },
+        image :{
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty :{
+                msg: "Ingresa la la imagen del producto",
+            },
+        },
         },
         url : {
             type: Sequelize.STRING,

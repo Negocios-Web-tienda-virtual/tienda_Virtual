@@ -3,14 +3,14 @@ const Sequelize = require("sequelize");
 
 const dataBase = require("../config/db");
 
-const Pedido = require("./Pedido")
+const Producto = require("./Producto")
 
 const bcrypt = require("bcrypt-nodejs");
 
 const AdministradorVS = dataBase.define(
-    "administradorVS",
+    "administrador",
     {
-        idAdmin:{
+        id:{
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -19,31 +19,30 @@ const AdministradorVS = dataBase.define(
             type : Sequelize.STRING(100),
             allowNull: false,
             validate : {
-                notEmpty:{
-                    msg : "Debes de ingresar tu nombre completo",
+                notEmpty: {
+                    msg: "Ingresa tu nombre completo",
                 },
             },
         },
         email :{
-            type: Sequelize.STRING(50),
+            type: Sequelize.STRING(100),
             allowNull: false,
             unique :{
                 args: true,
                 msg : "Ya existe un usuario registrado con este correo",
             },
-            validate : {
+            validate :{
                 notEmpty: {
-                    msg : "Debes de ingresar tu correo electronico",
+                    msg : "Debes de ingresar un correo electronico",
+                },
+                isEmail : {
+                    msg : "verifica que tu correo es valido",
                 },
             },
-            isEmail :{
-                msg: "Verifica que correo electronico sea valido",
-            },
-        },
+    },
         password : {
             type: Sequelize.STRING(100),
             allowNull: false,
-
             validate:{
                 notEmpty: {
                     msg : "Debes de ingresar una contraseña",
@@ -51,10 +50,13 @@ const AdministradorVS = dataBase.define(
             },
         },
         codeAccess :{
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(100),
             allowNull: false,
             validate :{
-                notEmpty: "Debes de ingresar el codigo de acceso",
+                notEmpty:
+                { 
+                    msg : "Debes de ingresar el codigo de acceso",
+                },
             },
         },
     
@@ -64,23 +66,19 @@ const AdministradorVS = dataBase.define(
         token : Sequelize.STRING,
         expiration: Sequelize.DATE,
     },
-    {
-        hooks: {
-            beforeCreate(administradorVS){
-                const date = new Date();
-
-                administradorVS.fecha = date.toISOString();
-
-                administradorVS.password = bcrypt.hashSync(
-                    administradorVS.password,
-                    bcrypt.genSalt(13)
-                );
-            },
+    { 
+    hooks : {
+        beforeCreate(administradorVS){
+            administradorVS.password = bcrypt.hashSync(
+                administradorVS.password,
+                bcrypt.genSaltSync(13)
+            );
         },
     },
+},
 );
 
-AdministradorVS.hasMany(Pedido);
+AdministradorVS.hasMany(Producto);
 
 AdministradorVS.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);
