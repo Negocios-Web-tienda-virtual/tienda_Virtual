@@ -148,6 +148,9 @@ body {
     color: white;
     margin-bottom: 16px;
 }
+.buttons a{
+    text-decoration: none;
+}
 
 .buttons:hover {
     color: white;

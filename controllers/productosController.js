@@ -27,7 +27,7 @@ exports.crearProducto = async(req, res, next) => {
         res.render("AgregarProducto", { layout: "auth" });
         console.log(error);
 
-    }
+    }res.redirect("/ver_producto");
 };
 
 
@@ -155,10 +155,11 @@ exports.eliminar_producto = async(req, res, next) => {
         });
 
         res.status(200).send("Producto eliminado");
-        res.redirect("/ver_producto",{layout: "auth"})
+        
     } catch (error) {
         console.log(error);
         
         return next();
     }
+    
 };
