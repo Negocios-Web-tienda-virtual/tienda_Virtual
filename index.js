@@ -23,6 +23,8 @@ const session = require("express-session");
 
 const cookieParser = require("cookie-parser");
 
+const formidable = require("express-formidable");
+
 // Importar Modelos 
 require("./models/administrador");
 require("./models/Cliente");
@@ -59,6 +61,7 @@ app.use(bodyParer.urlencoded({ extended: true }));
 // Habilitar el uso de cookie-Parser
 app.use(cookieParser());
 
+app.use(formidable.parse({ keepExtensions: true }));    
 // Habiliar las sesiones el usuario
 app.use(
     session({

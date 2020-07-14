@@ -12,6 +12,8 @@ exports.crearProducto = async(req, res, next) => {
     console.log(administrador, "1");
 
     const { name, price, quantity, description, image, } = req.body;
+    
+  
     try {
 
         await Productos.create({
@@ -34,6 +36,7 @@ exports.crearProducto = async(req, res, next) => {
 exports.mostrarProductos = async(req, res, next) => {
     const administrador = res.locals.Administrador;
 
+    const imagen
     try {
         const productos = await Productos.findAll();
         res.render("AgregarProducto", { productos, layout: "auth" });
