@@ -17,6 +17,8 @@ exports.cerrarSesion = (req, res, next) => {
 };
 
 exports.usuarioAutenticado = (req, res, next) => {
+    const mensajes = [];
+
     if (req.isAuthenticated()) {
         return next();
     }
@@ -29,6 +31,7 @@ exports.usuarioAutenticado = (req, res, next) => {
 };
 
 exports.usuarioAdmin = (req, res, next) => {
+    const mensajes = [];
     const usuario = res.locals.Usuario;
     if (usuario.nivelUsuario == "administrador") {
         return next();
