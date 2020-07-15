@@ -1,11 +1,12 @@
 <form class="form-signin-clientes" action="/inicio_sesion" method="POST">
-{{!-- Alertas --}}
-   {{>messages}}
+
     <div class="mb-4 text-center">
         <h1>Iniciar sesión como cliente en Tienda Virtual</h1>
         <p>Bienvenido a la mejor tienda virtual</p>
     </div>
     <section class="form-login-customer">
+      {{!-- Alertas --}}
+   {{>messages}}
       <h5>Iniciar sesión</h5>
       <input class="controls" type="email"    name="email"    id="email"    placeholder="Correo Electronico"    required>
       <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"            required>

@@ -31,13 +31,12 @@ exports.usuarioAutenticado = (req, res, next) => {
 };
 
 exports.usuarioAdmin = (req, res, next) => {
-    const mensajes = [];
     const usuario = res.locals.Usuario;
     if (usuario.nivelUsuario == "administrador") {
         return next();
     }
 
-    return res.redirect("/");
+    return res.redirect("/inicio_sesion");
     mensajes.push({
         error: "No estas autenticado, intenta nuevamente.",
         type: "alert-warning",

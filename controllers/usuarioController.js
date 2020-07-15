@@ -51,12 +51,10 @@ exports.crearUsuario = async(req, res, next) => {
             });
         }
     } catch (error) {
-        mensajes.push({
-            error: "Ha ocurrido un error interno en el servidor. Comunicate con el personal de la Tienda Virtual.",
-            type: "alert-warning",
-        });
+        res.render("registro", { layout: "auth", error: error.message });
     }
 };
 exports.formularioIniciarSesion = (req, res, next) => {
-    res.render("inicio_sesion", { layout: "auth", mensajes });
+    const messages = res.locals.messages;
+    res.render("inicio_sesion", { layout: "auth", messages });
 };
