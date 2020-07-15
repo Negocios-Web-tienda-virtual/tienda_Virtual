@@ -12,8 +12,7 @@ const dataBaseVS = require("./config/db");
 const bodyParer = require("body-parser");
 
 // importar passport
-const passport = require("./config/passport");
-const passportAdmin = require("./config/passportAdmin.js");
+const passport = require("./config/passportu");
 
 // importar connect flash para mensajes
 const flash = require("connect-flash");
@@ -23,14 +22,11 @@ const session = require("express-session");
 
 const cookieParser = require("cookie-parser");
 
-const formidable = require("express-formidable");
+//const formidable = require("express-formidable");
 
-// Importar Modelos 
-require("./models/administrador");
-require("./models/Cliente");
 require("./models/Producto");
 require("./models/Pedido");
-
+require("./models/Usuario");
 
 
 // Realizando la conexión a la base de datos virtualStore
@@ -75,18 +71,11 @@ app.use(flash());
 // Crear una instancia de passport y cargar nuestra estrategia
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passportAdmin.initialize());
-app.use(passportAdmin.session());
 
 
 // Pasar algunos valores mediante middleware
 app.use((req, res, next) => {
-    res.locals.Administrador = {...req.user } || null;
-    res.locals.messages = req.flash();
-    next();
-});
-app.use((req, res, next) => {
-    res.locals.Cliente = {...req.user } || null;
+    res.locals.Usuario = {...req.user } || null;
     res.locals.messages = req.flash();
     next();
 });

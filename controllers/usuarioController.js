@@ -1,30 +1,45 @@
-const Cliente = require("../models/Cliente");
+const Usuario = require("../models/Usuario");
 
-exports.formularioCrearCuenta = (req, res, next) => {
-    res.render("registrarse", { layout: "auth" });
+exports.formularioUsuario = (req, res, next)=>{
+    res.render("registro", { layout : "auth"});
 };
 
-exports.crearCuenta = async(req, res, next) => {
-    const { fullname, email, password, address, phoneNumber } = req.body;
-
+exports.crearUsuario= async(req, res, next)=>{
+    const {name, email, password, codeAccess, nivelUsuario}= req.body;
+    const mensaje =
+console.log(name, email, password, codeAccess, nivelUsuario);
     try {
-        await Cliente.create({
-            fullname,
-            email,
-            password,
-            address,
-            phoneNumber,
-        });
-
-
-        res.redirect("inicio_sesion");
+        if (nivelUsuario!=null) {
+            if (nivelUsuario=="administrador" && codeAccess=="L3zr#R") {
+                await Usuario.create({
+                    name,
+                    email,
+                    password,
+                    codeAccess,
+                    nivelUsuario,
+                });
+                res.redirect("/inicio_sesion");
+            } else {
+                console.log("Lo sentimos no puedes registrate");
+                
+                res.redirect("/registro");
+            }
+            if(nivelUsuario=="cliente"){
+                await Usuario.create({
+                    name,
+                    email,
+                    password,
+                    codeAccess,
+                    nivelUsuario,
+                });
+                res.redirect("/inicio_sesion");
+            }
+        } else {
+            mensaje.push("!Debes de ingresar un tipo de usuario")
+        }
     } catch (error) {
-        res.render("registrarse", { layout: "auth", error });
-        console.log("Usuario no agregado", error);
+        console.log(error);
     }
-
-};
-
-exports.formularioIniciarSesion = (req, res, next) => {
+};exports.formularioIniciarSesion = (req, res, next) => {
     res.render("inicio_sesion", { layout: "auth" });
 };
