@@ -78,7 +78,7 @@ const AdministradorVS = dataBase.define(
 },
 );
 
-AdministradorVS.hasMany(Producto);
+//AdministradorVS.hasMany(Producto);
 
 AdministradorVS.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);

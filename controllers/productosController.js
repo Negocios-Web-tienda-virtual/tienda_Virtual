@@ -7,9 +7,8 @@ exports.formularioIngresarProducto = (req, res, next) => {
 };
 
 exports.crearProducto = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
+    const usuario = res.locals.Usuario;
 
-    console.log(administrador, "1");
 
     const { name, price, quantity, description, image, } = req.body;
 
@@ -22,7 +21,7 @@ exports.crearProducto = async(req, res, next) => {
             quantity,
             description,
             image,
-            administradorId: administrador.id,
+            usuarioId: usuario.id,
         });
         res.redirect("/ver_producto");
     } catch (error) {
@@ -35,7 +34,6 @@ exports.crearProducto = async(req, res, next) => {
 
 
 exports.mostrarProductos = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
@@ -49,7 +47,6 @@ exports.mostrarProductos = async(req, res, next) => {
     }
 };
 exports.mostrarProductosCliente = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
@@ -65,7 +62,6 @@ exports.mostrarProductosCliente = async(req, res, next) => {
 
 exports.obtenerProductoPorUrl = async(req, res, next) => {
 
-    const administrador = res.locals.Administrador;
     try {
 
         const producto = await Productos.findOne({
@@ -92,7 +88,7 @@ exports.actualizarProducto = async(req, res, next) => {
 
     const { name, price, quantity, description, image } = req.body;
 
-    const administrador = res.locals.Administrador;
+    const usuario = res.locals.Usuario;
     const mensaje = [];
     if (!name) {
         mensaje.push({

@@ -1,0 +1,19 @@
+<form class="form-signin" action="/registro" method="POST">
+    <div class="mb-4 text-center">
+        <h1>Registrarse como cliente en Tienda Virtual</h1>
+        <p>Bienvenido a la mejor tienda virtual</p>
+    </div>
+    <section class="form-login">
+      <h5>Registrarse</h5>
+      <input class="controls" type="text"     name="name"    id="name"    placeholder="Nombre Completo"    required>
+      <input class="controls" type="email"    name="email"       id="email"       placeholder="Correo Electronico" required>
+      <input class="controls" type="password" name="password"    id="password"    placeholder="Contraseña"         required>
+      <input type="password" class="controls" name="codeAccess" id="codeAccess" placeholder="Ingrese codigo de acceso">
+      <select class="controls" name="nivelUsuario" id="nivelUsuario" aria-placeholder="">
+          <option value="">Elige un nivel de usuario</option>
+          <option value="cliente">Cliente</option>
+          <option value="administrador">Administrador</option>
+      </select>
+      <button class="buttons" type="submit">Registrarse</button>
+    </section>
+</form>
