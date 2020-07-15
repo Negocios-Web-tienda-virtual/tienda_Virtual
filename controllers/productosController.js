@@ -12,8 +12,8 @@ exports.crearProducto = async(req, res, next) => {
     console.log(administrador, "1");
 
     const { name, price, quantity, description, image, } = req.body;
-    
-  
+
+
     try {
 
         await Productos.create({
@@ -29,14 +29,14 @@ exports.crearProducto = async(req, res, next) => {
         res.render("AgregarProducto", { layout: "auth" });
         console.log(error);
 
-    }res.redirect("/ver_producto");
+    }
+    res.redirect("/ver_producto");
 };
 
 
 exports.mostrarProductos = async(req, res, next) => {
     const administrador = res.locals.Administrador;
 
-    const imagen
     try {
         const productos = await Productos.findAll();
         res.render("AgregarProducto", { productos, layout: "auth" });
@@ -158,11 +158,11 @@ exports.eliminar_producto = async(req, res, next) => {
         });
 
         res.status(200).send("Producto eliminado");
-        
+
     } catch (error) {
         console.log(error);
-        
+
         return next();
     }
-    
+
 };

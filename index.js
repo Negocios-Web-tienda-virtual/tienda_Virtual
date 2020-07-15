@@ -61,7 +61,7 @@ app.use(bodyParer.urlencoded({ extended: true }));
 // Habilitar el uso de cookie-Parser
 app.use(cookieParser());
 
-app.use(formidable.parse({ keepExtensions: true }));    
+//app.use(formidable.parse({ keepExtensions: true }));    
 // Habiliar las sesiones el usuario
 app.use(
     session({

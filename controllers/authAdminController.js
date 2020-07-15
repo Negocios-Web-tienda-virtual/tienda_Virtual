@@ -11,7 +11,7 @@ const Sequelize = require("sequelize");
 exports.autenticarAdmin = passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/inicio_sesion_admin",
-    badRequestMessage: "debes ingresar tu correo, contraseña y token",
+    badRequestMessage: "Debes ingresar tu correo, contraseña y token",
     failureFlash: true,
 });
 
