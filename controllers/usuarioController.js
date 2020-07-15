@@ -1,16 +1,16 @@
 const Usuario = require("../models/Usuario");
 
-exports.formularioUsuario = (req, res, next)=>{
-    res.render("registro", { layout : "auth"});
+exports.formularioUsuario = (req, res, next) => {
+    res.render("registro", { layout: "auth" });
 };
 
-exports.crearUsuario= async(req, res, next)=>{
-    const {name, email, password, codeAccess, nivelUsuario}= req.body;
+exports.crearUsuario = async(req, res, next) => {
+    const { name, email, password, codeAccess, nivelUsuario } = req.body;
     const mensaje =
-console.log(name, email, password, codeAccess, nivelUsuario);
+        console.log(name, email, password, codeAccess, nivelUsuario);
     try {
-        if (nivelUsuario!=null) {
-            if (nivelUsuario=="administrador" && codeAccess=="L3zr#R") {
+        if (nivelUsuario != null) {
+            if (nivelUsuario == "administrador" && codeAccess == "L3zr#R") {
                 await Usuario.create({
                     name,
                     email,
@@ -19,12 +19,18 @@ console.log(name, email, password, codeAccess, nivelUsuario);
                     nivelUsuario,
                 });
                 res.redirect("/inicio_sesion");
+                mensajes.push({
+                    error: "Se inicio sesión satisfactoriamente.",
+                    type: "alert-success",
+                });
             } else {
-                console.log("Lo sentimos no puedes registrate");
-                
+                mensajes.push({
+                    error: "Ha ocurrido un error al registrarte!. Intenta de nuevo.",
+                    type: "alert-danger",
+                });
                 res.redirect("/registro");
             }
-            if(nivelUsuario=="cliente"){
+            if (nivelUsuario == "cliente") {
                 await Usuario.create({
                     name,
                     email,
@@ -33,13 +39,24 @@ console.log(name, email, password, codeAccess, nivelUsuario);
                     nivelUsuario,
                 });
                 res.redirect("/inicio_sesion");
+                mensajes.push({
+                    error: "Se inicio sesión satisfactoriamente.",
+                    type: "alert-success",
+                });
             }
         } else {
-            mensaje.push("!Debes de ingresar un tipo de usuario")
+            mensajes.push({
+                error: "Ha ocurrido un error al registrarte!. Intenta de nuevo.",
+                type: "alert-danger",
+            });
         }
     } catch (error) {
-        console.log(error);
+        mensajes.push({
+            error: "Ha ocurrido un error interno en el servidor. Comunicate con el personal de la Tienda Virtual.",
+            type: "alert-warning",
+        });
     }
-};exports.formularioIniciarSesion = (req, res, next) => {
-    res.render("inicio_sesion", { layout: "auth" });
+};
+exports.formularioIniciarSesion = (req, res, next) => {
+    res.render("inicio_sesion", { layout: "auth", mensajes });
 };
