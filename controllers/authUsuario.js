@@ -24,7 +24,7 @@ exports.usuarioAutenticado = (req, res, next) => {
     return res.redirect("/inicio_sesion");
     mensajes.push({
         error: "No estas autenticado, intenta nuevamente.",
-        type: "alert",
+        type: "alert-warning",
     });
 };
 
@@ -38,6 +38,6 @@ exports.usuarioAdmin = (req, res, next) => {
     return res.redirect("/");
     mensajes.push({
         error: "No estas autenticado, intenta nuevamente.",
-        type: "alert",
+        type: "alert-warning",
     });
 };
