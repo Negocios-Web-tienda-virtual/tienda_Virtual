@@ -22,34 +22,26 @@ module.exports = function() {
 
     routes.get("/registro", usuario.formularioUsuario);
 
-    routes.post("/registro",usuario.crearUsuario);
+    routes.post("/registro", usuario.crearUsuario);
 
     // Formulario para inicio de sesion del cliente
     routes.get("/inicio_sesion", usuario.formularioIniciarSesion);
 
     routes.post("/inicio_sesion", autenticar.autenticarCliente);
 
-    //Formulario registrarse admin
-    //routes.get("/registrarse_administrador", virtualStoreController.formularioCrearCuenta);
 
-    //routes.post("/registrate_administrador", virtualStoreController.crearCuentaAdmin);
 
-    // Formulario iniciar sesion admin
-    //routes.get("/inicio_sesion_admin", virtualStoreController.formularioIniciarSesionAdmin);
-
-    //routes.post("/inicio_sesion_admin", autenticarAdmin.autenticarAdmin);
-
-    routes.get("/agregar_producto",usuarioAu.usuarioAutenticado,usuarioAu.usuarioAdmin ,producto.formularioIngresarProducto);
+    routes.get("/agregar_producto", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.formularioIngresarProducto);
     //routes.get("/",autenticarAdmin.autenticarAdmin)
 
-    routes.get("/ver_producto",usuarioAu.usuarioAutenticado,usuarioAu.usuarioAdmin ,producto.mostrarProductos);
+    routes.get("/ver_producto", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.mostrarProductos);
 
-    routes.post("/ver_producto",usuarioAu.usuarioAutenticado,producto.crearProducto);
+    routes.post("/ver_producto", usuarioAu.usuarioAutenticado, producto.crearProducto);
 
 
-    routes.get("/modificar_producto/:url", usuarioAu.usuarioAutenticado,usuarioAu.usuarioAdmin , producto.obtenerProductoPorUrl);
+    routes.get("/modificar_producto/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.obtenerProductoPorUrl);
 
-    routes.post("/modificar_producto/:id",usuarioAu.usuarioAutenticado,usuarioAu.usuarioAdmin , producto.actualizarProducto);
+    routes.post("/modificar_producto/:id", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.actualizarProducto);
 
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
@@ -57,7 +49,7 @@ module.exports = function() {
     // Menu
     routes.get("/menu", menu.formularioMenu);
 
-    routes.get("/agregar_pedido/:url",usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
+    routes.get("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
     routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.crearPedido);
 

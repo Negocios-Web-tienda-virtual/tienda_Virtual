@@ -14,16 +14,19 @@ exports.crearProducto = async(req, res, next) => {
 
 
     try {
-
-        await Productos.create({
-            name,
-            price,
-            quantity,
-            description,
-            image,
-            usuarioId: usuario.id,
-        });
-        res.redirect("/ver_producto");
+        if (usuario.nivelUsario == "administrador") {
+            await Productos.create({
+                name,
+                price,
+                quantity,
+                description,
+                image,
+                usuarioId: usuario.id,
+            });
+            res.redirect("/ver_producto");
+        } else {
+            console.log("No eres un administrador");
+        }
     } catch (error) {
         res.render("AgregarProducto", { layout: "auth" });
         console.log(error);
