@@ -31,7 +31,6 @@ exports.usuarioAutenticado = (req, res, next) => {
 exports.usuarioAdmin = (req, res, next) => {
     const usuario = res.locals.Usuario;
     if (usuario.nivelUsuario == "administrador") {
-        console.log(usuario.nivelUsuario);
         return next();
     }
 
