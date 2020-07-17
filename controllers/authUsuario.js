@@ -42,3 +42,19 @@ exports.usuarioAdmin = (req, res, next) => {
         type: "alert-warning",
     });
 };
+
+exports.usuarioCliente = (req, re, next)=>{
+    const usuario = res.locals.Usuario;
+    const mensajes = [];
+    if(usuario.nivelUsuario == "cliente"){
+    return next();
+    }
+    else{
+        mensajes.push({
+            error: "Debes registrarte para poder agregar pedidos",
+            alert: "alert-warning",
+        });
+        res.redirect("/");
+    }
+    
+};

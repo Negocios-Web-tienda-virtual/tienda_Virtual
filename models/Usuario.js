@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt-nodejs");
 const db = require("../config/db");
 
 const Producto = require("./Producto")
-const Pedido = require("./Producto")
+const Pedido = require("./Pedido")
 
 const Usuario = db.define(
     "usuario",
