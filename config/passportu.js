@@ -28,6 +28,7 @@ passport.use(
             return done(null, false,{
                 message: "La cuenta de correo electronico no esta registrada",
             });
+            console.log("error 2");
         }
     }
     )

@@ -56,5 +56,6 @@ exports.crearUsuario = async(req, res, next) => {
 };
 exports.formularioIniciarSesion = (req, res, next) => {
     const messages = res.locals.messages;
+    console.log(messages);
     res.render("inicio_sesion", { layout: "auth", messages });
 };
