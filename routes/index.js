@@ -9,7 +9,6 @@ const inicio = require("../controllers/inicioController"); /*ubicacion del contr
 const menu = require("../controllers/menuController"); /*ubicacion del controlador del menu*/
 const usuario = require("../controllers/usuarioController");
 const usuarioAu = require("../controllers/authUsuario");
-const carrito = require("../controllers/carritoController");
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -48,13 +47,16 @@ module.exports = function() {
     // Menu
     routes.get("/menu", menu.formularioMenu);
 
-    routes.get("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
+    routes.get("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
-    routes.post("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
+<<<<<<< HEAD
+=======
+    routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
+    routes.get("/Carrito", pedido.mostrarPedido);
+    // probando login nuevo
+    routes.get("/login", usuario.formularioIniciarSesion);
+>>>>>>> 6c229dcbe7a3f5cd5fff4a95f2cd2f8708eb2fc7
 
-
-
-    routes.post("/carrito", carrito.MostrarPedido);
 
     return routes;
 };
