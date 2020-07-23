@@ -83,9 +83,7 @@ p {
     margin: auto;
     margin-top: 1em;
 }
-.content-input a{
-    text-decoration: none;
-}
+
 .form-login h5 {
     margin: 0;
     text-align: center;
@@ -112,6 +110,7 @@ p {
     padding-top:4em;
 }
 .session-sign
+
 {
 width: 300px;
 box-shadow: 7px 13px 37px #000;
@@ -183,8 +182,12 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     padding-right: 2em;
     
 }
+.content a{text-decoration: none;}
+.content a:hover{text-decoration: none;background-color: var(--color2);}
+
+
 @media(min-width:768px){
-.inicio{
+   .inicio{
     display: flex;
     flex-direction: row;
     height: 400px;
@@ -212,9 +215,6 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     margin-bottom: 16px;
    
 }
-a{
-    text-decoration: none;
-}
 
 .buttons:hover {
     color: white;
@@ -228,13 +228,13 @@ a{
 
 .form-login a {
     color: white;
-    text-decoration: none;
+    text-decoration: none; 
     font-size: 14px;
 }
 
-.form-login a:hover {
-    text-decoration: underline;
-}
+ .form-login a:hover {
+    text-decoration: none;
+} 
 
 .form-add h5 {
     margin: 0;
@@ -271,4 +271,24 @@ a{
 }
 .form-signin{
 margin-bottom: 2em
+
+}
+.form-signin a{
+    text-decoration: none;
+}
+.form-signin a:hover{
+    text-decoration: none;
+    background-color: var(--color2);
+}
+.buttons-a {
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+    display: block;
+    width: 285px;
+    height: 40px;
+    background-color: var(--orange-color);
+    padding-top: 0.5em;
+    text-decoration: none;
+
 }

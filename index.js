@@ -12,7 +12,7 @@ const dataBaseVS = require("./config/db");
 const bodyParer = require("body-parser");
 
 // importar passport
-const passport = require("./config/passportu");
+const passport = require("./config/passport");
 
 // importar connect flash para mensajes
 const flash = require("connect-flash");
