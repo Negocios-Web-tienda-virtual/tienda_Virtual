@@ -47,9 +47,9 @@ module.exports = function() {
     // Menu
     routes.get("/menu", menu.formularioMenu);
 
-    routes.get("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
+    routes.get("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
-    routes.post("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
+    routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
     routes.get("/Carrito", pedido.mostrarPedido);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
