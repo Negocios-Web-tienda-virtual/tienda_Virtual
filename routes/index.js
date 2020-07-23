@@ -50,7 +50,7 @@ module.exports = function() {
     routes.get("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
     routes.post("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
-
+    routes.get("/Carrito", pedido.mostrarPedido);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
