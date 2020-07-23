@@ -52,10 +52,7 @@ module.exports = function() {
 
     routes.post("/agregar_pedido/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
 
-    // probando login nuevo
-    routes.get("/login", usuario.formularioIniciarSesion);
 
-    routes.post("/login", usuarioAu.autenticarUsuario);
 
     routes.post("/carrito", carrito.MostrarPedido);
 

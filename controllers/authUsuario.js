@@ -32,6 +32,7 @@ exports.usuarioAutenticado = (req, res, next) => {
 
 exports.usuarioAdmin = (req, res, next) => {
     const usuario = res.locals.Usuario;
+    const mensajes = [];
     if (usuario.nivelUsuario == "administrador") {
         return next();
     }
