@@ -49,13 +49,10 @@ module.exports = function() {
 
     routes.get("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
-<<<<<<< HEAD
-=======
     routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
     routes.get("/Carrito", pedido.mostrarPedido);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
->>>>>>> 6c229dcbe7a3f5cd5fff4a95f2cd2f8708eb2fc7
 
 
     return routes;
