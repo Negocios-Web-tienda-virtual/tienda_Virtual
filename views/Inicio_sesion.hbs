@@ -1,15 +1,23 @@
 <form class="form-signin-clientes" action=" " method="POST">
  {{>messages}}
-    <div class="mb-4 text-center">
-        <h1>Iniciar sesión como cliente en Tienda Virtual</h1>
-        <p>Bienvenido a la mejor tienda virtual</p>
+    <div class="mb-4 text-center session-sign">
+        <h1>Iniciar sesión en Tienda Virtual</h1>
+        <p>Bienvenido al mejor restaurante</p>
     </div>
-    <section class="form-login-customer">
+    <section class="form-login-customer inicio">
       {{!-- Alertas --}}
   
-      <h5>Iniciar sesión</h5>
+      <div class="title content">
+        <h5>Iniciar sesión</h5>
       <input class="controls" type="email"    name="email"    id="email"    placeholder="Correo Electronico"    required>
       <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"            required>
       <button class="buttons" type="submit" >Iniciar sesión</button>
+      <button class="buttons"><a href="/registro" >Registrate</a></button>
+     
+     </div><div class="image">
+        <h1>Disfruta de nuestras comidas</h1>
+        <h2>La mejor comida de la ciudad</h2>
+      </div>
     </section>
+ 
 </form>

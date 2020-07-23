@@ -1,9 +1,10 @@
 <form class="form-signin" action="/registro" method="POST">
-    <div class="mb-4 text-center">
-        <h1>Registrarse como cliente en Tienda Virtual</h1>
+    <div class="mb-4 text-center title-register">
+        <h1>Registrarse en Tienda Virtual</h1>
         <p>Bienvenido a la mejor tienda virtual</p>
     </div>
     <section class="form-login">
+        <div class="content-input">
       <h5>Registrarse</h5>
       <input class="controls" type="text"     name="name"    id="name"    placeholder="Nombre Completo"    required>
       <input class="controls" type="email"    name="email"       id="email"       placeholder="Correo Electronico" required>
@@ -15,5 +16,11 @@
           <option value="administrador">Administrador</option>
       </select>
       <button class="buttons" type="submit">Registrarse</button>
+      <a class="redirect" href="/inicio_sesion">Iniciar sesion</a>
+    
+        </div>
+          <div class="content-register"> <h1>Gracias por preferirnos</h1>
+        <p>Disfruta de nuestra comida</p></div>
     </section>
+    
 </form>
