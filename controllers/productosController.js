@@ -53,7 +53,7 @@ exports.mostrarProductosCliente = async(req, res, next) => {
 
     try {
         const productos = await Productos.findAll();
-        res.render("ver_productos", { productos, layout: "auth" });
+        res.render("menu", { productos, layout: "auth" });
 
     } catch (error) {
         console.log(error);

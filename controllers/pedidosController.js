@@ -28,8 +28,9 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 
 };
 exports.crearPedido = async(req, res, next) => {
-    const { nombre, precio, quantity, descripcion } = req.body;
     const usuario = res.locals.Usuario;
+    const { nombre, precio, quantity, descripcion } = req.body;
+
     console.log(nombre, precio, quantity, descripcion, "prod");
     console.log(cliente.id, "vh");
     try {
