@@ -70,6 +70,25 @@
                 </div>
             </div>
     <!-- slider_area_end -->
+    <div class="container text-center container-products">  
+    {{#if productos}}
+    <h1>Comidas</h1>
+    {{#each productos}}
+
+            <div class="card card-view-products" style="width:500px;" >
+            <div class="card-body">
+                <p class="card-text">{{dataValues.image}}</p>
+                <p class="card-text">{{dataValues.name}}</p>
+                <p class="card-text">{{dataValues.price}}</p>
+                <p class="card-text">{{dataValues.description}}</p>
+                <img src="{{dataValues.image}}" alt="" style="width:200px;height:300">
+                <div><button class="buttons" href="/menu_agregar_pedido" type="submit" style="">Agregar al pedido</button></div>
+                
+        </div>
+        </div>
+                
+        {{/each}}
+    {{/if}}
     <div class="best_burgers_area">
         <div class="container">
             <div class="row">
