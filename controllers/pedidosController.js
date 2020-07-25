@@ -31,23 +31,21 @@ exports.crearPedido = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     const { nombre, precio, quantity, descripcion } = req.body;
 
-    console.log(nombre, precio, quantity, descripcion, "prod");
-    console.log(cliente.id, "vh");
     try {
         await Pedido.create({
             nombre,
             precio,
             descripcion,
             quantity,
-            usuarioId: usuario.id,
         });
+        console.log(nombre);
         res.redirect("/");
         console.log("222");
 
     } catch (error) {
         console.log(error);
         const productos = await Productos.findAll();
-        res.render("ver_productos", { productos });
+        res.render("menu", { productos });
         console.log(error);
 
     }

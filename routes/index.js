@@ -46,7 +46,7 @@ module.exports = function() {
 
     // Menu
     routes.get("/menu", producto.mostrarProductosCliente);
-    routes.post("/menu_agregar_pedido", pedido.crearPedido);
+    routes.post("/menu_agregar_pedido", pedido.obtenerProductoPorUrl, pedido.crearPedido);
 
     routes.get("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
