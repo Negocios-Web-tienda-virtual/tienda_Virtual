@@ -1,22 +1,27 @@
-<div class="container text-center container-products">  
+<div class="container text-center container-products" style="width: 700px;">  
+        <div class="list-group" style="background-color: darkorange;">
+            <h2 style="color:aliceblue;">Carrito de Compras</h2>
+        </div>
 {{#if productos}}
-<h1>Carrito de compras</h1>
    {{#each productos}}
 
-        <div class="card card-view-products" style="width:500px;" >
-        <div class="card-body">
-            <p class="card-text">{{dataValues.nombre}}</p>
-            <p class="card-text">{{dataValues.precio}}</p>
-            <p class="card-text">{{dataValues.descripcion}}</p>
-            <p class="card-text">{{dataValues.quantity}}</p>
-            <p class="card-text">{{dataValues.fecha}}</p>
-            <img src="{{dataValues.url}}" alt="" style="width:100px;height:400px">
-            <a class="buttons" href="/agregar_pedido/{{dataValues.usuarioID}}" >Agregar pedido</a>
-            <a class="buttons" href="" >Eliminar pedido</a>
-    </div>
-    <a class="buttons" href="" >Continuar comprando</a>
-    <a class="buttons" href="" >Realizar págo</a>
-    </div>
-            
+        <div class="card card-view-products" style="width:500px ;" >
+            <div class="card" style="width: 18rem align-content=center; ">
+                <div class="card-body">
+                    <p class="card-text" style="color: orange;">{{dataValues.image}}</p>
+                    <p class="card-text" style="color: black;">Orden       : {{dataValues.name}}</p>
+                    <p class="card-text" style="color: black;">Precio      : {{dataValues.price}}</p>
+                    <p class="card-text" style="color: black;">Descripcion : {{dataValues.description}}</p>
+                    <img src="{{dataValues.image}}" alt="" style="width:100px;height:100px">
+                </div>
+            </div>
+            </div>
+                 
     {{/each}}
 {{/if}}
+<h3 style="color: greenyellow;">Subtotal : </h3>
+            <h3 style="color: red;">ISV      :</h3>
+            <h2 style="color: green;">Total    :</h2>
+            <a class="buttons" href="";">Continuar comprando</a>
+            <a class="buttons" href="" style="background-color: red;">Realizar págo</a>
+</div>  
