@@ -2,17 +2,17 @@
         <div class="list-group" style="background-color: darkorange;">
             <h2 style="color:aliceblue;">Carrito de Compras</h2>
         </div>
-{{#if productos}}
-   {{#each productos}}
+{{#if pedidos}}
+   {{#each pedidos}}
 
         <div class="card card-view-products" style="width:500px ;" >
             <div class="card" style="width: 18rem align-content=center; ">
                 <div class="card-body">
                     <p class="card-text" style="color: orange;">{{dataValues.image}}</p>
-                    <p class="card-text" style="color: black;">Orden       : {{dataValues.name}}</p>
-                    <p class="card-text" style="color: black;">Precio      : {{dataValues.price}}</p>
-                    <p class="card-text" style="color: black;">Descripcion : {{dataValues.description}}</p>
-                    <img src="{{dataValues.image}}" alt="" style="width:100px;height:100px">
+                    <p class="card-text" style="color: black;">Orden       : {{dataValues.nombre}}</p>
+                    <p class="card-text" style="color: black;">Precio      : {{dataValues.precio}}</p>
+                    <p class="card-text" style="color: black;">Descripcion : {{dataValues.descripcion}}</p>
+    
                 </div>
             </div>
             </div>

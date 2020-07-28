@@ -7,6 +7,7 @@ exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
 };
 exports.obtenerProductoPorUrl = async(req, res, next) => {
+    
     try {
         const producto = await Productos.findOne({
             where: {
@@ -15,14 +16,14 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 
         });
         res.render("agregarPedido", {
-            producto: producto.dataValues,
+            producto: producto.dataValues,layout: "auth"
         });
         console.log(producto.dataValues.id, "hasta aqui");
 
 
 
     } catch (error) {
-        res.render("agregarPedido");
+        res.redirect("/menu");
         console.log(error);
     }
 
@@ -37,17 +38,13 @@ exports.crearPedido = async(req, res, next) => {
             precio,
             descripcion,
             quantity,
+            usuarioId: usuario.id
         });
         console.log(nombre);
-        res.redirect("/");
-        console.log("222");
+        res.redirect("/menu");
 
     } catch (error) {
-        console.log(error);
-        const productos = await Productos.findAll();
-        res.render("menu", { productos });
-        console.log(error);
-
+        res.redirect("/menu")
     }
 };
 exports.mostrarPedido = async(req, res, next) => {

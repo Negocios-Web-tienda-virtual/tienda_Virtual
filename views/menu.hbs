@@ -71,7 +71,6 @@
                 </div>
             </div>
     <!-- slider_area_end -->
-    <form class="form-add-produc" action="/menu_agregar_pedido" method="POST" >
         <div class="container text-center container-products">  
         {{#if productos}}
         <h1>Comidas</h1>
@@ -79,19 +78,15 @@
 
                 <div class="card card-view-products" style="width:500px;" >
                 <div class="card-body">
-                    <input class="controls" type="text" name="name"   id="name"   placeholder="Nombre" value="{{dataValues.name}} " readonly=readonly >
-                    <input class="controls" type="text" name="price"   id="price"   placeholder="Precio" value="{{dataValues.price}}" readonly=readonly>
-                    <input class="controls" type="text" name="quantity"   id="quantity"   placeholder="Cantidad" " >
-                    <input class="controls" type="text" name="description"   id="description"   placeholder="Descripción" value="{{dataValues.description}}" readonly=readonly>
+                    <input class="controls" type="text" name="name"   id="name"   placeholder="Nombre" value="{{dataValues.name}} " readonly >
+                    <input class="controls" type="text" name="price"   id="price"   placeholder="Precio" value="{{dataValues.price}}" readonly>
+                    <input class="controls" type="text" name="description"   id="description"   placeholder="Descripción" value="{{dataValues.description}}" readonly>
                     <img src="{{dataValues.image}}" alt="" style="width:150px;height:100px">
-                    <div><button class="buttons" href="/menu_agregar_pedido" type="submit" style="">Agregar al pedido</button></div>
-                    
+                   <div class="div"> <a class="buttons" href="/agregarPedido/{{dataValues.url}}" type="submit" style="">Agregar al pedido</a>  </div>
             </div>
-            </div>
-                    
+            </div>     
             {{/each}}
         {{/if}}
-    </form>
     <div class="best_burgers_area">
         <div class="container">
             <div class="row">

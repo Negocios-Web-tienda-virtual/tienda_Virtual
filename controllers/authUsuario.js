@@ -44,7 +44,7 @@ exports.usuarioAdmin = (req, res, next) => {
     });
 };
 
-exports.usuarioCliente = (req, re, next)=>{
+exports.usuarioCliente = (req, res, next)=>{
     const usuario = res.locals.Usuario;
     const mensajes = [];
     if(usuario.nivelUsuario == "cliente"){
@@ -59,3 +59,4 @@ exports.usuarioCliente = (req, re, next)=>{
     }
     
 };
+

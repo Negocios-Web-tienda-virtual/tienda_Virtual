@@ -47,13 +47,13 @@ module.exports = function() {
 
     // Menu
     routes.get("/menu", producto.mostrarProductosCliente);
-    routes.post("/menu_agregar_pedido", pedido.obtenerProductoPorUrl, pedido.crearPedido);
+    routes.get("/agregarPedido/:url", pedido.obtenerProductoPorUrl);
 
     routes.get("/agregar_pedido", usuarioAu.usuarioAutenticado, pedido.obtenerProductoPorUrl);
 
     routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
 
-    routes.get("/Carrito", carrito.mostrarProductos);
+    routes.get("/Carrito",usuarioAu.usuarioAutenticado, carrito.mostrarProductos);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
