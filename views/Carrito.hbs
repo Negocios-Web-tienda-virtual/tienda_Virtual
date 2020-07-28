@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <p class="card-text" style="color: orange;">{{dataValues.image}}</p>
                     <p class="card-text" style="color: black;">Orden       : {{dataValues.nombre}}</p>
-                    <p class="card-text" style="color: black;">Precio      : {{dataValues.precio}}</p>
+                    <p class="card-text" style="color: black;" id="price" name="price">Precio      : {{dataValues.precio}}</p>
                     <p class="card-text" style="color: black;">Descripcion : {{dataValues.descripcion}}</p>
     
                 </div>
@@ -19,9 +19,10 @@
                  
     {{/each}}
 {{/if}}
-<h3 style="color: greenyellow;">Subtotal : </h3>
-            <h3 style="color: red;">ISV      :</h3>
-            <h2 style="color: green;">Total    :</h2>
+
+<h3 style="color: greenyellow;">Subtotal : {{totales.imp}}</h3>
+            <h3 style="color: red;">ISV(15%) : {{totales.subtot}}</h3>
+            <h2 style="color: green;">Total    : {{totales.tot}}</p></h2>
             <a class="buttons" href="";">Continuar comprando</a>
             <a class="buttons" href="" style="background-color: red;">Realizar págo</a>
 </div>  
