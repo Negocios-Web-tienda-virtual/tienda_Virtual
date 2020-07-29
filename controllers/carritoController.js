@@ -11,6 +11,8 @@ exports.mostrarProductos = async(req, res, next) => {
     var sum=0;
     var subtotalantedepagar=0;
     var imp=0;
+    var cantidadallevar=0;
+    var totalporpedido=0;
     var total=[];
     var impuesto=[];
     var subtotal=[];
@@ -23,9 +25,12 @@ exports.mostrarProductos = async(req, res, next) => {
             pedidos = pedidos.map(function(pedido) {
                 pedido.dataValues.fecha = moment(pedido.dataValues.fecha).fromNow();
                 valor=pedido.dataValues.precio;
-                sum+=valor;
+                cantidadallevar=pedido.dataValues.quantity;
+                totalporpedido=valor*cantidadallevar;
+                sum+=totalporpedido;
                 return pedido;
             });
+
             imp=sum*0.15;
             subtotalantedepagar=sum-imp;
             total.push({tot: parseFloat(sum).toFixed(2)});
