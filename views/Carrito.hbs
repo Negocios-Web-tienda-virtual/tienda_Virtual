@@ -19,10 +19,21 @@
                  
     {{/each}}
 {{/if}}
-
-<h3 style="color: greenyellow;">Subtotal : {{totales.imp}}</h3>
-            <h3 style="color: red;">ISV(15%) : {{totales.subtot}}</h3>
-            <h2 style="color: green;">Total    : {{totales.tot}}</p></h2>
-            <a class="buttons" href="";">Continuar comprando</a>
+{{#if subtotal}}
+{{#each subtotal}}
+<h3 style="color: greenyellow;">Subtotal : {{sub}}</h3>
+    {{/each}}
+{{/if}}
+{{#if impuesto}}
+    {{#each impuesto}}
+          <h3 style="color: red;">ISV(15%) : {{imp}}</h3>
+    {{/each}}
+{{/if}}
+{{#if total}}
+    {{#each total}}
+            <h2 style="color: green;">Total    :{{tot}}</p></h2>
+            <a class="buttons" href="";>Continuar comprando</a>
             <a class="buttons" href="" style="background-color: red;">Realizar págo</a>
-</div>  
+</div>
+    {{/each}}
+{{/if}}
