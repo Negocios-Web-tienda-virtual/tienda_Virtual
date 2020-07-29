@@ -18,10 +18,6 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
         res.render("agregarPedido", {
             producto: producto.dataValues,layout: "auth"
         });
-        console.log(producto.dataValues.id, "hasta aqui");
-
-
-
     } catch (error) {
         res.redirect("/menu");
         console.log(error);
@@ -38,6 +34,8 @@ exports.crearPedido = async(req, res, next) => {
             precio,
             descripcion,
             quantity,
+            estadopago:0,
+            fecha: new Date().getTime(),
             usuarioId: usuario.id
         });
         console.log(nombre);
