@@ -21,19 +21,12 @@ exports.enviarCorreo = async(opciones) => {
         },
     });
 
-    const send = await transporter.sendMail({
-        from: "Golosinas <willminpoldou@Golosinas.com>",
-        to: opciones.usuario.email,
-        subject: opciones.subject,
-        text: opciones.text,
-        html,
-    });
-
+    
     // Obtener y construir el template del correo electrónico
     fs.readFile(
         path.resolve(__dirname, "../views/emails/email_reestablecer.hbs"),
         "utf8",
-        function async(error, source) {
+         async function(error, source) {
             if (error) {
                 console.log("No se puede cargar el template de correo");
                 throw error;
@@ -47,8 +40,16 @@ exports.enviarCorreo = async(opciones) => {
             const template = hbs.compile(source.toString());
             const html = template(data);
 
-            // Enviar el correo electrónico
-            send();
+            const send = await transporter.sendMail({
+                from: "Golosinas <willminpoldou@Golosinas.com>",
+                to: opciones.usuario.email,
+                subject: opciones.subject,
+                text: opciones.text,
+                html,
+            });
+        
+
+          
         }
     );
 };

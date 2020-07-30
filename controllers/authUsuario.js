@@ -5,7 +5,7 @@ const Usuario = require("../models/Usuario");
 //importar crypto
 const crypto = require("crypto");
 //importar la configuración de envio de correo electrónico
-const enviarCoreo = require("../helpers/email");
+const enviarCorreo = require("../helpers/email");
 
 exports.autenticarUsuario = passport.authenticate("local", {
     successRedirect: "/",
@@ -103,5 +103,5 @@ exports.enviarToken = async(req, res, next) => {
         "success",
         "Se envió un enlace para reestablecer tu contraseña a tu correo electrónico"
     );
-    res.redirect("/iniciar_sesion");
+    res.redirect("/inicio_sesion");
 };
