@@ -53,10 +53,12 @@ module.exports = function() {
 
     routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
 
-    routes.get("/Carrito",usuarioAu.usuarioAutenticado, carrito.mostrarProductos);
+    routes.get("/Carrito", usuarioAu.usuarioAutenticado, carrito.mostrarProductos);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
+    routes.get("/restablecerPassword", usuario.formularioReestablecerPassword);
+    routes.post("/restablecerPassword", usuarioAu.enviarToken);
 
     return routes;
 };
