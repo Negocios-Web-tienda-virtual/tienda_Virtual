@@ -66,3 +66,6 @@ exports.formularioIniciarSesion = (req, res, next) => {
     console.log(messages);
     res.render("inicio_sesion", { layout: "auth", messages });
 };
+exports.formularioReestablecerPassword = (req, res, next) => {
+    res.render("restablecerPassword", { layout: "auth" });
+};
