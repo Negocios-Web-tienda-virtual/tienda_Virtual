@@ -5,9 +5,9 @@ exports.formularioUsuario = (req, res, next) => {
 };
 
 exports.crearUsuario = async(req, res, next) => {
-    const { name, email, password, codeAccess, nivelUsuario } = req.body;
+    const { name, email, direccion, telefono, password, codeAccess, nivelUsuario } = req.body;
     const mensajes = [];
-       
+
     try {
         if (nivelUsuario != null) {
             console.log("hasta aqui");
@@ -15,6 +15,8 @@ exports.crearUsuario = async(req, res, next) => {
                 await Usuario.create({
                     name,
                     email,
+                    direccion,
+                    telefono,
                     password,
                     codeAccess,
                     nivelUsuario,
@@ -24,7 +26,7 @@ exports.crearUsuario = async(req, res, next) => {
                     error: "Se inicio sesión satisfactoriamente.",
                     type: "alert-success",
                 });
-                console.log(name, email, password, codeAccess, nivelUsuario,"admin");
+                console.log(name, email, password, codeAccess, nivelUsuario, "admin");
             } else {
                 mensajes.push({
                     error: "Ha ocurrido un error al registrarte!. Intenta de nuevo.",
@@ -36,6 +38,8 @@ exports.crearUsuario = async(req, res, next) => {
                 await Usuario.create({
                     name,
                     email,
+                    direccion,
+                    telefono,
                     password,
                     codeAccess,
                     nivelUsuario,
@@ -45,7 +49,7 @@ exports.crearUsuario = async(req, res, next) => {
                     error: "Se inicio sesión satisfactoriamente.",
                     type: "alert-success",
                 });
-                console.log(name, email, password, codeAccess, nivelUsuario,"cliente");
+                console.log(name, email, password, codeAccess, nivelUsuario, "cliente");
             }
         } else {
             mensajes.push({
