@@ -1,6 +1,6 @@
 
 </div>
-<form class="form-add-produc" action="/ver_producto" method="POST">
+<form class="form-add-produc" action="/ver_producto" method="POST" >
     <div class="mb-4 text-center">
         <h1>Productos</h1>
     </div>
@@ -18,24 +18,31 @@
        </div>
 </form>
 
-<div class="container text-center container-products">
-    
+<div class="container">
+<h1 class="text-center pt-5 pb-4 text-white"> Productos en existencia </h1>
+    <div class="d-flex flex-row-reverse">
+    </div>
+    <div class="card-deck mb-3 text-center">
 {{#if productos}}
-<h1>Productos</h1>
-   {{#each productos}}
 
-        <div class="card card-view-products" style="width: 18rem;" >
+   {{#each productos}}
+        <div class="card card-view-products mb-4 shadow-sm ">
+        <div class="card-header text-white"><h5 >Plato de comida #{{dataValues.id}} </h5></div>
         <div class="card-body">
+            <p class="card-text">{{dataValues.name}}</p>
             <p class="card-text">{{dataValues.idProducto}}</p>
             <p class="card-text">{{dataValues.image}}</p>
-            <p class="card-text">{{dataValues.name}}</p>
+            <img src="{{dataValues.image}}" alt="" style="width: 300px;heigth:300px">
             <p class="card-text">{{dataValues.price}}</p>
             <p class="card-text">{{dataValues.quantity}}</p>
             <p class="card-text">{{dataValues.description}}</p>
              <img src=" {{producto.image}} " alt="">
-            <a class="buttons" href="/modificar_producto/{{dataValues.url}}" >Modificar</a>
+             <button class="buttons">
+            <a class="buttons " href="/modificar_producto/{{dataValues.url}}" >Modificar</a></button>
             <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</button>
     </div>
     </div>
     {{/each}}
 {{/if}}
+</div>
+</div>

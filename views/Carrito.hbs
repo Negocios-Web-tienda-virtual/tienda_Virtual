@@ -1,0 +1,41 @@
+<div class="container text-center container-products" style="width: 700px;">  
+        <div class="list-group" style="background-color: darkorange;">
+            <h2 style="color:aliceblue;">Carrito de Compras</h2>
+        </div>
+{{#if pedidos}}
+   {{#each pedidos}}
+        
+        <div class="card card-view-products" style="width:500px ;" >
+            <div class="card" style="width: 18rem align-content=center; ">
+                <div class="card-body">
+                    <p class="card-text" style="color: orange;">{{dataValues.image}}</p>
+                    <p class="card-text" style="color: black;">Orden       : {{dataValues.nombre}}</p>
+                    <p class="card-text" style="color: black;" id="price" name="price">Precio      : {{dataValues.precio}}</p>
+                    <p class="card-text" style="color: black;">Descripcion : {{dataValues.descripcion}}</p>
+    
+                </div>
+            </div>
+            </div>
+                 
+    {{/each}}
+    {{else}}
+    <h1>Actualmente no tienes nada en el carrito de compras</h1>
+{{/if}}
+{{#if subtotal}}
+{{#each subtotal}}
+<h3 style="color: greenyellow;">Subtotal : {{sub}}</h3>
+    {{/each}}
+{{/if}}
+{{#if impuesto}}
+    {{#each impuesto}}
+          <h3 style="color: red;">ISV(15%) : {{imp}}</h3>
+    {{/each}}
+{{/if}}
+{{#if total}}
+    {{#each total}}
+            <h2 style="color: green;">Total    :{{tot}}</p></h2>
+            <a class="buttons" href="";>Continuar comprando</a>
+            <a class="buttons" href="" style="background-color: red;">Realizar págo</a>
+</div>
+    {{/each}}
+{{/if}}

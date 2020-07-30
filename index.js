@@ -13,7 +13,6 @@ const bodyParer = require("body-parser");
 
 // importar passport
 const passport = require("./config/passport");
-const passportAdmin = require("./config/passportAdmin.js");
 
 // importar connect flash para mensajes
 const flash = require("connect-flash");
@@ -23,12 +22,11 @@ const session = require("express-session");
 
 const cookieParser = require("cookie-parser");
 
-// Importar Modelos 
-require("./models/administrador");
-require("./models/Cliente");
+//const formidable = require("express-formidable");
+
 require("./models/Producto");
 require("./models/Pedido");
-
+require("./models/Usuario");
 
 
 // Realizando la conexión a la base de datos virtualStore
@@ -59,6 +57,7 @@ app.use(bodyParer.urlencoded({ extended: true }));
 // Habilitar el uso de cookie-Parser
 app.use(cookieParser());
 
+//app.use(formidable.parse({ keepExtensions: true }));    
 // Habiliar las sesiones el usuario
 app.use(
     session({
@@ -72,27 +71,20 @@ app.use(flash());
 // Crear una instancia de passport y cargar nuestra estrategia
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passportAdmin.initialize());
-app.use(passportAdmin.session());
 
 
 // Pasar algunos valores mediante middleware
 app.use((req, res, next) => {
-    res.locals.Administrador = {...req.user } || null;
+    res.locals.Usuario = {...req.user } || null;
     res.locals.messages = req.flash();
     next();
 });
-app.use((req, res, next) => {
-    res.locals.Cliente = {...req.user } || null;
-    res.locals.messages = req.flash();
-    next();
-});
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.locals.Producto = {...req.user } || null;
     res.locals.messages = req.flash();
     next();
 });
-
+ */
 
 
 // rutas del servidor 

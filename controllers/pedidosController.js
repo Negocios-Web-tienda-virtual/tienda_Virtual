@@ -6,57 +6,54 @@ const Pedido = require("../models/Pedido");
 exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
 };
-exports.obtenerProductoPorUrl = async(req, res, next)=>{
-    const cliente = res.locals.Cliente;
-
+exports.obtenerProductoPorUrl = async(req, res, next) => {
+    
     try {
         const producto = await Productos.findOne({
-            where:{ 
-                url : req.params.url
-            }, 
-        
+            where: {
+                url: req.params.url
+            },
+
         });
-        
-                res.render("agregarPedido", {
-                    producto: producto.dataValues,
-                });
-                console.log(producto.dataValues.id);
-                
-                
-    
+        res.render("agregarPedido", {
+            producto: producto.dataValues,layout: "auth"
+        });
     } catch (error) {
-        res.render("agregarPedido");
+        res.redirect("/menu");
+        console.log(error);
     }
-  
+
 };
 exports.crearPedido = async(req, res, next) => {
-   const { nombre, precio, quantity, descripcion } = req.body;
-    const cliente = res.locals.Cliente;
-    const producto = res.locals.Producto;
-    console.log(nombre,precio,quantity,descripcion);
- 
-    console.log(cliente.id);
-    
-    
+    const usuario = res.locals.Usuario;
+    const { nombre, precio, quantity, descripcion } = req.body;
+
     try {
-        if(cliente.id){
-            await Pedido.create({
-                nombre,
-                precio,
-                descripcion,    
-                quantity,
-                clienteId: cliente.id,
-            });
-            res.redirect("/")
-        }
-        else{
-            res.render("registrarse", {layout: "auth"});
-        }
+        await Pedido.create({
+            nombre,
+            precio,
+            descripcion,
+            quantity,
+            estadopago:0,
+            fecha: new Date().getTime(),
+            usuarioId: usuario.id
+        });
+        console.log(nombre);
+        res.redirect("/menu");
+
+    } catch (error) {
+        res.redirect("/menu")
+    }
+};
+exports.mostrarPedido = async(req, res, next) => {
+
+    try {
+        const pedidos = await Pedido.findAll();
+        res.render("Carrito", { pedidos, layout: "auth" });
+
     } catch (error) {
         console.log(error);
-        const productos = await Productos.findAll();
-            res.render("ver_productos",
-            {productos} );
+
 
     }
 };

@@ -7,32 +7,36 @@ exports.formularioIngresarProducto = (req, res, next) => {
 };
 
 exports.crearProducto = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
+    const usuario = res.locals.Usuario;
 
-    console.log(administrador, "1");
 
     const { name, price, quantity, description, image, } = req.body;
-    try {
 
-        await Productos.create({
-            name,
-            price,
-            quantity,
-            description,
-            image,
-            administradorId: administrador.id,
-        });
-        res.redirect("/ver_producto");
+
+    try {
+        if (usuario.nivelUsario == "administrador") {
+            await Productos.create({
+                name,
+                price,
+                quantity,
+                description,
+                image,
+                usuarioId: usuario.id,
+            });
+            res.redirect("/ver_producto");
+        } else {
+            console.log("No eres un administrador");
+        }
     } catch (error) {
         res.render("AgregarProducto", { layout: "auth" });
         console.log(error);
 
     }
+    res.redirect("/ver_producto");
 };
 
 
 exports.mostrarProductos = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
@@ -46,11 +50,10 @@ exports.mostrarProductos = async(req, res, next) => {
     }
 };
 exports.mostrarProductosCliente = async(req, res, next) => {
-    const administrador = res.locals.Administrador;
 
     try {
         const productos = await Productos.findAll();
-        res.render("ver_productos", { productos, layout: "auth" });
+        res.render("menu", { productos, layout: "auth" });
 
     } catch (error) {
         console.log(error);
@@ -62,7 +65,6 @@ exports.mostrarProductosCliente = async(req, res, next) => {
 
 exports.obtenerProductoPorUrl = async(req, res, next) => {
 
-    const administrador = res.locals.Administrador;
     try {
 
         const producto = await Productos.findOne({
@@ -89,7 +91,7 @@ exports.actualizarProducto = async(req, res, next) => {
 
     const { name, price, quantity, description, image } = req.body;
 
-    const administrador = res.locals.Administrador;
+    const usuario = res.locals.Usuario;
     const mensaje = [];
     if (!name) {
         mensaje.push({
@@ -155,10 +157,11 @@ exports.eliminar_producto = async(req, res, next) => {
         });
 
         res.status(200).send("Producto eliminado");
-        res.redirect("/ver_producto",{layout: "auth"})
+
     } catch (error) {
         console.log(error);
-        
+
         return next();
     }
+
 };

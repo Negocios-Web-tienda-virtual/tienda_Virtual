@@ -27,6 +27,9 @@ const Pedido = dataBase.define(
         },
         quantity : {
             type: Sequelize.INTEGER,
+        },
+        estadopago:{
+            type: Sequelize.BOOLEAN,
         }
         ,
         fecha : {

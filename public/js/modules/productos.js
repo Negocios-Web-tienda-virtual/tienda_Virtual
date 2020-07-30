@@ -3,10 +3,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 // Obtener el nombre del botón desde el DOM
-const btnDelete = document.querySelector("#eliminar-producto");
+const buttonsDelete = document.querySelectorAll(
+    "button[name='eliminar-producto']");
 
-// Agregar un evento al click del botón
-btnDelete.addEventListener("click", (e) => {
+
+
+buttonsDelete.forEach((btnDelete)=>{btnDelete.addEventListener("click", (e) => {
     const urlProductos = e.target.dataset.productoUrl;
 
     Swal.fire({
@@ -30,12 +32,18 @@ btnDelete.addEventListener("click", (e) => {
             axios.delete(url, { params: { url: urlProductos } }).then(function(response) {
                 Swal.fire("Eliminado", response.data, "success");
             }).catch(() =>{
-                Swal.fire("!Error", error);
-                console.log("2");
+                Swal.fire({icon: "error",
+            title: "!Error!",
+        text: "No se ha podido eliminar el producto"});
             });
             
+            setTimeout(()=> {
+                window.location.href = "/ver_producto";
+            }, 3000);
         }
     });
     
-});
-export default btnDelete;
+});})
+// Agregar un evento al click del botón
+
+export default buttonsDelete;

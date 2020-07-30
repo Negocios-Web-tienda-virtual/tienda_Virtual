@@ -1,26 +1,27 @@
-// Importación de Sequelize
 const Sequelize = require("sequelize");
-
-const dataBase = require("../config/db");
-
-const Producto = require("./Producto")
 
 const bcrypt = require("bcrypt-nodejs");
 
-const AdministradorVS = dataBase.define(
-    "administrador",
+const db = require("../config/db");
+
+const Producto = require("./Producto")
+const Pedido = require("./Pedido")
+
+const Usuario = db.define(
+    "usuario",
     {
-        id:{
+        
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        fullname: {
-            type : Sequelize.STRING(100),
+        name: {
+            type: Sequelize.STRING,
             allowNull: false,
-            validate : {
-                notEmpty: {
-                    msg: "Ingresa tu nombre completo",
+            validate :{
+                notEmpty : {
+                    msg : "Debes de ingresar el nombre del producto",
                 },
             },
         },
@@ -65,23 +66,28 @@ const AdministradorVS = dataBase.define(
         },
         token : Sequelize.STRING,
         expiration: Sequelize.DATE,
-    },
-    { 
+        nivelUsuario:{
+            type: Sequelize.STRING(100),
+        }
+    },{
     hooks : {
-        beforeCreate(administradorVS){
-            administradorVS.password = bcrypt.hashSync(
-                administradorVS.password,
-                bcrypt.genSaltSync(13)
+        beforeCreate(usuario){
+            const date = new Date();
+            usuario.fecha= date.toISOString();
+            usuario.password = bcrypt.hashSync(
+                usuario.password,
+                bcrypt.genSaltSync(15)
             );
         },
     },
 },
 );
 
-AdministradorVS.hasMany(Producto);
+Usuario.hasMany(Producto);
+Usuario.hasMany(Pedido);
 
-AdministradorVS.prototype.comparePassword = function(password){
+Usuario.prototype.comparePassword = function(password){
     return bcrypt.compareSync(password, this.password);
 };
 
-module.exports = AdministradorVS;
+module.exports = Usuario;
