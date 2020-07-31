@@ -105,3 +105,59 @@ exports.enviarToken = async(req, res, next) => {
     );
     res.redirect("/inicio_sesion");
 };
+exports.validarToken = async(req, res, next) => {
+    try {
+        // Buscar si el token enviado existe
+        const { token } = req.params;
+
+        const usuario = await Usuario.findOne({
+            where: {
+                token,
+            },
+        });
+
+        // Si no se encuentra el usuario
+        if (!usuario) {
+            req.flash("error", "¡El enlace que seguiste no es válido!");
+            res.redirect("/restablecer_Password");
+        }
+
+        // Si el usuario existe, mostrar el formulario de generar nueva contraseña
+        res.render("restablecer_Password", { layout: "auth", token });
+    } catch (error) {
+        res.redirect("/inicio_sesion");
+    }
+};
+exports.actualizarPassword = async(req, res, next) => {
+    const usuario = await Usuario.findOne({
+        where: {
+            token: req.params.token,
+            expiration: {
+                [Op.gte]: Date.now(),
+            },
+        },
+    });
+
+    // Verificar que se obtiene un usuario
+    if (!usuario) {
+        req.flash(
+            "error",
+            "Token no válido o vencida. El token tiene 1 hora de validez"
+        );
+        res.redirect("/restablecer_Password");
+    }
+
+    // Si el token es correcto y aún no vence
+    usuario.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+
+    // Limpiar los valores del token y de la expiración
+    usuario.token = null;
+    usuario.expiration = null;
+
+    // Guardar los cambios
+    await usuario.save();
+
+    // Redireccionar al inicio de sesión
+    req.flash("success", "Tu contraseña se ha actualizado correctamente");
+    res.redirect("/inicio_sesion");
+};

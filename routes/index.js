@@ -1,7 +1,7 @@
 // importando express router
 const express = require("express");
 const routes = express.Router();
-
+const { body } = require("express-validator");
 // importar controlador del sitio web
 const pedido = require("../controllers/pedidosController");
 const producto = require("../controllers/productosController");
@@ -60,5 +60,13 @@ module.exports = function() {
     routes.get("/restablecerPassword", usuario.formularioReestablecerPassword);
     routes.post("/restablecerPassword", usuarioAu.enviarToken);
 
+
+    routes.get("/restablecer_Password/:token", usuarioAu.validarToken);
+    routes.post(
+        "/restablecer_Password/:token",
+        // Sanitizar el contenido del formulario
+        body("password").notEmpty().trim(),
+        usuarioAu.actualizarPassword
+    );
     return routes;
 };
