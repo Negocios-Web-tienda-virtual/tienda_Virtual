@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 // Importar la configuración de Mailtrap.io
 const mailTrapConfig = require("../config/emails");
 // Importar Handlebars
-const hbs = require("express-handlebars");
+const hbs = require("handlebars");
 const fs = require("fs");
 const path = require("path");
 
