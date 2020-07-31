@@ -10,6 +10,7 @@ const menu = require("../controllers/menuController"); /*ubicacion del controlad
 const usuario = require("../controllers/usuarioController");
 const usuarioAu = require("../controllers/authUsuario");
 const carrito = require("../controllers/carritoController");
+const { default: pedidos } = require("../public/js/modules/pedidos");
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -57,16 +58,22 @@ module.exports = function() {
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
-    routes.get("/restablecerPassword", usuario.formularioReestablecerPassword);
-    routes.post("/restablecerPassword", usuarioAu.enviarToken);
+    routes.patch("/Pedidos/:id",usuarioAu.usuarioAutenticado
+    ,pedido.actualizarEstadoPedido);
+    routes.get("/restablecerPassword",
+     usuario.formularioReestablecerPassword);
+    routes.post("/restablecerPassword", 
+    usuarioAu.enviarToken);
 
 
-    routes.get("/restablecer_Password/:token", usuarioAu.validarToken);
+    routes.get("/resetear_password/:token",
+     usuarioAu.validarToken);
     routes.post(
-        "/restablecer_Password/:token",
+        "/resetear_password/:token",
         // Sanitizar el contenido del formulario
         body("password").notEmpty().trim(),
         usuarioAu.actualizarPassword
     );
+    routes.get("/Pedidos", usuarioAu.usuarioAutenticado,usuarioAu.usuarioAdmin, pedido.mostrarPedido);
     return routes;
 };

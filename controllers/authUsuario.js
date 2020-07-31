@@ -2,10 +2,13 @@ const passport = require("passport");
 
 const Usuario = require("../models/Usuario");
 
+const bcrypt = require("bcrypt-nodejs")
 //importar crypto
 const crypto = require("crypto");
 //importar la configuración de envio de correo electrónico
 const enviarCorreo = require("../helpers/email");
+const Sequelize  = require("sequelize");
+const Op = Sequelize.Op;
 
 exports.autenticarUsuario = passport.authenticate("local", {
     successRedirect: "/",
@@ -86,7 +89,7 @@ exports.enviarToken = async(req, res, next) => {
     await usuario.save();
 
     // URL de reestablecer contraseña
-    const resetUrl = `http://${req.headers.host}/reestablecerPassword/${usuario.token}`;
+    const resetUrl = `http://${req.headers.host}/resetear_password/${usuario.token}`;
 
     // Enviar el correo electrónico al usuario con el link que contiene
     // el token generado
@@ -94,7 +97,7 @@ exports.enviarToken = async(req, res, next) => {
         usuario,
         subject: "Reestablece tu contraseña de usuario",
         resetUrl,
-        vista: "email_reestablecer",
+        vista: "email_restablecer",
         text: "Has solicitado reestablecer tu contraseña de Taskily! Autoriza el contenido HTML.",
     });
 
@@ -123,7 +126,7 @@ exports.validarToken = async(req, res, next) => {
         }
 
         // Si el usuario existe, mostrar el formulario de generar nueva contraseña
-        res.render("restablecer_Password", { layout: "auth", token });
+        res.render("resetear_password", { layout: "auth", token });
     } catch (error) {
         res.redirect("/inicio_sesion");
     }
