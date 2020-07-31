@@ -21,12 +21,12 @@ exports.enviarCorreo = async(opciones) => {
         },
     });
 
-    
+
     // Obtener y construir el template del correo electrónico
     fs.readFile(
-        path.resolve(__dirname, "../views/emails/email_reestablecer.hbs"),
+        path.resolve(__dirname, "../views/emails/email_restablecer.hbs"),
         "utf8",
-         async function(error, source) {
+        async function(error, source) {
             if (error) {
                 console.log("No se puede cargar el template de correo");
                 throw error;
@@ -47,9 +47,9 @@ exports.enviarCorreo = async(opciones) => {
                 text: opciones.text,
                 html,
             });
-        
 
-          
+
+
         }
     );
 };
