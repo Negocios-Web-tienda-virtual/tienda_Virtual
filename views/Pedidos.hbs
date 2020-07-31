@@ -1,0 +1,39 @@
+<div class="container">
+{{#if pedidos }}
+ <div class="card-header text-center text-light">
+<h1>Pedidos</h1></div>
+<ul id="listado-pedidos">
+    {{#each pedidos}}
+        <div class="card-deck mb-2 shadow-sm">
+            <div class="card card-view-products" style="max-width:500px;">
+                <div class="card-body text-center">
+                    <p class="card-text">{{dataValues.name}}</p>
+                    <p class="card-text">{{dataValues.precio}}</p>
+                    <p class="card-text">{{dataValues.quantity}}</p>
+                    <p class="card-text ">{{dataValues.nombre}}</p>
+                    <p class="card-text">{{dataValues.estadoPago}}</p>
+                    <p class="card-text">{{dataValues.fecha}}</p>
+                    <p class="card-text">{{dataValues.total}}</p>
+                    <p class="card-text">{{dataValues.usuarioId}}</p>
+                    <label class="text-light" for="">Se realizo el pago</label>
+                        <li data-pedido={{id}}>
+                            <div class="togglebutton text-ligth">
+                                  <label>
+                                {{#if estado}}
+                                    <i class="fa fa-check-circle" aria-hidden="false"></i>
+                                {{else}}
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                {{/if}}
+                                <span class="toggle"></span>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+
+        </div>
+    </div>
+  </div>
+    {{/each}}
+{{/if}}
+</div>
+</div>

@@ -27,6 +27,7 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 exports.crearPedido = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     const { nombre, precio, quantity, descripcion } = req.body;
+    var total= precio*quantity;
 
     try {
         await Pedido.create({
@@ -36,7 +37,8 @@ exports.crearPedido = async(req, res, next) => {
             quantity,
             estadopago:0,
             fecha: new Date().getTime(),
-            usuarioId: usuario.id
+            usuarioId: usuario.id,
+            total:total,
         });
         console.log(nombre);
         res.redirect("/menu");
@@ -49,7 +51,7 @@ exports.mostrarPedido = async(req, res, next) => {
 
     try {
         const pedidos = await Pedido.findAll();
-        res.render("Carrito", { pedidos, layout: "auth" });
+        res.render("Pedidos", { pedidos, layout: "auth" });
 
     } catch (error) {
         console.log(error);
@@ -57,3 +59,24 @@ exports.mostrarPedido = async(req, res, next) => {
 
     }
 };
+
+exports.actualizarEstadoPedido = async(req, res, next)=>{
+    try {
+        const { id } = req.params;
+
+        const pedido= await Pedido.findOne({
+            where:{
+                id,
+            },
+        });
+
+        const estado = pedido.estadopago = 0 ? 1 :0;
+        pedido.estadopago= estado;
+        
+        await pedido.save();
+
+        res.status(200).send("El pago se acualizado correctamente");
+    } catch (error) {
+        res.send(401).send("Error al momento de actualizar el pago");
+    }
+}
