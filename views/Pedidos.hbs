@@ -1,10 +1,36 @@
 <div class="container">
-{{#if pedidos }}
+    {{#if usuarios}}
+        {{#each usuarios}}
+        <table class="table table-dark">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{dataValues.id}}</th>
+                    <td>{{dataValues.name}}</td>
+                    <td>{{dataValues.direccion}}</td>
+                    <td>{{dataValues.telefono}}</td>
+                    <td>{{dataValues.email  }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="card-text">{{dataValues.name}}, hola</p>
+        {{/each}}
+        {{else}}
+        <p>ol</p>
+    {{/if}}
+    {{#if pedidos }}
     <div class="card-header text-center text-light">
-    <h1>Pedidos</h1></div>
+        <h1>Pedidos</h1>
+    </div>
     <ul id="listado-pedidos">
-    {{#each pedidos}}
-    <div class="card-deck mb-2 shadow-sm">
+        {{#each pedidos}}
+        <div class="card-deck mb-2 shadow-sm">
             <div class="card card-view-products" style="max-width:500px;">
                 <div class="card-body text-center">
                     <p class="card-text">{{dataValues.name}}</p>
@@ -20,22 +46,24 @@
                         <div class="togglebutton">
                             <label>
                                 {{#if estadopago}}
-                                    <i class="fa fa-check-circle" aria-hidden="false"></i>
+                                <i class="fa fa-check-circle" aria-hidden="false"></i>
                                 {{else}}
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
                                 {{/if}}
                                 <span class="toggle"></span>
                             </label>
                         </div>
                     </li>
     </ul>
-        
-                        
 
-        </div>
-    </div>
-  </div>
-    {{/each}}
+
+
+</div>
+</div>
+</div>
+{{/each}}
+{{else}}
+<h1>Actualmente no hay pedidos pendientes</h1>
 {{/if}}
 </div>
 </div>

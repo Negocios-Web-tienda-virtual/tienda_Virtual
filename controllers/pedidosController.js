@@ -1,8 +1,9 @@
 // importar modelo Pedidos
-const Pedidos = require("../models/Pedido");
 const Productos = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-
+const Usuario = require("../models/Usuario");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
 };
@@ -55,8 +56,13 @@ exports.crearPedido = async(req, res, next) => {
 exports.mostrarPedido = async(req, res, next) => {
 
     try {
+        const usuarios = await Usuario.findAll({
+            where:{
+                nivelUsuario: "cliente",
+            }
+        });
         const pedidos = await Pedido.findAll();
-        res.render("Pedidos", { pedidos, layout: "auth" });
+        res.render("Pedidos", {usuarios, pedidos, layout: "auth" });
 
     } catch (error) {
         console.log(error);
