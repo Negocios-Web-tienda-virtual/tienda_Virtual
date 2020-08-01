@@ -59,7 +59,7 @@ module.exports = function() {
     routes.get("/login", usuario.formularioIniciarSesion);
 
     routes.patch("/Pedido/:id", usuarioAu.usuarioAutenticado, pedido.actualizarEstadoPedido);
-    
+
     routes.get("/restablecerPassword",
         usuario.formularioReestablecerPassword);
     routes.post("/restablecerPassword",
@@ -75,5 +75,6 @@ module.exports = function() {
         usuarioAu.actualizarPassword
     );
     routes.get("/Pedidos", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, pedido.mostrarPedido);
+    routes.get("/cerrar_sesion", usuarioAu.cerrarSesion);
     return routes;
 };

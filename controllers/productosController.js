@@ -46,10 +46,10 @@ exports.mostrarProductos = async(req, res, next) => {
     }
 };
 exports.mostrarProductosCliente = async(req, res, next) => {
-
+    const usuario = res.locals.usuario;
     try {
         const productos = await Productos.findAll();
-        res.render("menu", { productos, layout: "auth" });
+        res.render("menu", { productos, usuario, layout: "auth" });
 
     } catch (error) {
         console.log(error);

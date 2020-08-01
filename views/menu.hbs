@@ -31,18 +31,20 @@
                                         
                                         <li><a href="/Carrito">Carrito</a><span class="sr-only"(current)></span></li>  
                                         <li><a href="/Pedidos">Pedidos</a><span class="sr-only"(current)></span></li>                                                                         
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Cerrar sesión</a>
-                                        </li>
+                                        {{#if usuario}}
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a>
+                                                </li>
+                                            {{else}}
+                                                <p>Puto el que lo lea</p>
+                                        {{/if}}
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo-img">
-                                    <a href="index.html">
                                         <img src="img/logo.png" alt="">
-                                    </a>
                                 </div>
                             </div>
                             <div class="col-12">
