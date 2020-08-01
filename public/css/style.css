@@ -11,8 +11,8 @@
 
 body {
     /* degradado obtenido de https://webgradients.com/ */
-    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
- background-blend-mode: multiply;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    background-blend-mode: multiply;
 }
 
 .navbarcolor {
@@ -51,35 +51,36 @@ p {
     box-sizing: border-box;
 }
 
-
 .form-login {
     width: 350px;
-    
     background-image: url("/img/login.png");
     background-position: center center;
     background-size: cover;
     margin: auto;
     margin-top: 18px;
-    box-shadow: 4px 7px  10px var(--orange-third);
+    box-shadow: 4px 7px 10px var(--orange-third);
     padding: 20px 30px;
     border-top: 4px solid var(--orange-secundary);
     color: white;
     display: flex;
     flex-direction: column;
 }
-@media(min-width:768px){
-    .form-login{
+
+@media(min-width:768px) {
+    .form-login {
         display: flex;
         flex-direction: row;
         width: 750px;
-    height: 550px;
+        height: 550px;
     }
 }
-.content-input{
+
+.content-input {
     width: 300px;
     padding-right: 1em;
 }
-.content-input button{
+
+.content-input button {
     margin: auto;
     margin-top: 1em;
 }
@@ -93,7 +94,6 @@ p {
     font-size: 20px;
 }
 
-
 .form-login-customer {
     width: 370px;
     height: 500px;
@@ -101,42 +101,48 @@ p {
     background: #4e4d4d;
     margin: auto;
     margin-top: 18px;
-    box-shadow: 3px 5px 8px  var(--orange-third);
+    box-shadow: 3px 5px 8px var(--orange-third);
     /* padding: 20px 30px; */
     border-top: 4px solid var(--orange-secundary);
     color: white;
 }
-.form-signin-clientes{
-    padding-top:4em;
-}
-.session-sign
 
-{
-width: 300px;
-box-shadow: 7px 13px 37px #000;
-margin: auto;
-/* degradado obtenido de https://webgradients.com/ */
-background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
- background-blend-mode: multiply;}
-@media(min-width:768px){
-    .session-sign{
+.form-signin-clientes {
+    padding-top: 4em;
+}
+
+.session-sign {
+    width: 300px;
+    box-shadow: 7px 13px 37px #000;
+    margin: auto;
+    /* degradado obtenido de https://webgradients.com/ */
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    background-blend-mode: multiply;
+}
+
+@media(min-width:768px) {
+    .session-sign {
         width: 650px;
     }
 }
 
-.form-login-customer input,button{
+.form-login-customer input,
+button {
     width: 300px;
     margin: 1em;
 }
-.form-login-customer a{
+
+.form-login-customer a {
     color: white;
 }
-@media(min-width:768px){
-    .form-login-customer{
-    width: 900px;
-    height: 360px;
+
+@media(min-width:768px) {
+    .form-login-customer {
+        width: 900px;
+        height: 360px;
+    }
 }
-}
+
 .form-add-products {
     width: 400px;
     height: 400px;
@@ -149,7 +155,6 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     color: white;
 }
 
-
 .form-login-customer h5 {
     margin: auto;
     text-align: center;
@@ -159,13 +164,13 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     font-size: 20px;
 }
 
-.image{
+.image {
     width: 100%;
     text-align: center;
     padding-left: 0.5em;
-
 }
-.inicio{
+
+.inicio {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -173,29 +178,34 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     background-image: url("/img/login.png");
     background-size: cover;
     background-position: center center;
-
-    height:600px;
- 
+    height: 600px;
 }
-.content{
+
+.content {
     width: 400px;
     padding-right: 2em;
-    
 }
-.content a{text-decoration: none;}
-.content a:hover{text-decoration: none;background-color: var(--color2);}
 
+.content a {
+    text-decoration: none;
+}
 
-@media(min-width:768px){
-   .inicio{
-    display: flex;
-    flex-direction: row;
-    height: 400px;
+.content a:hover {
+    text-decoration: none;
+    background-color: var(--color2);
 }
-.image{
-    margin: auto;
+
+@media(min-width:768px) {
+    .inicio {
+        display: flex;
+        flex-direction: row;
+        height: 400px;
+    }
+    .image {
+        margin: auto;
+    }
 }
-}
+
 .controls {
     width: 100%;
     border: 1px solid var(--black-color);
@@ -213,7 +223,6 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     border: none;
     color: white;
     margin-bottom: 16px;
-   
 }
 
 .buttons:hover {
@@ -228,13 +237,13 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
 
 .form-login a {
     color: white;
-    text-decoration: none; 
+    text-decoration: none;
     font-size: 14px;
 }
 
- .form-login a:hover {
+.form-login a:hover {
     text-decoration: none;
-} 
+}
 
 .form-add h5 {
     margin: 0;
@@ -244,42 +253,51 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
     border-bottom: 1px solid;
     font-size: 20px;
 }
-.card-view-products{
+
+.card-view-products {
     border-radius: 1em;
     border-color: var(--orange-third);
-    background-color: var(--black-color);margin: 0 auto;
-    padding:  1em;
+    background-color: var(--black-color);
+    margin: 0 auto;
+    padding: 1em;
 }
-.container-products{
+
+.container-products {
     padding-top: 2em;
     background-color: var(--black-color);
 }
-.title-register{
+
+.title-register {
     background-color: var(--orange-color);
     width: 350px;
     margin: auto;
     margin-top: 2em;
 }
-@media(min-width:768px){
-    .title-register{
+
+@media(min-width:768px) {
+    .title-register {
         width: 500px;
     }
 }
-.content-register{
+
+.content-register {
     margin: auto;
     text-align: center;
 }
-.form-signin{
-margin-bottom: 2em
 
+.form-signin {
+    margin-bottom: 2em
 }
-.form-signin a{
+
+.form-signin a {
     text-decoration: none;
 }
-.form-signin a:hover{
+
+.form-signin a:hover {
     text-decoration: none;
     background-color: var(--color2);
 }
+
 .buttons-a {
     margin: auto;
     margin-top: 1em;
@@ -290,9 +308,12 @@ margin-bottom: 2em
     background-color: var(--orange-color);
     padding-top: 0.5em;
     text-decoration: none;
-
 }
-.image-producto{
+
+.image-producto {
     margin: auto;
     text-align: center;
+}
+li{
+    list-style: none;
 }

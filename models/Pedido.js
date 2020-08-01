@@ -11,7 +11,7 @@ const shortid = require("shortid");
 const Pedido = dataBase.define(
     "pedido",
     {
-        idPedido: {
+        id: {
             type : Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement : true,
@@ -37,6 +37,15 @@ const Pedido = dataBase.define(
         },
         url: {
             type:  Sequelize.STRING,
+        },
+        total:{
+            type: Sequelize.FLOAT,
+        },
+        subtotal:{
+            type: Sequelize.FLOAT,
+        },
+        impuesto:{
+            type: Sequelize.FLOAT,
         },
     },
     {

@@ -1,13 +1,14 @@
 // importar modelo Pedidos
-const Pedidos = require("../models/Pedido");
 const Productos = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-
+const Usuario = require("../models/Usuario");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
 };
 exports.obtenerProductoPorUrl = async(req, res, next) => {
-    
+
     try {
         const producto = await Productos.findOne({
             where: {
@@ -16,7 +17,8 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 
         });
         res.render("agregarPedido", {
-            producto: producto.dataValues,layout: "auth"
+            producto: producto.dataValues,
+            layout: "auth"
         });
     } catch (error) {
         res.redirect("/menu");
@@ -27,6 +29,9 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 exports.crearPedido = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     const { nombre, precio, quantity, descripcion } = req.body;
+    var total = precio * quantity;
+    var impuesto = total * 0.15;
+    var subtotal = total - impuesto;
 
     try {
         await Pedido.create({
@@ -34,9 +39,12 @@ exports.crearPedido = async(req, res, next) => {
             precio,
             descripcion,
             quantity,
-            estadopago:0,
+            estadopago: 0,
             fecha: new Date().getTime(),
-            usuarioId: usuario.id
+            usuarioId: usuario.id,
+            total: total,
+            impuesto: impuesto,
+            subtotal: subtotal,
         });
         console.log(nombre);
         res.redirect("/menu");
@@ -48,8 +56,13 @@ exports.crearPedido = async(req, res, next) => {
 exports.mostrarPedido = async(req, res, next) => {
 
     try {
+        const usuarios = await Usuario.findAll({
+            where:{
+                nivelUsuario: "cliente",
+            }
+        });
         const pedidos = await Pedido.findAll();
-        res.render("Carrito", { pedidos, layout: "auth" });
+        res.render("Pedidos", {usuarios, pedidos, layout: "auth" });
 
     } catch (error) {
         console.log(error);
@@ -57,3 +70,24 @@ exports.mostrarPedido = async(req, res, next) => {
 
     }
 };
+
+exports.actualizarEstadoPedido = async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const pedido = await Pedido.findOne({
+            where: {
+                id,
+            },
+        });
+
+        const estadopago = pedido.estadopago == 0 ? 1 : 0;
+
+        pedido.estadopago = estadopago;
+
+        await pedido.save();
+
+        res.status(200).send("El pago se acualizado correctamente");
+    } catch (error) {
+        res.send(401).send("Error al momento de actualizar el pago");
+    }
+}

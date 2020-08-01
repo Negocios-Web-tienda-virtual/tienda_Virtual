@@ -1,7 +1,7 @@
 // importando express router
 const express = require("express");
 const routes = express.Router();
-
+const { body } = require("express-validator");
 // importar controlador del sitio web
 const pedido = require("../controllers/pedidosController");
 const producto = require("../controllers/productosController");
@@ -10,6 +10,7 @@ const menu = require("../controllers/menuController"); /*ubicacion del controlad
 const usuario = require("../controllers/usuarioController");
 const usuarioAu = require("../controllers/authUsuario");
 const carrito = require("../controllers/carritoController");
+
 // construimos rutas disponibles para el servidor, estas deberán exportarse para poder
 // ser utilizadas en los demás archivos
 module.exports = function() {
@@ -53,10 +54,27 @@ module.exports = function() {
 
     routes.post("/agregar_pedido", usuarioAu.usuarioAutenticado, usuarioAu.usuarioCliente, pedido.crearPedido);
 
-    routes.get("/Carrito",usuarioAu.usuarioAutenticado, carrito.mostrarProductos);
+    routes.get("/Carrito", usuarioAu.usuarioAutenticado, carrito.mostrarProductos);
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
+    routes.patch("/Pedido/:id", usuarioAu.usuarioAutenticado, pedido.actualizarEstadoPedido);
 
+    routes.get("/restablecerPassword",
+        usuario.formularioReestablecerPassword);
+    routes.post("/restablecerPassword",
+        usuarioAu.enviarToken);
+
+
+    routes.get("/resetear_password/:token",
+        usuarioAu.validarToken);
+    routes.post(
+        "/resetear_password/:token",
+        // Sanitizar el contenido del formulario
+        body("password").notEmpty().trim(),
+        usuarioAu.actualizarPassword
+    );
+    routes.get("/Pedidos", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, pedido.mostrarPedido);
+    routes.get("/cerrar_sesion", usuarioAu.cerrarSesion);
     return routes;
 };

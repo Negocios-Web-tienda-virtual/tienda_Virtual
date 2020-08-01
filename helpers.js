@@ -1,0 +1,1 @@
+exports.vardum = (object)=> JSON.stringify(object, null, 2);
