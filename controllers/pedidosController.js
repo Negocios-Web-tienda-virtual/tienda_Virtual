@@ -29,6 +29,8 @@ exports.crearPedido = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     const { nombre, precio, quantity, descripcion } = req.body;
     var total = precio * quantity;
+    var impuesto = total*0.15;
+    var subtotal = total-impuesto;
 
     try {
         await Pedido.create({
@@ -40,6 +42,8 @@ exports.crearPedido = async(req, res, next) => {
             fecha: new Date().getTime(),
             usuarioId: usuario.id,
             total: total,
+            impuesto:impuesto,
+            subtotal: subtotal,
         });
         console.log(nombre);
         res.redirect("/menu");

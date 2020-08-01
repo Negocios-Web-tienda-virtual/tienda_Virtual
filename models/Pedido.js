@@ -40,7 +40,13 @@ const Pedido = dataBase.define(
         },
         total:{
             type: Sequelize.FLOAT,
-        }
+        },
+        subtotal:{
+            type: Sequelize.FLOAT,
+        },
+        impuesto:{
+            type: Sequelize.FLOAT,
+        },
     },
     {
         hooks : {

@@ -28,6 +28,7 @@ exports.mostrarProductos = async(req, res, next) => {
                 cantidadallevar=pedido.dataValues.quantity;
                 totalporpedido=valor*cantidadallevar;
                 sum+=totalporpedido;
+
                 return pedido;
             });
 
@@ -36,7 +37,8 @@ exports.mostrarProductos = async(req, res, next) => {
             total.push({tot: parseFloat(sum).toFixed(2)});
             impuesto.push({imp:parseFloat(imp).toFixed(2)});
             subtotal.push({sub: parseFloat(subtotalantedepagar).toFixed(2)});
-            res.render("Carrito", {impuesto,subtotal, total ,pedidos, layout: "auth" });
+
+            res.render("Carrito", {impuesto,subtotal, total ,pedidos, layout: "auth"});
         });
 
     } catch (error) {

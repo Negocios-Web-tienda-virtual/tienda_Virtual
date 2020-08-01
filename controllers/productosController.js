@@ -50,7 +50,7 @@ exports.mostrarProductosCliente = async(req, res, next) => {
     console.log(usuario);
     try {
         const productos = await Productos.findAll();
-        res.render("menu", { productos, user: usuario.nivelUsuario == "administrador" || usuario.nivelUsuario == "cliente" ? true : false, layout: "auth" });
+        res.render("menu", {userad: usuario.nivelUsuario =="administrador" ? true: false, productos, user: usuario.nivelUsuario == "administrador" || usuario.nivelUsuario == "cliente" ? true : false, layout: "auth" });
 
     } catch (error) {
         console.log(error);
