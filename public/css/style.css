@@ -314,3 +314,6 @@ button {
     margin: auto;
     text-align: center;
 }
+li{
+    list-style: none;
+}

@@ -58,7 +58,8 @@ module.exports = function() {
     // probando login nuevo
     routes.get("/login", usuario.formularioIniciarSesion);
 
-    routes.patch("/Pedidos/:id", usuarioAu.usuarioAutenticado, pedido.actualizarEstadoPedido);
+    routes.patch("/Pedido/:id", usuarioAu.usuarioAutenticado, pedido.actualizarEstadoPedido);
+    
     routes.get("/restablecerPassword",
         usuario.formularioReestablecerPassword);
     routes.post("/restablecerPassword",

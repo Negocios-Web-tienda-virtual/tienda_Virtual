@@ -63,15 +63,15 @@ exports.mostrarPedido = async(req, res, next) => {
 exports.actualizarEstadoPedido = async(req, res, next)=>{
     try {
         const { id } = req.params;
-
         const pedido= await Pedido.findOne({
             where:{
                 id,
             },
         });
 
-        const estado = pedido.estadopago = 0 ? 1 :0;
-        pedido.estadopago= estado;
+        const estadopago = pedido.estadopago = 0 ? 1 : 0;
+        
+        pedido.estadopago = estadopago;
         
         await pedido.save();
 

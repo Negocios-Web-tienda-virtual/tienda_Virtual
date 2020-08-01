@@ -1,10 +1,10 @@
 <div class="container">
 {{#if pedidos }}
- <div class="card-header text-center text-light">
-<h1>Pedidos</h1></div>
-<ul id="listado-pedidos">
+    <div class="card-header text-center text-light">
+    <h1>Pedidos</h1></div>
+    <ul id="listado-pedidos">
     {{#each pedidos}}
-        <div class="card-deck mb-2 shadow-sm">
+    <div class="card-deck mb-2 shadow-sm">
             <div class="card card-view-products" style="max-width:500px;">
                 <div class="card-body text-center">
                     <p class="card-text">{{dataValues.name}}</p>
@@ -16,19 +16,21 @@
                     <p class="card-text">{{dataValues.total}}</p>
                     <p class="card-text">{{dataValues.usuarioId}}</p>
                     <label class="text-light" for="">Se realizo el pago</label>
-                        <li data-pedido={{id}}>
-                            <div class="togglebutton text-ligth">
-                                  <label>
-                                {{#if estado}}
+                    <li data-pedido={{dataValues.id}}>
+                        <div class="togglebutton">
+                            <label>
+                                {{#if estadopago}}
                                     <i class="fa fa-check-circle" aria-hidden="false"></i>
                                 {{else}}
                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                 {{/if}}
                                 <span class="toggle"></span>
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
+                            </label>
+                        </div>
+                    </li>
+    </ul>
+        
+                        
 
         </div>
     </div>
