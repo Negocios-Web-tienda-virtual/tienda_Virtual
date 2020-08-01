@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
     {{#if usuarios}}
         {{#each usuarios}}
         <table class="table table-dark">
@@ -66,4 +67,42 @@
 <h1>Actualmente no hay pedidos pendientes</h1>
 {{/if}}
 </div>
+=======
+        {{#if pedidos }}
+            <div class="card-header text-center text-light">
+                <h1>Pedidos</h1></div>
+                <ul id="listado-pedidos">
+                    {{#each pedidos}}
+                        <div class="card-deck mb-2 shadow-sm">
+                                <div class="card card-view-products" style="max-width:500px;">
+                                    <div class="card-body text-center">
+                                        <p class="card-text">{{dataValues.name}}</p>
+                                        <p class="card-text">{{dataValues.precio}}</p>
+                                        <p class="card-text">{{dataValues.quantity}}</p>
+                                        <p class="card-text ">{{dataValues.nombre}}</p>
+                                        <p class="card-text">{{dataValues.estadoPago}}</p>
+                                        <p class="card-text">{{dataValues.fecha}}</p>
+                                        <p class="card-text">{{dataValues.total}}</p>
+                                        <p class="card-text">{{dataValues.usuarioId}}</p>
+                                        <label class="text-light" for="">Se realizo el pago</label>
+                                        <li data-pedido={{dataValues.id}}>
+                                            <div class="togglebutton">
+                                                <label>
+                                                    {{#if estadopago}}
+                                                        <i class="fa fa-check-circle" aria-hidden="false"></i>
+                                                    {{else}}
+                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                    {{/if}}
+                                                    <span class="toggle"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </ul>
+        {{/if}}
+    </div>
+>>>>>>> 294484ee13b3bc149ff2367f7150a99359915a82
 </div>

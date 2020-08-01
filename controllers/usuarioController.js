@@ -39,7 +39,7 @@ exports.crearUsuario = async(req, res, next) => {
                     direccion,
                     telefono,
                     password,
-                    codeAccess,
+                    codeAccess: 0,
                     nivelUsuario,
                 });
                 res.redirect("/inicio_sesion");
