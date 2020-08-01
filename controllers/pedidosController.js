@@ -7,7 +7,7 @@ exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
 };
 exports.obtenerProductoPorUrl = async(req, res, next) => {
-    
+
     try {
         const producto = await Productos.findOne({
             where: {
@@ -16,7 +16,8 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 
         });
         res.render("agregarPedido", {
-            producto: producto.dataValues,layout: "auth"
+            producto: producto.dataValues,
+            layout: "auth"
         });
     } catch (error) {
         res.redirect("/menu");
@@ -27,7 +28,7 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
 exports.crearPedido = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     const { nombre, precio, quantity, descripcion } = req.body;
-    var total= precio*quantity;
+    var total = precio * quantity;
 
     try {
         await Pedido.create({
@@ -35,10 +36,10 @@ exports.crearPedido = async(req, res, next) => {
             precio,
             descripcion,
             quantity,
-            estadopago:0,
+            estadopago: 0,
             fecha: new Date().getTime(),
             usuarioId: usuario.id,
-            total:total,
+            total: total,
         });
         console.log(nombre);
         res.redirect("/menu");
@@ -60,19 +61,19 @@ exports.mostrarPedido = async(req, res, next) => {
     }
 };
 
-exports.actualizarEstadoPedido = async(req, res, next)=>{
+exports.actualizarEstadoPedido = async(req, res, next) => {
     try {
         const { id } = req.params;
-        const pedido= await Pedido.findOne({
-            where:{
+        const pedido = await Pedido.findOne({
+            where: {
                 id,
             },
         });
 
-        const estadopago = pedido.estadopago = 0 ? 1 : 0;
-        
+        const estadopago = pedido.estadopago == 0 ? 1 : 0;
+
         pedido.estadopago = estadopago;
-        
+
         await pedido.save();
 
         res.status(200).send("El pago se acualizado correctamente");
