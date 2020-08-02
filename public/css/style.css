@@ -147,13 +147,13 @@ button {
 }
 
 .form-add-products {
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 500px;
     background: #4e4d4d;
     margin: auto;
     margin-top: 18px;
-    box-shadow: 7px 13px 37px var(--orange-color);
-    padding: 20px 30px;
+    box-shadow: 2px 13px 37px var(--orange-color);
+    padding: 30px 30px;
     border-top: 4px solid var(--orange-secundary);
     color: white;
 }
