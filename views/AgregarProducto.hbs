@@ -1,5 +1,5 @@
 </div>
-<form class="form-add-produc" action="/ver_producto" method="POST">
+<form class="form-add-produc" action="/ver_producto" method="POST" enctype="multipart/form-data">
     <div class="mb-4 text-center">
         <h1>Productos</h1>
     </div>
@@ -14,8 +14,7 @@
                 value="{{producto.quantity}}" required>
             <input class="controls" type="text" name="description" id="description" placeholder="Descripción"
                 value="{{producto.description}}" required>
-            <input class="controls" type="file" name="image" id="image" placeholder="Imagen" value="{{producto.image}}"
-                required>
+            <input class="controls" type="file" name="image" required>
 
             <button class="buttons" type="submit">Agregar Producto</button>
             <button class="buttons"><a class="buttons " href="/menu">Volver al Menú</a></button>
@@ -38,8 +37,7 @@
             <div class="card-body">
                 <p class="card-text">{{dataValues.name}}</p>
                 <p class="card-text">{{dataValues.idProducto}}</p>
-                <p class="card-text">{{dataValues.image}}</p>
-                <img src="{{dataValues.image}}" alt="" style="width: 300px;heigth:300px">
+                <img src="img/productos/{{dataValues.image}}" alt="" style="width:250;height:150px">
                 <p class="card-text">{{dataValues.price}}</p>
                 <p class="card-text">{{dataValues.quantity}}</p>
                 <p class="card-text">{{dataValues.description}}</p>
