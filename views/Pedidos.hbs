@@ -1,28 +1,28 @@
 <div class="container">
     {{#if usuarios}}
-        {{#each usuarios}}
-        <table class="table table-dark">
-            <thead>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Correo</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">{{dataValues.id}}</th>
-                    <td>{{dataValues.name}}</td>
-                    <td>{{dataValues.direccion}}</td>
-                    <td>{{dataValues.telefono}}</td>
-                    <td>{{dataValues.email  }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="card-text">{{dataValues.name}}, Hola.</p>
-        {{/each}}
-        {{else}}
-        <p>ol</p>
+    {{#each usuarios}}
+    <table class="table table-dark">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Correo</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{dataValues.id}}</th>
+                <td>{{dataValues.name}}</td>
+                <td>{{dataValues.direccion}}</td>
+                <td>{{dataValues.telefono}}</td>
+                <td>{{dataValues.email  }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="card-text">{{dataValues.name}}, Hola.</p>
+    {{/each}}
+    {{else}}
+    <p>ol</p>
     {{/if}}
     {{#if pedidos }}
     <div class="card-header text-center text-light">
@@ -55,8 +55,6 @@
                         </div>
                     </li>
     </ul>
-
-
 
 </div>
 </div>
