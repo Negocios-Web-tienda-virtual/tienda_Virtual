@@ -2,10 +2,10 @@
 const Sequelize = require("sequelize");
 require("dotenv").config({ path: "variables.env" });
 // Definición de parámetros de la base de datos de la VirtualStore
-const dataBase = new Sequelize("virtualStore",
+const dataBase = new Sequelize(process.env.MYSQLDB,
     process.env.MYSQLUSER,
     process.env.MYSQLPASS, {
-        host: "localhost",
+        host: process.env.MYSQLSERVER,
         dialect: "mysql",
         port: process.env.MYSQLPORT,
         operatorAlianses: false,

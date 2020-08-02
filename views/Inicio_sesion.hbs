@@ -1,24 +1,26 @@
-<form class="form-signin" action="" method="POST"></form>
+<form class="form-signin-clientes" action=" " method="POST">
+ {{>messages}}
+    <div class="mb-4 text-center session-sign">
+        <h1>Iniciar sesión en Golosinas</h1>
+        <p>Bienvenido al mejor restaurante</p>
+    </div>
+    <section class="form-login-customer inicio">
+      {{!-- Alertas --}}
+  
+      <div class="title content">
+        <h5>Iniciar sesión</h5>
+      <input class="controls" type="email"    name="email"    id="email"    placeholder="Correo Electronico"    required>
+      <input class="controls" type="password" name="password" id="password" placeholder="Contraseña"            required>
+      <button class="buttons" type="submit" >Iniciar sesión</button>
+       <a class="buttons-a" href="/registro" >Registrate</a>
 
-{{>messages}}
-    <div class="mb-4 text-center">
-        <h1>Iniciar sesión en Tienda Virtual</h1>
-        <p>Bienvenido a la mejor tienda virtual</p>
-    </div>
+      <div style="padding-top: 3%;"><a class="buttons-a-contra" href="/restablecerPassword" style="color: white ; ">¿Olvidaste tú contraseña?</a></div>
+     </div>
+     <div class="image">
+        <h1>Disfruta de nuestras comidas</h1>
+        <h2>La mejor comida de la ciudad</h2>
+      </div>
+    </section>
     
-    {{--Agregando el email--}}
-    <div class="form-label-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" name="email" id="email" placeholder="jconor@sky.net" required>
-    </div>
-
-    <div class="form-label-group">
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" placeholder="contraseña" required>
-    </div>
-    
-    <div class="mb3">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
-        <p class="text-center text-muted mt-5">©2020 Negocios Web - UNICAH</p>
-    </div>
+ 
 </form>

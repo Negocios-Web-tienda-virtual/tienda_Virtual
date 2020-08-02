@@ -1,0 +1,319 @@
+:root {
+    --black-color: #434B4D;
+    --orange-color: #FF6600;
+    --orange-secundary: #ffa726;
+    --orange-third: #e65100;
+    --orange-fourth: #ffccbc;
+    --color: #455a64;
+    --color1: #37474f;
+    --color2: #bf360c;
+}
+
+body {
+    /* degradado obtenido de https://webgradients.com/ */
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    background-blend-mode: multiply;
+}
+
+.navbarcolor {
+    background-color: var(--black-color);
+}
+
+.navbarcolor a {
+    color: var(--orange-color);
+}
+
+.navbarformcolor button {
+    color: var(--orange-color);
+}
+
+.navbarformcolor button {
+    border-color: var(--orange-color);
+}
+
+.navbarformcolor button:hover {
+    background-color: var(--orange-color);
+    border-color: var(--orange-color);
+    color: var(--black-color);
+}
+
+.mb-4 h1,
+p {
+    color: white;
+}
+
+
+/*style Douglas*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-login {
+    width: 350px;
+    background-image: url("/img/login.png");
+    background-position: center center;
+    background-size: cover;
+    margin: auto;
+    margin-top: 18px;
+    box-shadow: 4px 7px 10px var(--orange-third);
+    padding: 20px 30px;
+    border-top: 4px solid var(--orange-secundary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width:768px) {
+    .form-login {
+        display: flex;
+        flex-direction: row;
+        width: 750px;
+        height: 550px;
+    }
+}
+
+.content-input {
+    width: 300px;
+    padding-right: 1em;
+}
+
+.content-input button {
+    margin: auto;
+    margin-top: 1em;
+}
+
+.form-login h5 {
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+
+.form-login-customer {
+    width: 370px;
+    height: 500px;
+    justify-content: center;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 18px;
+    box-shadow: 3px 5px 8px var(--orange-third);
+    /* padding: 20px 30px; */
+    border-top: 4px solid var(--orange-secundary);
+    color: white;
+}
+
+.form-signin-clientes {
+    padding-top: 4em;
+}
+
+.session-sign {
+    width: 300px;
+    box-shadow: 7px 13px 37px #000;
+    margin: auto;
+    /* degradado obtenido de https://webgradients.com/ */
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    background-blend-mode: multiply;
+}
+
+@media(min-width:768px) {
+    .session-sign {
+        width: 650px;
+    }
+}
+
+.form-login-customer input,
+button {
+    width: 300px;
+    margin: 1em;
+}
+
+.form-login-customer a {
+    color: white;
+}
+
+@media(min-width:768px) {
+    .form-login-customer {
+        width: 900px;
+        height: 360px;
+    }
+}
+
+.form-add-products {
+    width: 400px;
+    height: 400px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 18px;
+    box-shadow: 7px 13px 37px var(--orange-color);
+    padding: 20px 30px;
+    border-top: 4px solid var(--orange-secundary);
+    color: white;
+}
+
+.form-login-customer h5 {
+    margin: auto;
+    text-align: center;
+    margin-top: 0.5em;
+    height: 40px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.image {
+    width: 100%;
+    text-align: center;
+    padding-left: 0.5em;
+}
+
+.inicio {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    background-image: url("/img/login.png");
+    background-size: cover;
+    background-position: center center;
+    height: 600px;
+}
+
+.content {
+    width: 400px;
+    padding-right: 2em;
+}
+
+.content a {
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: none;
+    background-color: var(--color2);
+}
+
+@media(min-width:768px) {
+    .inicio {
+        display: flex;
+        flex-direction: row;
+        height: 400px;
+    }
+    .image {
+        margin: auto;
+    }
+}
+
+.controls {
+    width: 100%;
+    border: 1px solid var(--black-color);
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.buttons {
+    width: 284px;
+    height: 40px;
+    background-color: var(--orange-color);
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.buttons:hover {
+    color: white;
+    background-color: var(--color2);
+}
+
+.form-login p {
+    height: 40px;
+    text-align: center;
+}
+
+.form-login a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-login a:hover {
+    text-decoration: none;
+}
+
+.form-add h5 {
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+
+.card-view-products {
+    border-radius: 1em;
+    border-color: var(--orange-third);
+    background-color: var(--black-color);
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.container-products {
+    padding-top: 2em;
+    background-color: var(--black-color);
+}
+
+.title-register {
+    background-color: var(--orange-color);
+    width: 350px;
+    margin: auto;
+    margin-top: 2em;
+}
+
+@media(min-width:768px) {
+    .title-register {
+        width: 500px;
+    }
+}
+
+.content-register {
+    margin: auto;
+    text-align: center;
+}
+
+.form-signin {
+    margin-bottom: 2em
+}
+
+.form-signin a {
+    text-decoration: none;
+}
+
+.form-signin a:hover {
+    text-decoration: none;
+    background-color: var(--color2);
+}
+
+.buttons-a {
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+    display: block;
+    width: 285px;
+    height: 40px;
+    background-color: var(--orange-color);
+    padding-top: 0.5em;
+    text-decoration: none;
+}
+
+.image-producto {
+    margin: auto;
+    text-align: center;
+}
+li{
+    list-style: none;
+}

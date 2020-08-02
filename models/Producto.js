@@ -8,9 +8,8 @@ const slug = require("slug");
 
 // Definimos el modelo
 const Producto = dataBase.define(
-    "producto",
-    {
-        idProducto: {
+    "producto", {
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -18,50 +17,56 @@ const Producto = dataBase.define(
         name: {
             type: Sequelize.STRING,
             allowNull: false,
-            validate :{
-                notEmpty : {
-                    msg : "Debes de ingresar el nombre del producto",
+            validate: {
+                notEmpty: {
+                    msg: "Debes de ingresar el nombre del producto",
                 },
             },
         },
-        price :{
-            type: Sequelize.FLOAT,
+        price: {
+            type: Sequelize.DOUBLE,
             allowNull: false,
-            validate : {
-                notEmpty :{
-                    msg : "Debes de ingresar el precio del producto",
-                },
-            },
+
         },
-        quantity:{
-            type : Sequelize.INTEGER,
+        quantity: {
+            type: Sequelize.INTEGER,
             allowNull: false,
-            validate : {
-                notEmpty :{
-                    msg :"Debes de ingresar la cantidad",
+            validate: {
+                notEmpty: {
+                    msg: "Debes de ingresar la cantidad",
                 },
             },
         },
-        description :{
+        description: {
             type: Sequelize.STRING,
             allowNull: false,
             validate: {
-                msg: "Ingresa la descripcion del producto",
+                notEmpty: {
+                    msg: "Ingresa la descripcion del producto",
+                },
             },
         },
-        url : {
+        image: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: "Ingresa la imagen del producto",
+                },
+            },
+        },
+        url: {
             type: Sequelize.STRING,
         },
-        
-    },
-    {
+
+    }, {
         hooks: {
-            beforeCreate(producto){
+            beforeCreate(producto) {
                 const url = slug(producto.name).toLowerCase();
 
                 producto.url = `${url}_${shortid.generate()}`;
             },
-            beforeUpdate(producto){
+            beforeUpdate(producto) {
                 const url = slug(producto.name).toLowerCase();
 
                 producto.url = `${url}_${shortid.generate()}`;
