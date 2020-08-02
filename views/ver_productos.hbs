@@ -1,18 +1,18 @@
-<div class="container text-center container-products">  
-{{#if productos}}
-<h1>Platos</h1>
-   {{#each productos}}
+<div class="container text-center container-products">
+    {{#if productos}}
+    <h1>Platos</h1>
+    {{#each productos}}
 
-        <div class="card card-view-products" style="width:500px;" >
+    <div class="card card-view-products" style="width:500px;">
         <div class="card-body">
             <p class="card-text">{{dataValues.image}}</p>
             <p class="card-text">{{dataValues.name}}</p>
             <p class="card-text">{{dataValues.price}}</p>
             <p class="card-text">{{dataValues.description}}</p>
             <img src="{{dataValues.image}}" alt="" style="width:100px;height:400px">
-            <a class="buttons" href="/agregar_pedido/{{dataValues.url}}" >Agregar pedido</a>
+            <a class="buttons" href="/agregar_pedido/{{dataValues.url}}">Agregar pedido</a>
+        </div>
     </div>
-    </div>
-            
+
     {{/each}}
-{{/if}}
+    {{/if}}
