@@ -1,31 +1,33 @@
 <form class="form-signin" action="/registro" method="POST">
-{{>messages}}
-    <div class="mb-4 text-center title-register">
-        <h1>Registrate</h1>
-        <p>Bienvenido!</p>
-    </div>
-    <section class="form-login">
-        <div class="content-input">
+  {{>messages}}
+  <div class="mb-4 text-center title-register">
+    <h1>Registrate</h1>
+    <p>¡Bienvenido!</p>
+  </div>
+  <section class="form-login">
+    <div class="content-input">
       <h5>Registrate</h5>
-      <input class="controls" type="text"     name="name"    id="name"    placeholder="Nombre Completo"    required>
-      <input class="controls" type="email"    name="email"       id="email"       placeholder="Correo Electronico" required>
-      <input class="controls" type="text"    name="direccion"       id="direccion"       placeholder="Dirección" required>
-      <input class="controls" type="text"    name="telefono"       id="telefono"       placeholder="Teléfono" required>
-      <input class="controls" type="password" name="password"    id="password"    placeholder="Contraseña"         required>
+      <input class="controls" type="text" name="name" id="name" placeholder="Nombre Completo" required>
+      <input class="controls" type="email" name="email" id="email" placeholder="Correo Electronico" required>
+      <input class="controls" type="text" name="direccion" id="direccion" placeholder="Dirección" required>
+      <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono" required>
+      <input class="controls" type="password" name="password" id="password" placeholder="Contraseña" required>
       <input type="password" class="controls" name="codeAccess" id="codeAccess" placeholder="Ingrese codigo de acceso">
       <select class="controls" name="nivelUsuario" id="nivelUsuario" aria-placeholder="">
-          <option value="">Elige un nivel de usuario</option>
-          <option value="cliente">Cliente</option>
-          <option value="administrador">Administrador</option>
+        <option value="">Elige un nivel de usuario</option>
+        <option value="cliente">Cliente</option>
+        <option value="administrador">Administrador</option>
       </select>
-      
+
       {{!-- <button class="buttons" onclick="windows.location.href='/inicio_sesion'">Iniciar sesion</button> --}}
-    
-        </div>
-          <div class="content-register"> <h1>Gracias por preferirnos</h1>
-        <p>Disfruta de nuestra comida</p>
-        <button class="buttons" type="submit">Registrarse</button>
-      <a href="/inicio_sesion" class="buttons-a" >Iniciar sesion</a></div>
-    </section>
-    
+
+    </div>
+    <div class="content-register">
+      <h1>Gracias por preferirnos</h1>
+      <p>Disfruta de nuestra comida</p>
+      <button class="buttons" type="submit">Registrarse</button>
+      <a href="/inicio_sesion" class="buttons-a">Iniciar sesion</a>
+    </div>
+  </section>
+
 </form>
