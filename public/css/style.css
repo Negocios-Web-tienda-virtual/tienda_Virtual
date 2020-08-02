@@ -74,6 +74,9 @@ p {
         height: 550px;
     }
 }
+.card-header{
+    display: grid;
+}
 
 .content-input {
     width: 300px;
@@ -225,6 +228,7 @@ button {
     margin-right: auto; 
     margin-left: auto;
     align-items: center;
+    overflow: hidden;
 }
 
 .buttons:hover {
@@ -264,9 +268,22 @@ button {
     padding: 1em;
 }
 
+/*para los div de los productos*/
+.card-deck{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .container-products {
     padding-top: 2em;
     background-color: var(--black-color);
+}
+
+/*Container para los productos en existencia*/
+.container-productos{
+    max-width: 100%;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .title-register {
