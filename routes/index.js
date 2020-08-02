@@ -59,6 +59,9 @@ module.exports = function() {
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
 
+    // Nosotros
+    routes.get("/nosotros", nosotros.formularionNosotros)
+
     // Menu
     routes.get("/menu", producto.mostrarProductosCliente);
     routes.get("/agregarPedido/:url", pedido.obtenerProductoPorUrl);
