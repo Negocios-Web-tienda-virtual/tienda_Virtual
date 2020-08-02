@@ -217,12 +217,14 @@ button {
 }
 
 .buttons {
-    width: 284px;
+    width: 100%;
     height: 40px;
     background-color: var(--orange-color);
     border: none;
     color: white;
-    margin-bottom: 16px;
+    margin-right: auto; 
+    margin-left: auto;
+    align-items: center;
 }
 
 .buttons:hover {

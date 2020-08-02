@@ -26,7 +26,7 @@
 {{#if productos}}
 
    {{#each productos}}
-        <div class="card card-view-products mb-4 shadow-sm ">
+    <div class="card card-view-products mb-4 shadow-sm ">
         <div class="card-header text-white"><h5 >Plato de comida #{{dataValues.id}} </h5></div>
         <div class="card-body">
             <p class="card-text">{{dataValues.name}}</p>
@@ -40,7 +40,7 @@
              <button class="buttons">
             <a class="buttons " href="/modificar_producto/{{dataValues.url}}" >Modificar</a></button>
             <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button" data-producto-url="{{dataValues.url}}">Eliminar</button>
-    </div>
+        </div>
     </div>
     {{/each}}
 {{/if}}
