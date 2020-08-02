@@ -76,5 +76,7 @@ module.exports = function() {
     );
     routes.get("/Pedidos", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, pedido.mostrarPedido);
     routes.get("/cerrar_sesion", usuarioAu.cerrarSesion);
+
+    routes.get("/pagar_creditCard", carrito.pagarcreditCard);
     return routes;
 };

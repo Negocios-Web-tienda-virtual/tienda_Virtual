@@ -4,27 +4,39 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 moment.locale("es");
 
+exports.pagarcreditCard = (req, res, next) => {
+    res.render("formulariotarjeta", { layout: "auth" });
+}
 exports.formularioCarrito = (req, res, next) => {
     res.render("Carrito", { layout: "auth" });
 };
 exports.mostrarProductos = async(req, res, next) => {
     const usuario = res.locals.Usuario;
     try {
-        const totalsum =  await Pedidos.sum('total',{ where:{
-            usuarioId: usuario.id,
-            estadopago:{
-                [Op.eq]: 0            }
-        }});
-        const subtotalsum =  await Pedidos.sum('subtotal',{ where:{
-            usuarioId: usuario.id,
-            estadopago:{
-                [Op.eq]: 0            }
-        }});
-        const impuestosum =  await Pedidos.sum('impuesto',{ where:{
-            usuarioId: usuario.id,
-            estadopago:{
-                [Op.eq]: 0            }
-        }});
+        const totalsum = await Pedidos.sum('total', {
+            where: {
+                usuarioId: usuario.id,
+                estadopago: {
+                    [Op.eq]: 0
+                }
+            }
+        });
+        const subtotalsum = await Pedidos.sum('subtotal', {
+            where: {
+                usuarioId: usuario.id,
+                estadopago: {
+                    [Op.eq]: 0
+                }
+            }
+        });
+        const impuestosum = await Pedidos.sum('impuesto', {
+            where: {
+                usuarioId: usuario.id,
+                estadopago: {
+                    [Op.eq]: 0
+                }
+            }
+        });
         Pedidos.findAll({
             where: {
                 usuarioId: usuario.id,
@@ -36,7 +48,7 @@ exports.mostrarProductos = async(req, res, next) => {
             });
 
 
-            res.render("Carrito", {pedidos, layout: "auth",totalsum,subtotalsum,impuestosum});
+            res.render("Carrito", { pedidos, layout: "auth", totalsum, subtotalsum, impuestosum });
         });
 
     } catch (error) {
