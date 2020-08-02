@@ -1,0 +1,26 @@
+.container-platos{
+    /* degradado obtenido de https://webgradients.com/ */
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    background-blend-mode: multiply;
+}
+
+.h1-platos{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.container-platos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-platos{
+    border-radius: 1em;
+    border-color: var(--orange-third);
+    background-color: var(--black-color);
+    margin: 0.5em;
+    padding: 1em;
+}
+
+
