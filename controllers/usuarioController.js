@@ -60,7 +60,7 @@ exports.crearUsuario = async(req, res, next) => {
 };
 exports.formularioIniciarSesion = (req, res, next) => {
     const messages = res.locals.messages;
-    res.render("inicio_sesion", { layout: "auth", messages });
+    res.render("Inicio_sesion", { layout: "auth", messages });
 };
 exports.formularioReestablecerPassword = (req, res, next) => {
     res.render("restablecer_password", { layout: "auth" });
