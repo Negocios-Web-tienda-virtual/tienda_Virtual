@@ -25,14 +25,7 @@ exports.crearUsuario = async(req, res, next) => {
                     error: "Se inicio sesión satisfactoriamente.",
                     type: "alert-success",
                 });
-            } else {
-                mensajes.push({
-                    error: "Ha ocurrido un error al registrarte!. Intenta de nuevo.",
-                    type: "alert-danger",
-                });
-                res.redirect("/registro");
-            }
-            if (nivelUsuario == "cliente") {
+            } else if (nivelUsuario == "cliente") {
                 await Usuario.create({
                     name,
                     email,
@@ -42,9 +35,16 @@ exports.crearUsuario = async(req, res, next) => {
                     codeAccess: 0,
                     nivelUsuario,
                 });
-                res.redirect("/inicio_sesion");
+
                 mensajes.push({
                     error: "Se inicio sesión satisfactoriamente.",
+                    type: "alert-success",
+                });
+                res.redirect("/inicio_sesion");
+            } else {
+                res.redirect("/registro");
+                mensajes.push({
+                    error: "No se registro correctamente.",
                     type: "alert-success",
                 });
             }
