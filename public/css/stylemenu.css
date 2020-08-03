@@ -41,10 +41,13 @@
   
   #btn-menu {
     display: none;
+    margin-right: 8em;
+    padding-right: 10em;
   }
   
   #btn-menu:checked + .menu .enlaces {
     margin-left: 25%;
+    padding-right: 10em;
   }
   header label {
     padding: 1em;
@@ -70,14 +73,26 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media(min-width:768px){
+    .menu{
+      width: 100%;
+      max-width: 100%;
+      margin: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
   
   .menu .logo {
     float: left;
   }
-  
+  /**/
   .enlaces {
-    margin-top: 0.5em;
+    margin-top: 5em;
     margin-left: 100%;
+    margin-right: 10em;
     width: 100%;
     text-align: center;
     display: flex;
@@ -85,15 +100,40 @@
     position: absolute;
     background-color: black;
     transition: all 0.5s;
+}
+
+  .enlaces li {
+      flex: 1;
+      font-size: 1.2em;
+      padding: 1em;
+      padding-top: 0.5em;
+      text-decoration: none;
+      color: whitesmoke;
+  }
+
+  .enlaces a {
+      text-decoration: none;
+      color: whitesmoke;
   }
   
-  .enlaces a {
-    flex: 1;
-    font-size: 1.2em;
-    padding: 1em;
-    text-decoration: none;
-    color: whitesmoke;
+  @media (min-width:768px){
+    .enlaces{
+      padding-top: 2em;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    background-color: black;
+    transition: all 0.5s;
+    text-align: center;
+    height: 100%;
+    }
   }
+  
+ 
   .enlaces a:hover {
     background-color: whitesmoke;
     color: var(--primary);

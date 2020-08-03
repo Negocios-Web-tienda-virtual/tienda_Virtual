@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/stylemenu.css">
+
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -31,85 +33,28 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid p-0">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="main-menu  d-none d-lg-block">
-                                <nav class="nav1">
-
-                                    <ul id="navigation">
-                                        <li><a class="active" href="/inicio">Inicio</a><span
-                                                class="sr-only">(current)</span></li>
-                                        <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
-                                        <li><a href="about.html">Nosotros</a></li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/inicio_sesion">Iniciar sesión</a>
-                                        </li>
-                                        <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only"
-                                                (current)></span>
-                                        </li>
-
-                                        <li><a href="/Carrito">Carrito</a><span class="sr-only" (current)></span></li>
-                                        {{#if userad}}
-                                        <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
-                                        <li><a href="/ver_producto">Productos</a><span class="sr-only" (current)></span>
-                                        </li>
-                                        {{/if}}
-                                        {{#if user}}
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a>
-                                        </li>
-                                        {{/if}}
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo-img">
-                                <img src="../img/logo3.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-5 d-none d-lg-block">
-                            <div class="book_room">
-                                <div class="socail_links">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="book_btn d-none d-xl-block">
-                                    <a class="#" href="#">+504 000 000 00</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
+        <input type="checkbox" id="btn-menu">
+        <nav class="menu">
+            <div class="logo">
+                <img src="../img/logo3.png" alt="">
             </div>
-        </div>
+            <div class="enlaces">
+                <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
+                <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
+                <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+                <li><a href="/Carrito">Carrito</a><span class="sr-only">(current)</span></li>
+                {{#if userad}}
+                <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
+                <li><a href="/ver_producto">Productos</a><span class="sr-only" (current)></span></li>
+                {{/if}}
+                {{#if user}}
+                    <li><a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a></li>
+                {{/if}}
+            </div>
+            <label for="btn-menu"><img src="../img/ham2.png" alt=""></label>
+        </nav>
     </header>
     <!-- header-end -->
 
