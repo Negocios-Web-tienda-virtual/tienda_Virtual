@@ -21,7 +21,7 @@
   }
   header {
     z-index: 2;
-    background-color: var(--primary);
+    background-color: black;
     position: fixed;
     width: 100%;
     top: 0;
@@ -78,12 +78,12 @@
   .enlaces {
     margin-top: 0.5em;
     margin-left: 100%;
-    width: 70%;
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: var(--primary);
+    background-color: black;
     transition: all 0.5s;
   }
   
