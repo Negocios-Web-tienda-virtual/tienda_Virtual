@@ -8,6 +8,7 @@
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/stylemenu.css">
     <link rel="stylesheet" href="css/styleplatos.css">
 
 </head>
@@ -15,6 +16,30 @@
 <body>
     <!-- header-->
     <header>
+        <input type="checkbox" id="btn-menu">
+        <nav class="menu">
+            <div class="logo">
+                <img src="../img/logo3.png" alt="">
+            </div>
+            <div class="enlaces">
+                <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
+                <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
+                <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+                <li><a href="/Carrito">Carrito</a><span class="sr-only">(current)</span></li>
+                {{#if userad}}
+                <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
+                <li><a href="/ver_producto">Productos</a><span class="sr-only" (current)></span></li>
+                {{/if}}
+                {{#if user}}
+                    <li><a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a></li>
+                {{/if}}
+            </div>
+            <label for="btn-menu"><img src="../img/ham2.png" alt=""></label>
+        </nav>
+    </header>
+    <!--<header>
         <div class="header-area">
             <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid p-0">
@@ -62,7 +87,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header>-->
     <!-- Presentación -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
@@ -136,10 +161,11 @@
                     <div class="col-xl-4 col-md-12 col-lg-4">
                         <div class="footer_widget">
                             <h3 class="footer_title">Mantente Conectado</h3>
-                            <div class="newsletter_form"><button type="submit"><a href="/inicio_sesion">Iniciar Sesión</a></button>
+                            <div class="newsletter_form"><button type="submit"><a href="/inicio_sesion">Iniciar
+                                        Sesión</a></button>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,7 +176,8 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> Derechos reservado | Proyecto para la clase  <i class="fa fa-heart-o" aria-hidden="true"></i> de <a
+                            <script>document.write(new Date().getFullYear());</script> Derechos reservado | Proyecto
+                            para la clase <i class="fa fa-heart-o" aria-hidden="true"></i> de <a
                                 href="https://colorlib.com" target="_blank">Negocios Web</a>
                         </p>
                     </div>
