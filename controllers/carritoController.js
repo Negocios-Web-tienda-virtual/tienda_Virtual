@@ -16,7 +16,7 @@ exports.mostrarProductos = async(req, res, next) => {
         const totalsum = await Pedidos.sum('total', {
             where: {
                 usuarioId: usuario.id,
-                estadopago: {
+                estado: {
                     [Op.eq]: 0
                 }
             }
@@ -24,7 +24,7 @@ exports.mostrarProductos = async(req, res, next) => {
         const subtotalsum = await Pedidos.sum('subtotal', {
             where: {
                 usuarioId: usuario.id,
-                estadopago: {
+                estado: {
                     [Op.eq]: 0
                 }
             }
@@ -32,7 +32,7 @@ exports.mostrarProductos = async(req, res, next) => {
         const impuestosum = await Pedidos.sum('impuesto', {
             where: {
                 usuarioId: usuario.id,
-                estadopago: {
+                estado: {
                     [Op.eq]: 0
                 }
             }

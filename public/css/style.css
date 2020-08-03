@@ -337,4 +337,11 @@ button {
 }
 li{
     list-style: none;
+}.container-pedidos{
+    background-color: var(--black-color);
+    margin: auto;
+}
+.card-pedido{
+    margin-left: 450px;
+    width: 100%;
 }

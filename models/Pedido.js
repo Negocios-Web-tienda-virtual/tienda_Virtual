@@ -6,6 +6,7 @@ const dataBase = require("../config/db");
 const slug = require("slug");
 
 const shortid = require("shortid");
+const Producto = require("./Producto");
 
 // Definimos el modelo
 const Pedido = dataBase.define(
@@ -28,7 +29,7 @@ const Pedido = dataBase.define(
         quantity : {
             type: Sequelize.INTEGER,
         },
-        estadopago:{
+        estado:{
             type: Sequelize.BOOLEAN,
         }
         ,
@@ -65,5 +66,5 @@ const Pedido = dataBase.define(
         },
     }
 );
-
+Pedido.belongsTo(Producto);
 module.exports = Pedido;
