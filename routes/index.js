@@ -2,6 +2,9 @@
 const express = require("express");
 const routes = express.Router();
 const { body } = require("express-validator");
+const multer = require("multer");
+const path = require("path");
+const shortid = require("shortid");
 // importar controlador del sitio web
 const pedido = require("../controllers/pedidosController");
 const producto = require("../controllers/productosController");
@@ -15,7 +18,17 @@ const carrito = require("../controllers/carritoController");
 // ser utilizadas en los demás archivos
 module.exports = function() {
     /*    routes.get("/", virtualStoreController.homeVirtualStore);*/
-
+    const storage = multer.diskStorage({
+        destination: path.join(__dirname, "../public/img/productos"),
+        filename: (req, file, cb) => {
+            const extension = file.mimetype.split("/")[1];
+            cb(null, `${shortid.generate()}.${extension}`);
+        }
+    });
+    const multerImage = multer({
+        storage,
+        dest: path.join(__dirname, '../public/img/productos')
+    }).single('image');
     routes.get("/", inicio.formularioInicio);
 
     routes.get("/ver_productos", producto.mostrarProductosCliente)
@@ -36,7 +49,7 @@ module.exports = function() {
 
     routes.get("/ver_producto", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.mostrarProductos);
 
-    routes.post("/ver_producto", usuarioAu.usuarioAutenticado, producto.crearProducto);
+    routes.post("/ver_producto", usuarioAu.usuarioAutenticado, multerImage, producto.crearProducto);
 
 
     routes.get("/modificar_producto/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.obtenerProductoPorUrl);
@@ -45,6 +58,9 @@ module.exports = function() {
     routes.delete("/eliminar-producto/:url", producto.eliminar_producto);
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
+
+    // Nosotros
+    routes.get("/nosotros", menu.formularionNosotros)
 
     // Menu
     routes.get("/menu", producto.mostrarProductosCliente);
@@ -76,5 +92,7 @@ module.exports = function() {
     );
     routes.get("/Pedidos", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, pedido.mostrarPedido);
     routes.get("/cerrar_sesion", usuarioAu.cerrarSesion);
+
+    routes.get("/pagar_creditCard", carrito.pagarcreditCard);
     return routes;
 };

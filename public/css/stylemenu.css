@@ -1,0 +1,165 @@
+:root {
+    --primary: #fa7a25;
+    --secondary: #2980b9;
+    --white: #fff;
+    --gray: #f2f2f2;
+    --dark: #2c3e50;
+  }
+  html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    padding-top: 3.25em;
+    background-color: var(--gray);
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+  }
+  header {
+    z-index: 2;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  /*Main navigation styles*/
+  .logo-titulo {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+  }
+  
+  .logo-titulo i {
+    font-size: 2em;
+  }
+  
+  #btn-menu {
+    display: none;
+    margin-right: 8em;
+    padding-right: 10em;
+  }
+  
+  #btn-menu:checked + .menu .enlaces {
+    margin-left: 25%;
+    padding-right: 10em;
+  }
+  header label {
+    padding: 1em;
+    float: right;
+  }
+  header label:hover {
+    background-color: var(--white);
+  }
+  
+  header label:hover i {
+    color: var(--primary);
+  }
+  
+  header label i {
+    font-size: 2em;
+    color: white;
+  }
+  .menu {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media(min-width:768px){
+    .menu{
+      width: 100%;
+      max-width: 100%;
+      margin: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  .menu .logo {
+    float: left;
+  }
+  /**/
+  .enlaces {
+    margin-top: 5em;
+    margin-left: 100%;
+    margin-right: 10em;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: black;
+    transition: all 0.5s;
+}
+
+  .enlaces li {
+      flex: 1;
+      font-size: 1.2em;
+      padding: 1em;
+      padding-top: 0.5em;
+      text-decoration: none;
+      color: whitesmoke;
+  }
+
+  .enlaces a {
+      text-decoration: none;
+      color: whitesmoke;
+  }
+  
+  @media (min-width:768px){
+    .enlaces{
+      padding-top: 2em;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    background-color: black;
+    transition: all 0.5s;
+    text-align: center;
+    height: 100%;
+    }
+  }
+  
+ 
+  .enlaces a:hover {
+    background-color: whitesmoke;
+    color: var(--primary);
+  }
+  @media (min-width: 768px) {
+    header label {
+      display: none;
+    }
+  
+    .menu {
+      display: flex;
+    }
+  
+    .menu .logo {
+      margin-top: 0;
+    }
+    .enlaces {
+      justify-content: space-between;
+      margin-top: 0;
+      margin-left: 0;
+      flex-direction: row;
+      position: unset;
+    }
+  
+    .enlaces a:first-of-type {
+      margin-left: auto;
+    }
+  }
+  

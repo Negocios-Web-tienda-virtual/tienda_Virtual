@@ -10,7 +10,8 @@ exports.crearProducto = async(req, res, next) => {
     const usuario = res.locals.Usuario;
 
 
-    const { name, price, quantity, description, image, } = req.body;
+    const { name, price, quantity, description } = req.body;
+    const image = req.file.filename;
 
 
     try {
@@ -19,16 +20,16 @@ exports.crearProducto = async(req, res, next) => {
             price,
             quantity,
             description,
-            image,
+            image: image,
             usuarioId: usuario.id,
         });
         res.redirect("/ver_producto");
     } catch (error) {
-        res.render("AgregarProducto", { layout: "auth" });
+        res.redirect("/ver_producto");
         console.log(error);
 
     }
-    res.redirect("/ver_producto");
+
 };
 
 
@@ -50,7 +51,7 @@ exports.mostrarProductosCliente = async(req, res, next) => {
     console.log(usuario);
     try {
         const productos = await Productos.findAll();
-        res.render("menu", {userad: usuario.nivelUsuario =="administrador" ? true: false, productos, user: usuario.nivelUsuario == "administrador" || usuario.nivelUsuario == "cliente" ? true : false, layout: "auth" });
+        res.render("menu", { userad: usuario.nivelUsuario == "administrador" ? true : false, productos, user: usuario.nivelUsuario == "administrador" || usuario.nivelUsuario == "cliente" ? true : false, layout: "auth" });
 
     } catch (error) {
         console.log(error);

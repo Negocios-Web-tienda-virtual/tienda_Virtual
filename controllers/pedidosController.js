@@ -3,6 +3,7 @@ const Productos = require("../models/Producto");
 const Pedido = require("../models/Pedido");
 const Usuario = require("../models/Usuario");
 const Sequelize = require("sequelize");
+
 const Op = Sequelize.Op;
 exports.formularioIngresarPedido = (req, res, next) => {
     res.render("ingresando_Pedido", { layout: "auth" });
@@ -39,7 +40,7 @@ exports.crearPedido = async(req, res, next) => {
             precio,
             descripcion,
             quantity,
-            estadopago: 0,
+            estado: 0,
             fecha: new Date().getTime(),
             usuarioId: usuario.id,
             total: total,
@@ -80,14 +81,29 @@ exports.actualizarEstadoPedido = async(req, res, next) => {
             },
         });
 
-        const estadopago = pedido.estadopago == 0 ? 1 : 0;
+        const estado = pedido.estado == 0 ? 1 : 0;
 
-        pedido.estadopago = estadopago;
+        pedido.estado = estado;
 
         await pedido.save();
 
         res.status(200).send("El pago se acualizado correctamente");
     } catch (error) {
         res.send(401).send("Error al momento de actualizar el pago");
+    }
+};
+exports.elimanrPedido = async(req, res, next)=>{
+    const {id}= req.params;
+
+    try {
+        await pedidos.destroy({
+            where:{
+                id,
+            }
+        });
+
+        res.status(200).send({message: "EL pedido ha sido elimando"});
+    } catch (error) {
+        res.status(401).send("Hubo un problema para elimnar el pedido");
     }
 }

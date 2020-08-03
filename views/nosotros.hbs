@@ -1,0 +1,207 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tienda Golosinas</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/stylemenu.css">
+
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <nav class="menu">
+            <div class="logo">
+                <img src="../img/logo3.png" alt="">
+            </div>
+            <div class="enlaces">
+                <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
+                <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
+                <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+                <li><a href="/Carrito">Carrito</a><span class="sr-only">(current)</span></li>
+                {{#if userad}}
+                <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
+                <li><a href="/ver_producto">Productos</a><span class="sr-only" (current)></span></li>
+                {{/if}}
+                {{#if user}}
+                    <li><a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a></li>
+                {{/if}}
+            </div>
+            <label for="btn-menu"><img src="../img/ham2.png" alt=""></label>
+        </nav>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg_1 overlay">
+        <h3>Nosotros</h3>
+    </div>
+    <!-- bradcam_area_end -->
+    <!-- about_area_start -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="about_thumb2">
+                        <div class="img_1">
+                            <img src="img/nosotros/1.png" alt="">
+                        </div>
+                        <div class="img_2">
+                            <img src="img/nosotros/2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5 offset-lg-1 col-md-6">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                            <span>Sobre Nosotros</span>
+                            <h3>Tienda Golosinas <br>
+                                En tú Ciudad</h3>
+                        </div>
+                        <p>Tienda Golosinas es un restaurante inspirado en la mezcla y toques de sabores, texturas y
+                            colores
+                            ubicados en el hall de entrada al Hotel y Centro de Eventos Malibu en la ciudad de
+                            Sincelejo. Animado con una brisa fresca en el centro de una arquitectura moderna, con una
+                            gran guaca de sabores. Nuestro menú es una experiencia ecléctica de la mejor cocina
+                            internacional con un toque de estilo mediterráneo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end -->
+
+    <!-- testimonial_area_start  -->
+    <div class="testimonial_area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-60 text-center">
+                        <span>Restaurante</span>
+                        <h3>Tienda Golosinas</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="single_testmonial text-center">
+                                        <h4>Mision:</h4>
+                                        <p>Satisfacer las necesidades gastronómicas de nuestros clientes,
+                                            ofreciendo alimentos y servicios con la más alta calidad, donde se
+                                            sobrepasen las expectativas de nuestros clientes y ser un espacio de trabajo
+                                            que permita la realización personal y el Desarrollo de sus colaboradores en
+                                            el grupo.
+                                            Tomando como estrategia principal el mejoramiento continúo de los estrictos
+                                            estándares de higiene y buen servicio en un ambiente seguro, agradable y
+                                            familiar a un precio justo.</p> </br> </br>
+                                        <h4>Vision:</h4>
+                                        <p>“Ser el Mejor Restaurante a nivel Regional y nacional" Ser
+                                            reconocido y preferido a nivel Regional y Nacional, como un grupo de trabajo
+                                            original, sólido y profesional.</p>
+                                        <div class="testmonial_author">
+                                            <div class="stars">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial_area_ned  -->
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget text-center ">
+                            <h3 class="footer_title pos_margin">
+                                Siguatepeque
+                            </h3>
+                            <p>9th Calle, de la plaza la amistad, <br>
+                                Frente al parque <br>
+                                <a href="#">info@TiendaVirtual.com</a></p>
+                            <a class="number" href="#">+504 000 000 00</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget text-center ">
+                            <h3 class="footer_title pos_margin">
+                                Comayagua
+                            </h3>
+                            <p>5th avenida, en el parque, <br>
+                                Frente a la catedral <br>
+                                <a href="#">info@TiendaVirtual.com</a></p>
+                            <a class="number" href="#">+504 000 000 00</a>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-12 col-lg-4">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">Mantente Conectado</h3>
+                            <div class="newsletter_form"><button type="submit"><a href="/inicio_sesion">Iniciar Sesión</a></button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> Derechos reservado | Proyecto para la clase  <i class="fa fa-heart-o" aria-hidden="true"></i> de <a
+                                href="https://colorlib.com" target="_blank">Negocios Web</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end  -->
+</body>
+
+</html>

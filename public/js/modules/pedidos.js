@@ -1,4 +1,6 @@
 import axios from "axios";
+import Swal from "sweetalert2";
+
 
 const pedidos = document.querySelector("#listado-pedidos");
 if (pedidos) {
@@ -16,8 +18,42 @@ if (pedidos) {
                     icono.parentElement.classList.toggle("btn-primary");
                 }
             });
+            setTimeout(()=> {
+                window.location.href = "/Pedidos";
+            }, 1000);
         }
-    })
+        if(e.target.classList.contains("fa-thumbs-up")){
+            const pedido = e.target.parentElement.parentElement;
+            const idPedido = pedidos.dataset.pedido;
+            Swal.fire({
+                title:"El pago ha sido realizado",
+                text:"verificacion de pago",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Verificado",
+                cancelButtonText: "Cancelar",
+            }).then((result)=>{
+                if (result.value) {
+                    const url = `${location.origin}/Pedidos/${idPedido}`;
+
+                    axios.delete(url, {params: {idPedido}})
+                    .then((response)=>{
+                        pedido.parentElement.removeChild(pedido);
+
+                        Swal.fire("Producto Eliminado", response.data.message, "success");
+                    }).catch((result)=>{
+                        Swal.fire(
+                            "Error",
+                            "Ha ocurrido un error al momento de eliminar",
+                            "error"
+                        );
+                    });
+                    
+                }
+            });
+        }
+    });
 }
 
 export default pedidos;

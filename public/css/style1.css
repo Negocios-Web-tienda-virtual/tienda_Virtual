@@ -1622,6 +1622,7 @@ h3 {
   line-height: 28px;
   margin-top: 0;
   margin-bottom: 37px;
+  color: #FFF;
 }
 
 @media (max-width: 767px) {
@@ -2394,7 +2395,7 @@ h3 {
 @media (max-width: 767px) {
   /* line 15, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_footer.scss */
   .footer .footer_top .footer_widget {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
   }
 }
 
@@ -2411,7 +2412,7 @@ h3 {
   font-weight: 700;
   color: #1A0D01;
   text-transform: capitalize;
-  margin-bottom: 39px;
+  margin-bottom: 20px;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -2577,7 +2578,7 @@ h3 {
   cursor: pointer;
   border-radius: 30px;
   top: 5px;
-  right: 5px;
+  right: 55px;
   font-size: 16px;
   font-weight: 600;
 }
