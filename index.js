@@ -90,7 +90,9 @@ app.use((req, res, next) => {
 // rutas del servidor 
 app.use("/", routes());
 
+const host = "0.0.0.0";
+const port = process.env.PORT;
 // Inicializar el servidor en un puerto en especifico
-app.listen(3000, () => {
+app.listen(port, host, () => {
     console.log("Servidor ejecutandose correctamente el el puerto 3000");
 });
