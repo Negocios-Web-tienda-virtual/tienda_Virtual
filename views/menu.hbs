@@ -25,8 +25,11 @@
                 <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
                 <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
                 <li><a href="/nosotros">Nosotros</a></li>
+                {{#if user}}
+                {{else}}
                 <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
                 <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+                {{/if}}
                 <li><a href="/Carrito">Carrito</a><span class="sr-only">(current)</span></li>
                 {{#if userad}}
                 <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
@@ -39,55 +42,6 @@
             <label for="btn-menu"><img src="../img/ham2.png" alt=""></label>
         </nav>
     </header>
-    <!--<header>
-        <div class="header-area">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid p-0">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col-xl-30 col-lg-30">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav class="nav1">
-
-                                    <ul id="navigation">
-                                        <li><a class="active" href="/inicio">Inicio</a><span
-                                                class="sr-only">(current)</span></li>
-                                        <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
-                                        <li><a href="/nosotros">Nosotros</a></li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/inicio_sesion">Iniciar sesión</a>
-                                        </li>
-                                        <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only"
-                                                (current)></span>
-                                        </li>
-
-                                        <li><a href="/Carrito">Carrito</a><span class="sr-only" (current)></span></li>
-                                        {{#if userad}}
-                                        <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
-                                        <li><a href="/ver_producto">Productos</a><span class="sr-only" (current)></span>
-                                        </li>
-                                        {{/if}}
-                                        {{#if user}}
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/cerrar_sesion">Cerrar sesión</a>
-                                        </li>
-                                        {{/if}}
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo-img">
-                                <img src="../img/logo3.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>-->
     <!-- Presentación -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
@@ -109,19 +63,22 @@
     </div>
     <!-- slider_area_end -->
     <!-- Muestra de los platos agregados-->
-    <h1 class="h1-platos">Platos Agregados</h1>
+    <h1 class="h1-platos mt-4">Platos Agregados</h1>
     <div class="container-platos text-center container-products">
         {{#if productos}}
         {{#each productos}}
-        <div class="card-platos" style="width:450px;">
+        <div class="card-platos">
             <div class="card-body">
+                <label for="name">Nombre del plato</label>
                 <input class="controls" type="text" name="name" id="name" placeholder="Nombre"
                     value="{{dataValues.name}} " readonly>
+                    <label for="price">Precio</label>
                 <input class="controls" type="text" name="price" id="price" placeholder="Precio"
-                    value="{{dataValues.price}}" readonly>
+                    value="Lps.{{dataValues.price}}.00" readonly>
+                    <label for="decription">Descripción del plato de comida</label>
                 <input class="controls" type="text" name="description" id="description" placeholder="Descripción"
                     value="{{dataValues.description}}" readonly>
-                <img src="{{dataValues.image}}" alt="" style="width:150px;height:100px">
+                <img src="/img/productos/{{dataValues.image}}" alt="" style="width:150px;height:100px"><br><br>
                 <div class="div"> <a class="buttons" href="/agregarPedido/{{dataValues.url}}" type="submit"
                         style="">Agregar pedido</a> </div>
             </div>
@@ -160,7 +117,7 @@
                     </div>
                     <div class="col-xl-4 col-md-12 col-lg-4">
                         <div class="footer_widget">
-                            <h3 class="footer_title">Mantente Conectado</h3>
+                            <h3 class="footer_title text-center">Mantente Conectado</h3>
                             <div class="newsletter_form"><button type="submit"><a href="/inicio_sesion">Iniciar
                                         Sesión</a></button>
                             </div>

@@ -82,7 +82,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
 
 # Gatsby files
 .cache/
@@ -116,4 +116,4 @@ dist
 .pnp.*
 
 # necesario para acceso a base y mail trap
-.variables.env
+variables.env
