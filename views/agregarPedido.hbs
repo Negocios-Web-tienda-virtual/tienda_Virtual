@@ -1,17 +1,25 @@
+<div class="row mx-auto text-center ml-auto">
+    <div class="add-products-item">
+        <form class="form-add-produc" action="/agregar_pedido" method="POST">
+            <div class="mb-4 text-center">
+                <h1>Producto</h1>
+            </div>
+            <div class="card card-view-products">
+            <div class="items-products">
+                <h2 class="text-center text-white"><label> {{producto.name}} </label></h2>
+                <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre"
+                    value="{{producto.name}} " required readonly>
+                <input class="controls" type="text" name="precio" id="precio" placeholder="Precio"
+                    value="{{producto.price}}" required readonly>
+                <input class="controls" type="text" name="quantity" id="quantity" placeholder="Cantidad" required>
+                <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Descripción"
+                    value="{{producto.description}}" required readonly>
+                <div class="image-producto"><img src="/img/productos/{{producto.image}}" alt=""
+                        style="width:150px;height:100px"></div>
+                <button class="buttons" type="submit">Agregar pedido</button>
+                <button class="buttons"><a class="buttons-a" href="/menu">Regresar al menu</a></button>
+            </div>
 </div>
-<form class="form-add-produc" action="/agregar_pedido" method="POST">
-    <div class="mb-4 text-center">
-        <h1>Productos</h1>
+        </form>
     </div>
-       <div class="container">
-           <h2 class="text-center"><label> {{producto.name}} </label></h2>
-            <section class="form-add-products">
-      <input class="controls" type="text" name="nombre"   id="nombre"   placeholder="Nombre" value="{{producto.name}} "  required readonly>
-      <input class="controls" type="text" name="precio"   id="precio"   placeholder="Precio" value="{{producto.price}}" required readonly>
-      <input class="controls" type="text" name="quantity"   id="quantity"   placeholder="Cantidad"  required>
-      <input class="controls" type="text" name="descripcion"   id="descripcion"   placeholder="Descripción" value="{{producto.description}}" required readonly>
-      <div class="image-producto"><img src="/img/productos/{{producto.image}}" alt="" style="width:150px;height:100px"></div>
-      <button class="buttons" type="submit">Agregar pedido</button>
-    </section>
-       </div>
-</form>
+</div>
