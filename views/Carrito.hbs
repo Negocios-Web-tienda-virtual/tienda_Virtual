@@ -1,6 +1,6 @@
 <div class="container text-center container-products" style="width: 100%;">
     <div class="list-group" style="background-color: darkorange;">
-        <h2 style="color:aliceblue;">Carrito de Compras</h2>
+        <h2 style="color:aliceblue;">Carrito de compras</h2>
     </div>
     {{#if pedidos}}
     {{#each pedidos}}
@@ -16,24 +16,20 @@
                         {{dataValues.precio}}.00</p>
                     <p class="card-text" style="color: black;">Descripción : {{dataValues.descripcion}}</p>
                 </div>
-
             </div>
-
         </div>
-
         {{/if}}
         </div>
         {{/each}}
         <div class="text-center">
+            <p class="card-text" style="color: black;">Su pedido estará listo en 20 minutos.</p>
             <h3 style="color: greenyellow;">Subtotal : Lps.{{subtotalsum}}</h3>
             <h3 style="color: red;">ISV(15%) : Lps.{{impuestosum}}</h3>
             <h2 style="color: green;">Total :Lps.{{totalsum}}.00</h2>
             <a class="buttons " href="/menu" ;>Continuar comprando</a>
             <a class="buttons" href="/pagar_creditCard" style="background-color: red;">Realizar págo</a>
         </div>
-    
     {{else}}
     <h1>Actualmente no tienes pedidos</h1>
     {{/if}}
-
 </div>

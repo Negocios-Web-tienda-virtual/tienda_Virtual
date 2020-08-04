@@ -1,9 +1,12 @@
+//Importar el nodemailer
 const nodemailer = require("nodemailer");
 // Importar la configuración de Mailtrap.io
 const mailTrapConfig = require("../config/emails");
 // Importar Handlebars
 const hbs = require("handlebars");
+//Importar el fs
 const fs = require("fs");
+//Importar el path
 const path = require("path");
 
 // Realizar el envío del correo electrónico mediante nodemailer
@@ -12,6 +15,7 @@ const path = require("path");
 exports.enviarCorreo = async(opciones) => {
     // Crear nuestro transportador SMTP reutilizable
     const transporter = nodemailer.createTransport({
+        //parametros de configuracion de Mailtrap
         host: mailTrapConfig.host,
         port: mailTrapConfig.port,
         secure: false,
@@ -21,14 +25,12 @@ exports.enviarCorreo = async(opciones) => {
         },
     });
 
-
     // Obtener y construir el template del correo electrónico
     fs.readFile(
         path.resolve(__dirname, "../views/emails/email_restablecer.hbs"),
         "utf8",
         async function(error, source) {
             if (error) {
-                console.log("No se puede cargar el template de correo");
                 throw error;
             }
 
@@ -47,9 +49,6 @@ exports.enviarCorreo = async(opciones) => {
                 text: opciones.text,
                 html,
             });
-
-
-
         }
     );
 };

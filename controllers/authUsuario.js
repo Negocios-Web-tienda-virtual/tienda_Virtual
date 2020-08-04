@@ -1,13 +1,14 @@
+//Importar Passport
 const passport = require("passport");
-
+//Importar Modelo Usuario
 const Usuario = require("../models/Usuario");
-
+//Importar bcrypt-nodejs
 const bcrypt = require("bcrypt-nodejs")
-//importar crypto
+    //importar crypto
 const crypto = require("crypto");
 //importar la configuración de envio de correo electrónico
 const enviarCorreo = require("../helpers/email");
-const Sequelize  = require("sequelize");
+const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 exports.autenticarUsuario = passport.authenticate("local", {
