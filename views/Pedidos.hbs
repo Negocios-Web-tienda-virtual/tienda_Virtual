@@ -1,21 +1,22 @@
 <div class="container">
-    {{#if usuarios}}<table class="table table-dark">
+    {{#if usuarios}}
+    <div class="row  text-center ml-auto">
+    <table class="table table-dark">
         <thead>
-            <th scope="col" id="user">Id usuario</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Correo</th>
+            <th scope="col-md-3" id="user">Id usuario</th>
+            <th scope="col-md-3">Nombre</th>
+            <th scope="col-md-3">Dirección</th>
+            <th scope="col-md-3">Teléfono</th>
+
         </thead>
         {{#each usuarios}}
-
         <tbody>
-            <tr>
+            <tr id="tablePedidos">
                 <th scope="row">{{dataValues.id}}</th>
                 <td>{{dataValues.name}}</td>
                 <td>{{dataValues.direccion}}</td>
                 <td>{{dataValues.telefono}}</td>
-                <td>{{dataValues.email  }}</td>
+
             </tr>
         </tbody>
 
@@ -27,7 +28,6 @@
 
 {{#if pedidos}}
 <h1 class="text-center pt-5 pb-4 text-white"> Lista de pedidos</h1>
-
     <ul id="listado-pedidos">
         <div class="row mx-auto text-center ml-auto">
         {{#each pedidos}}

@@ -4,30 +4,34 @@
     </div>
     {{#if pedidos}}
     {{#each pedidos}}
-    {{#if dataValues.estado}}
-    {{else}}
-    <div class="card card-view-products" style="width:500px ;">
-        <div class="card" style="width: 18rem align-content=center; ">
-            <div class="card-body">
-                <p class="card-text" style="color: black;">Cantidad a llevar {{dataValues.quantity}}</p>
-                <p class="card-text" style="color: black;">Orden : {{dataValues.nombre}}</p>
-                <p class="card-text" style="color: black;" id="price" name="price">Precio : Lps {{dataValues.precio}}.00</p>
-                <p class="card-text" style="color: black;">Descripción : {{dataValues.descripcion}}</p>
+    <div class="row mx-auto text-center ml-auto">
+        {{#if dataValues.estado}}
+        {{else}}
+        <div class="card card-view-products" style="width:500px ;">
+            <div class="card" style="width: 18rem align-content=center; ">
+                <div class="card-body">
+                    <p class="card-text" style="color: black;">Cantidad a llevar {{dataValues.quantity}}</p>
+                    <p class="card-text" style="color: black;">Orden : {{dataValues.nombre}}</p>
+                    <p class="card-text" style="color: black;" id="price" name="price">Precio : Lps
+                        {{dataValues.precio}}.00</p>
+                    <p class="card-text" style="color: black;">Descripción : {{dataValues.descripcion}}</p>
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-    {{/if}}
-    {{/each}}
-    <div class="text-center">
-        <h3 style="color: greenyellow;">Subtotal : Lps.{{subtotalsum}}</h3>
-        <h3 style="color: red;">ISV(15%) : Lps.{{impuestosum}}</h3>
-        <h2 style="color: green;">Total :Lps.{{totalsum}}.00</h2>
-        <a class="buttons " href="/menu" ;>Continuar comprando</a>
-        <a class="buttons" href="/pagar_creditCard" style="background-color: red;">Realizar págo</a>
-    </div>
+        {{/if}}
+        </div>
+        {{/each}}
+        <div class="text-center">
+            <h3 style="color: greenyellow;">Subtotal : Lps.{{subtotalsum}}</h3>
+            <h3 style="color: red;">ISV(15%) : Lps.{{impuestosum}}</h3>
+            <h2 style="color: green;">Total :Lps.{{totalsum}}.00</h2>
+            <a class="buttons " href="/menu" ;>Continuar comprando</a>
+            <a class="buttons" href="/pagar_creditCard" style="background-color: red;">Realizar págo</a>
+        </div>
+    
     {{else}}
     <h1>Actualmente no tienes pedidos</h1>
     {{/if}}
