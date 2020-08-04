@@ -54,7 +54,7 @@
     float: right;
   }
   header label:hover {
-    background-color: var(--white);
+    background-color: var(--primary);
   }
   
   header label:hover i {

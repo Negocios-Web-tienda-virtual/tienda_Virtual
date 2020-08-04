@@ -98,8 +98,8 @@ p {
 }
 
 .form-login-customer {
-    width: 370px;
-    height: 500px;
+    width: 400px;
+    height: 700px;
     justify-content: center;
     background: #4e4d4d;
     margin: auto;
@@ -220,7 +220,7 @@ button {
 }
 
 .buttons {
-    width: 100%;
+    width: 90%;
     height: 40px;
     background-color: var(--orange-color);
     border: none;
@@ -229,6 +229,7 @@ button {
     margin-left: auto;
     align-items: center;
     overflow: hidden;
+    border-radius: 30px;
 }
 
 .buttons:hover {
@@ -320,15 +321,16 @@ button {
 }
 
 .buttons-a {
-    margin: auto;
-    margin-top: 1em;
-    text-align: center;
-    display: block;
-    width: 285px;
+    width: 90%;
     height: 40px;
     background-color: var(--orange-color);
-    padding-top: 0.5em;
-    text-decoration: none;
+    border: none;
+    color: white;
+    margin-right: auto; 
+    margin-left: auto;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 60px;
 }
 
 .image-producto {
