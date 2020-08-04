@@ -42,6 +42,15 @@ p {
     color: white;
 }
 
+.title-products h1 {
+    color: white;
+    margin-top: 1em;
+}
+
+.buttons a {
+    text-decoration: none;
+}
+
 
 /*style Douglas*/
 
@@ -158,6 +167,15 @@ button {
     padding: 30px 30px;
     border-top: 4px solid var(--orange-secundary);
     color: white;
+}
+
+@media(min-width:768px) {
+    .form-add-products {
+        width: 250px;
+    }
+    .add-products-item {
+        max-width: 450px;
+    }
 }
 
 .form-login-customer h5 {
@@ -386,9 +404,20 @@ li {
 }
 
 #tablePedidos th {
-    width: 130px;
+    width: 45px;
     overflow: auto;
     border: 1px solid;
+}
+
+.container-table {
+    width: 250px;
+}
+
+@media(min-width:768px) {
+    .container-table {
+        width: 768px;
+        margin: auto;
+    }
 }
 
 .creditCard {
