@@ -48,7 +48,6 @@ exports.mostrarProductos = async(req, res, next) => {
 };
 exports.mostrarProductosCliente = async(req, res, next) => {
     const usuario = res.locals.Usuario;
-    console.log(usuario);
     try {
         const productos = await Productos.findAll();
         res.render("menu", { userad: usuario.nivelUsuario == "administrador" ? true : false, productos, user: usuario.nivelUsuario == "administrador" || usuario.nivelUsuario == "cliente" ? true : false, layout: "auth" });
@@ -75,22 +74,20 @@ exports.obtenerProductoPorUrl = async(req, res, next) => {
             producto: producto.dataValues,
             layout: "auth"
         });
-        console.log(producto);
-
 
     } catch (error) {
-        console.log(error);
 
-        res.redirect("agregarProducto");
+        res.redirect("/agregarProducto");
     }
 };
 
 exports.actualizarProducto = async(req, res, next) => {
 
-    const { name, price, quantity, description, image } = req.body;
-
+    const { name, price, quantity, description } = req.body;
+    const image = req.file.filename;
     const usuario = res.locals.Usuario;
     const mensaje = [];
+
     if (!name) {
         mensaje.push({
             error: "Debes de ingresar el nombre del producto",
@@ -115,12 +112,9 @@ exports.actualizarProducto = async(req, res, next) => {
             type: "alert-danger",
         });
     }
-    console.log("proceso");
 
     if (mensaje.length) {
-
         const producto = await Productos.findByPk(req.params.id);
-
         res.render("modificar_producto", {
             producto: producto.dataValues,
             mensaje,
@@ -133,7 +127,7 @@ exports.actualizarProducto = async(req, res, next) => {
             price,
             quantity,
             description,
-            image,
+            image: image,
         }, {
             where: {
                 id: req.params.id,
@@ -157,8 +151,6 @@ exports.eliminar_producto = async(req, res, next) => {
         res.status(200).send("Producto eliminado");
 
     } catch (error) {
-        console.log(error);
-
         return next();
     }
 

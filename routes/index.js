@@ -54,7 +54,7 @@ module.exports = function() {
 
     routes.get("/modificar_producto/:url", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.obtenerProductoPorUrl);
 
-    routes.post("/modificar_producto/:id", usuarioAu.usuarioAutenticado, usuarioAu.usuarioAdmin, producto.actualizarProducto);
+    routes.post("/modificar_producto/:id", usuarioAu.usuarioAutenticado, multerImage, producto.actualizarProducto);
     routes.delete("/eliminar-producto/:url", producto.eliminar_producto);
     // Pagina inicial
     routes.get("/inicio", inicio.formularioInicio);
