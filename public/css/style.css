@@ -116,7 +116,8 @@ p {
 }
 
 .session-sign {
-    width: 300px;
+    width: 350px;
+    margin-left: 2em;
     box-shadow: 7px 13px 37px #000;
     margin: auto;
     /* degradado obtenido de https://webgradients.com/ */
@@ -338,6 +339,18 @@ button {
     border-radius: 60px;
 }
 
+.buttons-pay a {
+    text-decoration: none;
+    background-color: #FF6600;
+    color: white;
+}
+
+.buttons-pay a:hover {
+    text-decoration: none;
+    background-color: var(--orange-third);
+    color: white;
+}
+
 .image-producto {
     margin: auto;
     text-align: center;
@@ -376,4 +389,22 @@ li {
     width: 130px;
     overflow: auto;
     border: 1px solid;
+}
+
+.creditCard {
+    /* padding-left: 1em; */
+}
+
+.title-pay {
+    padding-left: 2.3em;
+}
+
+@media(min-width:768px) {
+    .title-pay {
+        padding-left: 0;
+    }
+}
+
+.items-pay {
+    padding-left: 1.5em;
 }
