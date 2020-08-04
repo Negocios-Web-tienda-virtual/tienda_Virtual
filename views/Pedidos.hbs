@@ -2,33 +2,33 @@
     {{#if usuarios}}
     <h1 class="header text-white text center">Clientes</h1>
     <div class="row  text-center ml-auto">
-    <table class="table table-dark" id="tablePedidos">
-        <thead>
-            <th scope="col-md-2" >Id usuario</th>
-            <th scope="col-md-2">Nombre</th>
-            <th scope="col-md-2">Dirección</th>
-            <th scope="col-md-2">Teléfono</th>
+        <table class="table table-dark" id="tablePedidos">
+            <thead>
+                <th scope="col-md-2">Id usuario</th>
+                <th scope="col-md-2">Nombre</th>
+                <th scope="col-md-2">Dirección</th>
+                <th scope="col-md-2">Teléfono</th>
 
-        </thead>
-        {{#each usuarios}}
-        <tbody>
-            <tr >
-                <td scope="row">{{dataValues.id}}</td>
-                <td>{{dataValues.name}}</td>
-                <td>{{dataValues.direccion}}</td>
-                <td>{{dataValues.telefono}}</td>
-            </tr>
-        </tbody>
-        {{/each}}
-    </table>
+            </thead>
+            {{#each usuarios}}
+            <tbody>
+                <tr>
+                    <td scope="row">{{dataValues.id}}</td>
+                    <td>{{dataValues.name}}</td>
+                    <td>{{dataValues.direccion}}</td>
+                    <td>{{dataValues.telefono}}</td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
     </div>
     {{else}}
     {{/if}}
 </div>
 {{#if pedidos}}
-<h1 class="text-center pt-5 pb-4 text-white">Lista de pedidos</h1>
-    <ul id="listado-pedidos">
-        <div class="row mx-auto text-center ml-auto">
+<h1 class="text-center pt-5 pb-4 text-white">Lista de pedidos no pagados</h1>
+<ul id="listado-pedidos">
+    <div class="row mx-auto text-center ml-auto">
         {{#each pedidos}}
         {{#if dataValues.estado}}
         {{else}}
@@ -59,11 +59,37 @@
         </div>
         {{/if}}
         {{/each}}
+    </div>
+</ul>
+{{else}}
+<div class="text-center">
+    <h1>No tienes pedidos</h1>
 </div>
-    </ul>
-    {{else}}
-    <div class="text-center">
-        <h1>No tienes pedidos</h1>
+{{/if}}
+{{#if pedidos}}
+<h1 class="text-center pt-5 pb-4 text-white">Lista de pedidos pagados</h1>
+<div class="row mx-auto text-center ml-auto">
+    {{#each pedidos}}
+    {{#if dataValues.estado}}
+    <div class="col-md-4 mx-auto">
+        <h5 class="card-header text-white">Número de pedido: #{{dataValues.id}}</h5>
+        <div class="card-body container-products mb-2 mt-4 border border-warning rounded-top rounded-bottom">
+            <p class="card-text"><label for="user">Id del usuario: {{dataValues.usuarioId}}</label></p>
+            <p class="card-text"><label for="">Nombre del pedido: </label> {{dataValues.nombre}}</p>
+            <p class="card-text"><label for="">Descripción del pedido: </label> {{dataValues.descripcion}}</p>
+            <p class="card-text"><label for="">Fecha del pedido: </label> {{dataValues.fecha}}</p>
+            <p class="card-text"> <label for="">Cantidad del pedido: </label> {{dataValues.quantity}}</p>
+            <p class="card-text"><label for="">Total a pagado: </label> Lps.{{dataValues.total}}.00</p>
+
+        </div>>
     </div>
     {{/if}}
-    <a class="backtomenu" href="/menu">Regresar al menú</a>
+    {{/each}}
+</div>
+
+{{else}}
+<div class="text-center">
+    <h1>No tienes pedidos</h1>
+</div>
+{{/if}}
+<a class="backtomenu" href="/menu">Regresar al menú</a>
