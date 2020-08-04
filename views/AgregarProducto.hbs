@@ -1,10 +1,10 @@
-</div>
 <form class="form-add-produc" action="/ver_producto" method="POST" enctype="multipart/form-data">
     <div class="mb-4 text-center">
         <h1>Productos</h1>
     </div>
     <div class="container">
-        <h2 class="text-center"><label> {{producto.name}} </label></h2>
+        <h2 class="text-center">
+            <label> {{producto.name}} </label></h2>
         <section class="form-add-products">
             <input class="controls" type="text" name="name" id="name" placeholder="Nombre" value="{{producto.name}} "
                 required>
@@ -22,34 +22,25 @@
     </div>
 </form>
 
-<div class="container-productos">
-    <h1 class="text-center pt-5 pb-4 text-white"> Productos en existencia </h1>
-    <div class="d-flex flex-row-reverse">
-    </div>
-    <div class="card-deck mb-3 text-center">
-        {{#if productos}}
-
-        {{#each productos}}
-        <div class="card card-view-products mb-4 shadow-sm ">
-            <div class="card-header text-white">
-                <h5>Plato de comida #{{dataValues.id}} </h5>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{dataValues.name}}</p>
-                <p class="card-text">{{dataValues.idProducto}}</p>
-                <img src="img/productos/{{dataValues.image}}" alt="" style="width:250;height:150px">
-                <p class="card-text">{{dataValues.price}}</p>
-                <p class="card-text">{{dataValues.quantity}}</p>
-                <p class="card-text">{{dataValues.description}}</p>
-                <img src=" {{producto.image}} " alt="">
-                <button class="buttons">
-                    <a class="buttons " href="/modificar_producto/{{dataValues.url}}">Modificar</a></button>
-                <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button"
-                    data-producto-url="{{dataValues.url}}">Eliminar</button>
-
-            </div>
+{{#if productos}}
+<div class="row mx-auto text-center ml-auto align-self-center">
+    {{#each productos}}
+    <div class="col-md-4 mx-auto">
+        <div class="card-body container-products mb-2 mt-4 border border-warning rounded-top rounded-bottom">
+            <p class="card-text">{{dataValues.name}}</p>
+            <p class="card-text">{{dataValues.idProducto}}</p>
+            <img src="img/productos/{{dataValues.image}}" alt="" style="width:250;height:150px">
+            <p class="card-text">{{dataValues.price}}</p>
+            <p class="card-text">{{dataValues.quantity}}</p>
+            <p class="card-text">{{dataValues.description}}</p>
+            <img src=" {{producto.image}} " alt="">
+            <button class="buttons">
+                <a class="buttons " href="/modificar_producto/{{dataValues.url}}">Modificar</a></button>
+            <button class="buttons" name="eliminar-producto" id="eliminar-producto" type="button"
+                data-producto-url="{{dataValues.url}}">Eliminar</button>
         </div>
-        {{/each}}
-        {{/if}}
     </div>
+
+    {{/each}}
 </div>
+{{/if}}

@@ -1,7 +1,5 @@
 <div class="container">
-    {{#if usuarios}}
-    {{#each usuarios}}
-    <table class="table table-dark">
+    {{#if usuarios}}<table class="table table-dark">
         <thead>
             <th scope="col" id="user">Id usuario</th>
             <th scope="col">Nombre</th>
@@ -9,6 +7,8 @@
             <th scope="col">Teléfono</th>
             <th scope="col">Correo</th>
         </thead>
+        {{#each usuarios}}
+
         <tbody>
             <tr>
                 <th scope="row">{{dataValues.id}}</th>
@@ -18,66 +18,65 @@
                 <td>{{dataValues.email  }}</td>
             </tr>
         </tbody>
+
+        {{/each}}
     </table>
-    {{/each}}
     {{else}}
     {{/if}}
 </div>
 
 {{#if pedidos}}
 <h1 class="text-center pt-5 pb-4 text-white"> Lista de pedidos</h1>
-<div class="card-pedido">
-<div class="card-deck text-center ">
-       <ul id="listado-pedidos">
-            
-            {{#each pedidos}}
-               {{#if dataValues.estado}}
-                {{else}}
-                <div class="card container-pedidos">
-                    <h5 class="card-header text-white">Numero de pedido: #{{dataValues.id}}</h5>
-                    <div class="card-body text-center text-white">
-                       
-                        <div class="card-text"><label for="user">Id del usuario: {{dataValues.usuarioId}}</label></div>
 
-                        <div class="card-text"><label for="">Nombre del pedido: </label> {{dataValues.nombre}}</div>
+    <ul id="listado-pedidos">
+        <div class="row mx-auto text-center ml-auto">
+        {{#each pedidos}}
+        {{#if dataValues.estado}}
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <h5 class="card-header text-white">Numero de pedido: #{{dataValues.id}}</h5>
+            <div class="card-body container-products mb-2 mt-4 border border-warning rounded-top rounded-bottom">
 
-                        <div class="card-text"><label for="">Descripcion del pedido: </label> {{dataValues.descripcion}}
-                        </div>
+                <p class="card-text"><label for="user">Id del usuario: {{dataValues.usuarioId}}</label></p>
 
-                        <div class="card-text"><label for="">Fecha del pedido: </label> {{dataValues.fecha}}</div>
+                <p class="card-text"><label for="">Nombre del pedido: </label> {{dataValues.nombre}}</p>
+
+                <p class="card-text"><label for="">Descripcion del pedido: </label> {{dataValues.descripcion}}
+                </p>
+
+                <p class="card-text"><label for="">Fecha del pedido: </label> {{dataValues.fecha}}</p>
 
 
-                        <div class="card-text"> <label for="">Cantidad del pedido: </label> {{dataValues.quantity}}</div>
-                        <div class="card-text"><label for="">Total a pagar: </label> Lps.{{dataValues.total}}</div>
-                        <li data-pedido={{dataValues.id}}>
-                            <p><label for="">Se realizo el pago</label>
-                            <div class="togglebutton">
-                                <label>
-                                    {{#if estado}}
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    {{else}}
-                                    <i class="fa fa-check-circle" aria-hidden="false"></i>
-                                    {{/if}}
-                                    <span class="toggle"></span>
-                                </label>
-                            </div>
-                            {{!-- <button class="btn"><i class="fas fa-thumbs-up"></i></button> --}}
-                            </p>
-                        </li>
+                <p class="card-text"> <label for="">Cantidad del pedido: </label> {{dataValues.quantity}}</p>
+                <p class="card-text"><label for="">Total a pagar: </label> Lps.{{dataValues.total}}.00</p>
+                <li data-pedido={{dataValues.id}}>
+                    <p><label for="">Se realizo el pago</label>
+                    <div class="togglebutton">
+                        <label>
+                            {{#if estado}}
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            {{else}}
+                            <i class="fa fa-check-circle" aria-hidden="false"></i>
+                            {{/if}}
+                            <span class="toggle"></span>
+                        </label>
                     </div>
-                </div>
-            {{/if}}
-            
-            {{/each}}
+                    {{!-- <button class="btn"><i class="fas fa-thumbs-up"></i></button> --}}
+                    </p>
+                </li>
+            </div>>
+        </div>
+        {{/if}}
 
-        </ul>
-    </div>
+        {{/each}}
+</div>
+    </ul>
 
 
     {{else}}
     <div class="text-center">
         <h1>no tienes pedidos</h1>
     </div>
-</div>
-{{/if}}
-</div>
+
+    {{/if}}
+    <a class="backtomenu" href="/menu">Regresar al menu</a>

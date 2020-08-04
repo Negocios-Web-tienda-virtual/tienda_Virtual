@@ -25,8 +25,11 @@
                 <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
                 <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
                 <li><a href="/nosotros">Nosotros</a></li>
+                {{#if user}}
+                {{else}}
                 <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
                 <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+                {{/if}}
                 <li><a href="/Carrito">Carrito</a><span class="sr-only">(current)</span></li>
                 {{#if userad}}
                 <li><a href="/Pedidos">Pedidos</a><span class="sr-only" (current)></span></li>
@@ -60,16 +63,19 @@
     </div>
     <!-- slider_area_end -->
     <!-- Muestra de los platos agregados-->
-    <h1 class="h1-platos">Platos Agregados</h1>
+    <h1 class="h1-platos mt-4">Platos Agregados</h1>
     <div class="container-platos text-center container-products">
         {{#if productos}}
         {{#each productos}}
         <div class="card-platos">
             <div class="card-body">
+                <label for="name">Nombre del plato</label>
                 <input class="controls" type="text" name="name" id="name" placeholder="Nombre"
                     value="{{dataValues.name}} " readonly>
+                    <label for="price">Precio</label>
                 <input class="controls" type="text" name="price" id="price" placeholder="Precio"
-                    value="{{dataValues.price}}" readonly>
+                    value="Lps.{{dataValues.price}}.00" readonly>
+                    <label for="decription">Descripción del plato de comida</label>
                 <input class="controls" type="text" name="description" id="description" placeholder="Descripción"
                     value="{{dataValues.description}}" readonly>
                 <img src="/img/productos/{{dataValues.image}}" alt="" style="width:150px;height:100px"><br><br>

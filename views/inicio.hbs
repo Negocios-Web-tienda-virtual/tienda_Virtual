@@ -36,8 +36,11 @@
         <div class="enlaces">
            <li><a href="/inicio">Inicio</a><span class="sr-only">(current)</span></li>
             <li><a href="/menu">Menú</a><span class="sr-only">(current)</span></li>
+            {{#if userLog}}
+            {{else}}
           <li><a href="/Registro">Agregar Cuenta</a><span class="sr-only">(current)></span></li>
             <li class="nav-item"><a href="/inicio_sesion">Iniciar Sesión</a></li>
+            {{/if}}
         </div>
         <label for="btn-menu"><img src="../img/ham2.png" alt=""></label>
       </nav>

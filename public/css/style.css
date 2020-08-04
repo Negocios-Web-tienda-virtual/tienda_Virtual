@@ -74,7 +74,8 @@ p {
         height: 550px;
     }
 }
-.card-header{
+
+.card-header {
     display: grid;
 }
 
@@ -225,7 +226,7 @@ button {
     background-color: var(--orange-color);
     border: none;
     color: white;
-    margin-right: auto; 
+    margin-right: auto;
     margin-left: auto;
     align-items: center;
     overflow: hidden;
@@ -271,8 +272,10 @@ button {
     margin-top: 20px;
 }
 
+
 /*para los div de los productos*/
-.card-deck{
+
+.card-deck {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -282,8 +285,10 @@ button {
     background-color: var(--black-color);
 }
 
+
 /*Container para los productos en existencia*/
-.container-productos{
+
+.container-productos {
     max-width: 100%;
     width: 95%;
     margin: 0 auto;
@@ -326,7 +331,7 @@ button {
     background-color: var(--orange-color);
     border: none;
     color: white;
-    margin-right: auto; 
+    margin-right: auto;
     margin-left: auto;
     align-items: center;
     overflow: hidden;
@@ -337,13 +342,30 @@ button {
     margin: auto;
     text-align: center;
 }
-li{
+
+li {
     list-style: none;
-}.container-pedidos{
+}
+
+.container-pedidos {
     background-color: var(--black-color);
     margin: auto;
 }
-.card-pedido{
+
+.card-pedido {
     margin-left: 450px;
     width: 100%;
+}
+
+.backtomenu {
+    color: orange;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--color1);
+    font-size: 2em;
+}
+
+.backtomenu:hover {
+    text-decoration: none;
+    color: var(--color2);
 }
